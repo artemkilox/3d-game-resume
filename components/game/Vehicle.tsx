@@ -19,6 +19,7 @@ import * as THREE from "three";
 import { WHEEL_ORDER, type CarConfig } from "./cars";
 import type { Input } from "./input";
 import { attachOutline } from "./Outline";
+import { ROAD_RISE } from "./city/layout";
 import { heightAt, SPAWN } from "./terrain";
 
 const WHEEL_RADIUS = 0.3;
@@ -296,7 +297,7 @@ export function Vehicle({
   const vehicleRef = useRef<DynamicRayCastVehicleController | null>(null);
   const skidSpin = useRef(0);
   const bodyRef = useRef<RapierRigidBody>(null);
-  const spawnY = heightAt(SPAWN.x, SPAWN.z) + 0.45;
+  const spawnY = heightAt(SPAWN.x, SPAWN.z) + ROAD_RISE + 0.45;
 
   return (
     <RigidBody

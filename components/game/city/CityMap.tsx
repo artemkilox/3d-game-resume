@@ -3,10 +3,10 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { CuboidCollider, RigidBody, interactionGroups } from "@react-three/rapier";
-import { CanvasTexture, DoubleSide, Shape, SRGBColorSpace, Sprite, type Group, type Material, type Mesh, type Object3D } from "three";
+import { ConvexHullCollider, CuboidCollider, RigidBody, interactionGroups } from "@react-three/rapier";
+import { CanvasTexture, DoubleSide, ExtrudeGeometry, Quaternion, Shape, SRGBColorSpace, Sprite, Vector3, type Group, type Mesh, type MeshStandardMaterial, type Object3D } from "three";
 import { attachOutline } from "../Outline";
-import { ARROWS, BUILDINGS, PARKING, ROADS, SKILL_ISLANDS, TREES } from "./layout";
+import { ARROWS, BUILDINGS, PARKING, ROAD_RAMP, ROAD_RISE, ROAD_WIDTH, ROADS, SKILL_ISLANDS, TILE } from "./layout";
 import { FloorText, GroundControls, GroundCopy } from "./Signs";
 
 const MODELS = [
@@ -18,10 +18,9 @@ const MODELS = [
   "/models/commercial/building-skyscraper-c.glb",
   "/models/commercial/building-skyscraper-d.glb",
   "/models/commercial/building-skyscraper-e.glb",
-  "/models/suburban/tree-large.glb",
-  "/models/suburban/tree-small.glb",
   "/models/people/character-male-d.glb",
   "/models/sedan.glb",
+  "/models/billboard.glb",
 ];
 
 for (const url of MODELS) useGLTF.preload(url);
@@ -43,21 +42,9 @@ function StaticModel({
   const object = useMemo(() => scene.clone(true), [scene]);
 
   useLayoutEffect(() => {
-    if (url.includes("/roads/")) {
-      object.traverse((obj) => {
-        const mesh = obj as Mesh;
-        if (!mesh.isMesh) return;
-        const materials = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]) as Material[];
-        for (const material of materials) {
-          material.polygonOffset = true;
-          material.polygonOffsetFactor = 1;
-          material.polygonOffsetUnits = 1;
-        }
-      });
-    }
     if (!outline) return;
     return attachOutline(object, 1.02);
-  }, [object, outline, url]);
+  }, [object, outline]);
 
   return <primitive object={object} position={position} rotation={rotation} scale={scale} />;
 }
@@ -65,25 +52,34 @@ function StaticModel({
 function Host() {
   "use no memo";
   const { scene } = useGLTF("/models/people/character-male-d.glb");
-  const arm = useRef<Object3D>(null);
+  const right = useRef<Object3D>(null);
+  const left = useRef<Object3D>(null);
+  const head = useRef<Object3D>(null);
+  const torso = useRef<Object3D>(null);
 
   useLayoutEffect(() => {
     scene.traverse((obj) => {
-      if (obj.name === "arm-right") arm.current = obj;
+      if (obj.name === "arm-right") right.current = obj;
+      if (obj.name === "arm-left") left.current = obj;
+      if (obj.name === "head") head.current = obj;
+      if (obj.name === "torso") torso.current = obj;
     });
-    return attachOutline(scene, 1.03);
   }, [scene]);
 
   useFrame(({ clock }) => {
-    if (arm.current) arm.current.rotation.z = -1.15 + Math.sin(clock.elapsedTime * 6) * 0.45;
+    const wave = Math.sin(clock.elapsedTime * 5) * 0.14;
+    if (torso.current) torso.current.rotation.set(0, 0, -0.12);
+    if (right.current) right.current.rotation.set(0.2, -0.85, -1.22 + wave);
+    if (left.current) left.current.rotation.set(0, 0, -1.2);
+    if (head.current) head.current.rotation.set(0, 0, -0.42);
   });
 
-  return <primitive object={scene} position={[-5.6, 0, 5.2]} rotation={[0, Math.PI, 0]} scale={2.3} />;
+  return <primitive object={scene} position={[-5.2, 0, 11.5]} rotation={[0, Math.PI - 0.7, 0]} scale={2.3} />;
 }
 
 function loopPose(t: number) {
-  const hw = 11;
-  const hh = 5.6;
+  const hw = 20.6;
+  const hh = 8.6;
   const radius = 2.8;
   const lenX = 2 * (hw - radius);
   const lenZ = 2 * (hh - radius);
@@ -190,7 +186,7 @@ function DriftCar({ offset }: { offset: number }) {
     const car = group.current;
     if (!car) return;
     const pose = loopPose(clock.elapsedTime * 0.15 + offset);
-    car.position.set(pose.x, 0.02, pose.z);
+    car.position.set(pose.x, ROAD_RISE + 0.02, pose.z);
     car.rotation.y = pose.yaw;
     puffs.current.forEach((puff, index) => {
       const age = (clock.elapsedTime * 1.4 + index * 0.17) % 1;
@@ -220,30 +216,169 @@ function DriftCar({ offset }: { offset: number }) {
   );
 }
 
+const LOT_LENGTH = 48;
+const LOT_WIDTH = 22;
+const CURB_WIDTH = 0.38;
+const CURB_HEIGHT = ROAD_RISE + 0.12;
+
+function skillLines(label: string) {
+  const words = label.split(" ");
+  return words.length > 1 ? [words[0], words.slice(1).join(" ")] : [label];
+}
+
+function roundedIslandGeometry() {
+  const width = 3.7;
+  const depth = 1.95;
+  const radius = 0.46;
+  const shape = new Shape();
+  const w = width / 2;
+  const d = depth / 2;
+  shape.moveTo(-w + radius, -d);
+  shape.lineTo(w - radius, -d);
+  shape.absarc(w - radius, -d + radius, radius, -Math.PI / 2, 0, false);
+  shape.lineTo(w, d - radius);
+  shape.absarc(w - radius, d - radius, radius, 0, Math.PI / 2, false);
+  shape.lineTo(-w + radius, d);
+  shape.absarc(-w + radius, d - radius, radius, Math.PI / 2, Math.PI, false);
+  shape.lineTo(-w, -d + radius);
+  shape.absarc(-w + radius, -d + radius, radius, Math.PI, (Math.PI * 3) / 2, false);
+  const geometry = new ExtrudeGeometry(shape, { depth: 0.16, bevelEnabled: false, curveSegments: 8 });
+  geometry.rotateX(-Math.PI / 2);
+  return geometry;
+}
+
+function ParkingCurbs({ length, width }: { length: number; width: number }) {
+  const w = CURB_WIDTH;
+  const h = CURB_HEIGHT;
+  return (
+    <group>
+      {[1, -1].map((dir) => (
+        <mesh key={`z${dir}`} position={[0, h / 2, (width / 2 + w / 2) * dir]} castShadow receiveShadow>
+          <boxGeometry args={[length + w * 2, h, w]} />
+          <meshStandardMaterial color="#f7f4ee" roughness={0.85} />
+        </mesh>
+      ))}
+      {[1, -1].map((dir) => (
+        <mesh key={`x${dir}`} position={[(length / 2 + w / 2) * dir, h / 2, 0]} castShadow receiveShadow>
+          <boxGeometry args={[w, h, width]} />
+          <meshStandardMaterial color="#f7f4ee" roughness={0.85} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+function paintBillboard(image: CanvasImageSource) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1024;
+  canvas.height = 1024;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.drawImage(image, 0, 0, 1024, 1024);
+  const text = "Технологический стек";
+  ctx.fillStyle = "#171717";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const maxWidth = 900;
+  let size = 96;
+  ctx.font = `800 ${size}px Segoe UI, sans-serif`;
+  while (size > 40 && ctx.measureText(text).width > maxWidth) {
+    size -= 2;
+    ctx.font = `800 ${size}px Segoe UI, sans-serif`;
+  }
+  ctx.fillText(text, 514, 222);
+  const texture = new CanvasTexture(canvas);
+  texture.colorSpace = SRGBColorSpace;
+  texture.flipY = false;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function StackBillboard() {
+  const { scene } = useGLTF("/models/billboard.glb");
+  const model = useMemo(() => {
+    const clone = scene.clone(true);
+    clone.traverse((obj) => {
+      const mesh = obj as Mesh;
+      if (!mesh.isMesh) return;
+      mesh.material = (mesh.material as MeshStandardMaterial).clone();
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+    });
+    return clone;
+  }, [scene]);
+
+  useLayoutEffect(() => {
+    let texture: CanvasTexture | null = null;
+    model.traverse((obj) => {
+      const mesh = obj as Mesh;
+      if (!mesh.isMesh) return;
+      const material = mesh.material as MeshStandardMaterial;
+      if (texture) {
+        material.map = texture;
+        material.needsUpdate = true;
+        return;
+      }
+      const image = material.map?.image as CanvasImageSource | undefined;
+      if (!image) return;
+      texture = paintBillboard(image);
+      if (!texture) return;
+      material.map = texture;
+      material.needsUpdate = true;
+    });
+    return () => texture?.dispose();
+  }, [model]);
+
+  const scale = 0.012;
+  return (
+    <primitive
+      object={model}
+      position={[21, 15 * scale, -LOT_WIDTH / 2 - 0.85]}
+      rotation={[0, Math.PI / 2, 0]}
+      scale={scale}
+    />
+  );
+}
+
 function Parking() {
-  const columns = [-9, -3, 3, 9];
-  const rows = [-2.3, 2.3];
+  const island = useMemo(() => roundedIslandGeometry(), []);
+  useEffect(() => {
+    return () => island.dispose();
+  }, [island]);
+
+  const columns = [-16.5, -9.9, -3.3, 3.3, 9.9, 16.5];
+  const rows = [-5.55, -1.85, 1.85, 5.55];
 
   return (
     <group position={[PARKING.x, 0, PARKING.z]}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.025, 0]} receiveShadow>
-        <planeGeometry args={[28, 15]} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, ROAD_RISE + 0.01, 0]} receiveShadow>
+        <planeGeometry args={[LOT_LENGTH, LOT_WIDTH]} />
         <meshStandardMaterial color="#5e646c" roughness={1} />
       </mesh>
+      <ParkingCurbs length={LOT_LENGTH} width={LOT_WIDTH} />
       {SKILL_ISLANDS.map((label, index) => {
-        const x = columns[index % 4];
-        const z = rows[Math.floor(index / 4)];
+        const row = Math.floor(index / columns.length);
+        const rowCount = Math.min(columns.length, SKILL_ISLANDS.length - row * columns.length);
+        const rowStart = (columns.length - rowCount) / 2;
+        const x = columns[rowStart + (index % columns.length)];
+        const z = rows[row];
         return (
           <group key={label} position={[x, 0, z]}>
-            <mesh position={[0, 0.1, 0]} receiveShadow>
-              <boxGeometry args={[4.4, 0.16, 2.15]} />
+            <mesh geometry={island} position={[0, ROAD_RISE, 0]} receiveShadow>
               <meshStandardMaterial color="#f4efe4" roughness={1} />
             </mesh>
-            <FloorText lines={[label]} position={[0, 0.2, 0]} width={4.1} height={1.85} />
+            <FloorText
+              lines={skillLines(label)}
+              position={[0, ROAD_RISE + 0.18, 0]}
+              width={3.15}
+              height={1.45}
+              fitted
+              balanced
+            />
           </group>
         );
       })}
-      <GroundCopy title="Стек" lines={["Навыки на островках"]} position={[0, 0.05, 8.4]} width={8} height={3.2} />
+      <StackBillboard />
       <DriftCar offset={0} />
       <DriftCar offset={0.33} />
       <DriftCar offset={0.66} />
@@ -251,9 +386,94 @@ function Parking() {
   );
 }
 
+function deckHull(length: number, width: number, rise: number) {
+  const hl = length / 2;
+  const hw = width / 2;
+  return [-hl, 0, -hw, hl, 0, -hw, hl, 0, hw, -hl, 0, hw, -hl, rise, -hw, hl, rise, -hw, hl, rise, hw, -hl, rise, hw];
+}
+
+function roadHull(length: number, width: number, ends: boolean) {
+  const hl = length / 2;
+  const hw = width / 2;
+  const ramp = ROAD_RAMP;
+  const rise = ROAD_RISE;
+  const x0 = ends ? hl + ramp : hl;
+  const points = [
+    [-x0, 0, -(hw + ramp)],
+    [x0, 0, -(hw + ramp)],
+    [x0, 0, hw + ramp],
+    [-x0, 0, hw + ramp],
+    [-hl, rise, -hw],
+    [hl, rise, -hw],
+    [hl, rise, hw],
+    [-hl, rise, hw],
+  ];
+  return points.flat();
+}
+
+function RoadRamps({ length, width }: { length: number; width: number }) {
+  const ramp = ROAD_RAMP;
+  const angle = Math.atan2(ROAD_RISE, ramp);
+  const slope = Math.hypot(ramp, ROAD_RISE);
+  const side = width / 2 + ramp / 2;
+  return (
+    <group>
+      {[1, -1].map((dir) => (
+        <mesh key={dir} position={[0, ROAD_RISE / 2, side * dir]} rotation={[angle * dir, 0, 0]} receiveShadow>
+          <boxGeometry args={[length, 0.05, slope]} />
+          <meshStandardMaterial color="#6a7078" roughness={1} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
 export function CityColliders() {
   return (
     <group>
+      {ROADS.map((road) => {
+        const bend = road.url.includes("bend");
+        return (
+          <RigidBody
+            key={road.position.join(":")}
+            type="fixed"
+            colliders={false}
+            position={road.position}
+            rotation={road.rotation}
+          >
+            <ConvexHullCollider
+              args={[roadHull(road.scale[0], road.scale[2], bend)]}
+              friction={1.2}
+              collisionGroups={interactionGroups([0], [1])}
+            />
+          </RigidBody>
+        );
+      })}
+      <RigidBody type="fixed" colliders={false} position={[PARKING.x, 0, PARKING.z]}>
+        <ConvexHullCollider
+          args={[deckHull(LOT_LENGTH, LOT_WIDTH, ROAD_RISE)]}
+          friction={1.2}
+          collisionGroups={interactionGroups([0], [1])}
+        />
+        {[1, -1].map((dir) => (
+          <CuboidCollider
+            key={`z${dir}`}
+            args={[(LOT_LENGTH + CURB_WIDTH * 2) / 2, CURB_HEIGHT / 2, CURB_WIDTH / 2]}
+            position={[0, CURB_HEIGHT / 2, (LOT_WIDTH / 2 + CURB_WIDTH / 2) * dir]}
+            friction={0.4}
+            collisionGroups={interactionGroups([0], [1])}
+          />
+        ))}
+        {[1, -1].map((dir) => (
+          <CuboidCollider
+            key={`x${dir}`}
+            args={[CURB_WIDTH / 2, CURB_HEIGHT / 2, LOT_WIDTH / 2]}
+            position={[(LOT_LENGTH / 2 + CURB_WIDTH / 2) * dir, CURB_HEIGHT / 2, 0]}
+            friction={0.4}
+            collisionGroups={interactionGroups([0], [1])}
+          />
+        ))}
+      </RigidBody>
       {BUILDINGS.map((building) => (
         <RigidBody
           key={building.url + building.position.join(":")}
@@ -278,8 +498,16 @@ CHEVRON.lineTo(-0.08, -0.36);
 CHEVRON.closePath();
 
 function RoadChevrons({ position, yaw }: { position: [number, number, number]; yaw: number }) {
+  const group = useRef<Group>(null);
+
+  useLayoutEffect(() => {
+    const tilt = new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), -Math.PI / 2);
+    const turn = new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), yaw);
+    group.current?.quaternion.copy(turn.multiply(tilt));
+  }, [yaw]);
+
   return (
-    <group position={position} rotation={[-Math.PI / 2, yaw, 0]}>
+    <group ref={group} position={position}>
       {[-0.95, 0, 0.95].map((offset) => (
         <mesh key={offset} position={[offset, 0, 0]}>
           <shapeGeometry args={[CHEVRON]} />
@@ -294,28 +522,29 @@ export function CityScene() {
   return (
     <group>
       {ROADS.map((road, index) => (
-        <StaticModel key={`${road.url}:${index}`} url={road.url} position={road.position} rotation={road.rotation} scale={road.scale} />
+        <group key={`${road.url}:${index}`} position={road.position} rotation={road.rotation}>
+          <StaticModel url={road.url} position={[0, 0, 0]} scale={road.scale} />
+          {road.url.includes("straight") ? <RoadRamps length={road.scale[0]} width={road.scale[2]} /> : null}
+        </group>
       ))}
       {ARROWS.map((arrow, index) => (
         <RoadChevrons key={index} position={arrow.position} yaw={arrow.yaw} />
-      ))}
-      {TREES.map((tree, index) => (
-        <StaticModel key={`${tree.position.join(":")}:${index}`} url={tree.url} position={tree.position} scale={tree.scale} outline />
       ))}
       {BUILDINGS.map((building) => (
         <StaticModel key={building.url + building.position.join(":")} url={building.url} position={building.position} scale={building.scale} outline />
       ))}
       <FloorText
-        lines={["АРТЁМ ЧЕРНЫХ", "Frontend · React / TypeScript"]}
-        position={[4.2, 0.04, -7]}
-        width={14}
-        height={6}
+        lines={["Двигайтесь дальше, чтобы узнать больше обо мне"]}
+        position={[4.2, 0.04, -5.45]}
+        width={16}
+        height={1.7}
+        fitted
       />
-      <GroundControls position={[11, 0.04, 6.2]} width={9} height={6.3} />
+      <GroundControls position={[14.8, 0.04, 8.6]} width={9.6} height={4.62} />
       <GroundCopy
-        title="Обо мне"
-        lines={["React / TypeScript, 3,5 года", "Middle+: скорость и realtime", "Удалённая полная занятость"]}
-        position={[1.5, 0.04, 6.2]}
+        title=""
+        lines={["Привет, я Черных Артём", "Middle Frontend-разработчик", "React / Next.js / TypeScript"]}
+        position={[1.5, 0.04, 8.6]}
         width={11}
         height={6}
       />

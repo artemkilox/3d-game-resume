@@ -17,9 +17,11 @@ import { Vehicle } from "./Vehicle";
 
 const CAMERA_FOV = 32;
 const ISO_ELEVATION = (30 * Math.PI) / 180;
-const CAMERA_DISTANCE = 120;
-const CAMERA_HEIGHT = Math.sin(ISO_ELEVATION) * CAMERA_DISTANCE;
-const CAMERA_BACK = Math.cos(ISO_ELEVATION) * CAMERA_DISTANCE;
+const POI_ELEVATION = (58 * Math.PI) / 180;
+const CAMERA_DISTANCE = 46;
+const POI_DISTANCE = 32;
+const CAMERA_HEIGHT = Math.sin(POI_ELEVATION) * POI_DISTANCE;
+const CAMERA_BACK = Math.cos(POI_ELEVATION) * POI_DISTANCE;
 
 for (const car of CARS) useGLTF.preload(car.url);
 
@@ -34,7 +36,7 @@ function FollowCamera({
   const { camera } = useThree();
   const desired = useMemo(() => new THREE.Vector3(), []);
   const look = useMemo(() => new THREE.Vector3(), []);
-  const framed = useRef({ x: SPAWN.x, z: SPAWN.z, distance: CAMERA_DISTANCE });
+  const framed = useRef({ x: SPAWN.x, z: SPAWN.z, distance: POI_DISTANCE, elevation: POI_ELEVATION });
   const worldPos = useMemo(() => new THREE.Vector3(), []);
   const worldQuat = useMemo(() => new THREE.Quaternion(), []);
   const euler = useMemo(() => new THREE.Euler(0, 0, 0, "YXZ"), []);
@@ -66,21 +68,23 @@ function FollowCamera({
         focusZ = zone.focus[1];
         const separation = Math.hypot(focusX - worldPos.x, focusZ - worldPos.z);
         const tan = Math.tan(THREE.MathUtils.degToRad(CAMERA_FOV / 2));
-        const halfWanted = Math.max(16, separation * 0.95);
+        const halfWanted = Math.max(9, separation * 0.78);
         distance = halfWanted / tan;
       }
     }
 
-    const aimX = worldPos.x + (focusX - worldPos.x) * pull * 0.82;
-    const aimZ = worldPos.z + (focusZ - worldPos.z) * pull * 0.82;
+    const aimX = worldPos.x + (focusX - worldPos.x) * pull * 0.55;
+    const aimZ = worldPos.z + (focusZ - worldPos.z) * pull * 0.55;
     const aimDistance = THREE.MathUtils.lerp(CAMERA_DISTANCE, distance, pull);
+    const aimElevation = THREE.MathUtils.lerp(ISO_ELEVATION, POI_ELEVATION, pull);
     const blend = 1 - Math.exp(-8 * Math.min(delta, 0.05));
     framed.current.x = THREE.MathUtils.lerp(framed.current.x, aimX, blend);
     framed.current.z = THREE.MathUtils.lerp(framed.current.z, aimZ, blend);
     framed.current.distance = THREE.MathUtils.lerp(framed.current.distance, aimDistance, blend);
+    framed.current.elevation = THREE.MathUtils.lerp(framed.current.elevation, aimElevation, blend);
 
-    const height = Math.sin(ISO_ELEVATION) * framed.current.distance;
-    const back = Math.cos(ISO_ELEVATION) * framed.current.distance;
+    const height = Math.sin(framed.current.elevation) * framed.current.distance;
+    const back = Math.cos(framed.current.elevation) * framed.current.distance;
     desired.set(framed.current.x, worldPos.y + height, framed.current.z - back);
     const k = 1 - Math.exp(-8 * Math.min(delta, 0.05));
     camera.position.lerp(desired, k);

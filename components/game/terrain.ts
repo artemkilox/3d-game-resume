@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { ROAD_RAMP, ROAD_WIDTH } from "./city/layout";
 
 export const WORLD_SIZE = 260;
 
@@ -32,7 +33,19 @@ function influence(x: number, z: number, originX: number, originZ: number, sigma
   return value < 1e-4 ? 0 : value;
 }
 
+const ROAD_CLEAR = ROAD_WIDTH / 2 + ROAD_RAMP + 4;
+
+function sandBlocked(x: number, z: number) {
+  const west = -80 - ROAD_CLEAR;
+  const east = 16;
+  if (Math.abs(z) <= ROAD_CLEAR && x <= east && x >= west) return true;
+  if (Math.abs(z - 56) <= ROAD_CLEAR && x <= east && x >= west) return true;
+  if (Math.abs(x + 80) <= ROAD_CLEAR && z >= -ROAD_CLEAR && z <= 56 + ROAD_CLEAR) return true;
+  return false;
+}
+
 export function heightAt(x: number, z: number) {
+  if (sandBlocked(x, z)) return 0;
   let height = 0;
   for (const hill of HILLS) {
     height += hill.height * influence(x, z, hill.x, hill.z, hill.sigma);

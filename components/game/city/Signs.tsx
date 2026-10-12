@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CanvasTexture, SRGBColorSpace } from "three";
 
 function paintSign(title: string, lines: string[], width: number, height: number) {
@@ -53,7 +53,8 @@ function paintGround(title: string, lines: string[]) {
   ctx.fillStyle = "#171717";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const count = 1 + lines.length;
+  const hasTitle = title.trim().length > 0;
+  const count = (hasTitle ? 1 : 0) + lines.length;
   const gap = 640 / (count + 0.35);
   const top = (640 - gap * (count - 1)) / 2;
   const fit = (text: string, size: number, weight: string) => {
@@ -64,11 +65,13 @@ function paintGround(title: string, lines: string[]) {
       ctx.font = `${weight} ${next}px Segoe UI, sans-serif`;
     }
   };
-  fit(title, 108, "800");
-  ctx.fillText(title, 512, top);
+  if (hasTitle) {
+    fit(title, 108, "800");
+    ctx.fillText(title, 512, top);
+  }
   lines.forEach((line, index) => {
-    fit(line, 64, "650");
-    ctx.fillText(line, 512, top + (index + 1) * gap);
+    fit(line, hasTitle ? 64 : 78, "650");
+    ctx.fillText(line, 512, top + (hasTitle ? index + 1 : index) * gap);
   });
   const texture = new CanvasTexture(canvas);
   texture.colorSpace = SRGBColorSpace;
@@ -105,48 +108,67 @@ export function GroundCopy({
   );
 }
 
-function paintGroundControls() {
+const CONTROLS_INK = "rgba(23, 23, 23, 0.8)";
+
+function paintGroundControls(icon: CanvasImageSource) {
   const canvas = document.createElement("canvas");
-  canvas.width = 1024;
-  canvas.height = 720;
+  canvas.width = 1040;
+  canvas.height = 500;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
-  ctx.clearRect(0, 0, 1024, 720);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.textBaseline = "middle";
+
+  const keyW = 150;
+  const keyH = 108;
+  const gap = 14;
+  const iconH = 230;
+  const iconW = iconH * (300 / 448);
+  const caption = "ПКМ - ехать к курсору";
+  ctx.font = "600 40px Segoe UI, sans-serif";
+  const captionW = ctx.measureText(caption).width;
+
+  const keysW = keyW * 3 + gap * 2;
+  const left = 56;
+  const keysRight = left + keysW;
+  const iconCenter = keysRight + 28 + captionW / 2;
+  const iconX = iconCenter - iconW / 2;
+  const iconY = 128;
+  const captionY = iconY + iconH + 42;
+  const bottomY = captionY - keyH / 2;
+  const topY = bottomY - 16 - keyH;
+  const midX = left + keyW + gap;
+  const contentRight = Math.max(iconX + iconW, iconCenter + captionW / 2);
+  const contentCenter = (left + contentRight) / 2;
+
   ctx.fillStyle = "#171717";
   ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.font = "800 78px Segoe UI, sans-serif";
-  ctx.fillText("Управление", 512, 80);
+  ctx.font = "600 64px Segoe UI, sans-serif";
+  ctx.fillText("Управление", contentCenter, 68);
 
   const key = (x: number, y: number, label: string) => {
     ctx.beginPath();
-    ctx.roundRect(x, y, 120, 90, 16);
-    ctx.fillStyle = "#171717";
+    ctx.roundRect(x, y, keyW, keyH, 18);
+    ctx.fillStyle = CONTROLS_INK;
     ctx.fill();
     ctx.fillStyle = "#fffdf8";
-    ctx.font = "700 54px Segoe UI, sans-serif";
-    ctx.fillText(label, x + 60, y + 48);
+    ctx.font = "700 58px Segoe UI, sans-serif";
+    ctx.fillText(label, x + keyW / 2, y + keyH / 2 + 2);
   };
+  key(midX, topY, "↑");
+  key(left, bottomY, "←");
+  key(midX, bottomY, "↓");
+  key(midX + keyW + gap, bottomY, "→");
 
-  key(392, 150, "↑");
-  key(260, 260, "←");
-  key(392, 260, "↓");
-  key(524, 260, "→");
+  ctx.save();
+  ctx.globalAlpha = 0.8;
+  ctx.drawImage(icon, 106, 32, 300, 448, iconX, iconY, iconW, iconH);
+  ctx.restore();
 
-  ctx.beginPath();
-  ctx.roundRect(720, 160, 140, 200, 26);
+  ctx.textAlign = "center";
   ctx.fillStyle = "#171717";
-  ctx.fill();
-  ctx.beginPath();
-  ctx.roundRect(792, 174, 54, 112, 12);
-  ctx.fillStyle = "#e23b2f";
-  ctx.fill();
-
-  ctx.fillStyle = "#171717";
-  ctx.font = "650 40px Segoe UI, sans-serif";
-  ctx.fillText("правая кнопка — ехать к курсору", 512, 460);
-  ctx.font = "600 36px Segoe UI, sans-serif";
-  ctx.fillText("стрелки: газ, поворот, назад", 512, 530);
+  ctx.font = "600 40px Segoe UI, sans-serif";
+  ctx.fillText(caption, iconCenter, captionY);
 
   const texture = new CanvasTexture(canvas);
   texture.colorSpace = SRGBColorSpace;
@@ -162,7 +184,20 @@ export function GroundControls({
   width?: number;
   height?: number;
 }) {
-  const texture = useMemo(() => paintGroundControls(), []);
+  const [texture, setTexture] = useState<CanvasTexture | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    const image = new Image();
+    image.onload = () => {
+      if (!active) return;
+      setTexture(paintGroundControls(image));
+    };
+    image.src = "/controls/right-click.png";
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     return () => texture?.dispose();
@@ -211,26 +246,35 @@ export function Board({
   );
 }
 
-function paintFloor(lines: string[]) {
+function paintFloor(lines: string[], aspect?: number, balanced = false) {
   const canvas = document.createElement("canvas");
   canvas.width = 1024;
-  canvas.height = 512;
+  canvas.height = aspect ? Math.max(72, Math.round(1024 / aspect)) : 512;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
-  ctx.clearRect(0, 0, 1024, 512);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#171717";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const gap = lines.length === 1 ? 0 : 150;
-  const start = 256 - ((lines.length - 1) * gap) / 2;
+  const gap = lines.length === 1 ? 0 : balanced ? canvas.height * 0.42 : canvas.height / (lines.length + 0.5);
+  const start = canvas.height / 2 - ((lines.length - 1) * gap) / 2;
+  const maxWidth = canvas.width - 48;
   lines.forEach((line, index) => {
-    let size = index === 0 ? (lines.length === 1 ? 220 : 120) : 72;
-    ctx.font = `${index === 0 ? "800" : "650"} ${size}px Segoe UI, sans-serif`;
-    while (size > 36 && ctx.measureText(line).width > 980) {
-      size -= 4;
-      ctx.font = `${index === 0 ? "800" : "650"} ${size}px Segoe UI, sans-serif`;
+    const lead = index === 0 || balanced;
+    let size =
+      lines.length === 1
+        ? Math.round(canvas.height * 0.78)
+        : balanced
+          ? Math.round(canvas.height * 0.34)
+          : lead
+            ? Math.round(canvas.height * 0.34)
+            : Math.round(canvas.height * 0.22);
+    ctx.font = `${lead ? "800" : "650"} ${size}px Segoe UI, sans-serif`;
+    while (size > 28 && ctx.measureText(line).width > maxWidth) {
+      size -= 2;
+      ctx.font = `${lead ? "800" : "650"} ${size}px Segoe UI, sans-serif`;
     }
-    ctx.fillText(line, 512, start + index * gap);
+    ctx.fillText(line, canvas.width / 2, start + index * gap);
   });
   const texture = new CanvasTexture(canvas);
   texture.colorSpace = SRGBColorSpace;
@@ -242,14 +286,23 @@ export function FloorText({
   position,
   width = 10,
   height = 5,
+  fitted = false,
+  balanced = false,
 }: {
   lines: string[];
   position: [number, number, number];
   width?: number;
   height?: number;
+  /** Draw the canvas at the plane's aspect so letters are not squashed. */
+  fitted?: boolean;
+  /** Give every line the same size. Used when a skill name is split in two. */
+  balanced?: boolean;
 }) {
   const body = lines.join("\n");
-  const texture = useMemo(() => paintFloor(body.split("\n")), [body]);
+  const texture = useMemo(
+    () => paintFloor(body.split("\n"), fitted ? width / height : undefined, balanced),
+    [body, fitted, balanced, width, height],
+  );
 
   useEffect(() => {
     return () => texture?.dispose();

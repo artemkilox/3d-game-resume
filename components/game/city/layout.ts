@@ -1,4 +1,8 @@
 export const TILE = 4;
+export const ROAD_RISE = 0.14;
+export const CAR_WIDTH = 1.2;
+export const ROAD_WIDTH = 6.4;
+export const ROAD_RAMP = 1.25;
 
 export const MAP_CENTER = { x: -32, z: 28 };
 export const MAP_EXTENT = 64;
@@ -14,6 +18,7 @@ type Piece = { url: string; position: [number, number, number]; rotation: [numbe
 
 const STRAIGHT = "/models/roads/road-straight.glb";
 const BEND = "/models/roads/road-bend.glb";
+const BEND_SCALE: [number, number, number] = [ROAD_WIDTH, ROAD_RISE / 0.02, ROAD_WIDTH];
 
 function range(from: number, to: number, step: number) {
   const values: number[] = [];
@@ -24,43 +29,63 @@ function range(from: number, to: number, step: number) {
   return values;
 }
 
-export const ROADS: Piece[] = [
-  ...range(12, -76, 4).map((x) => ({
+const Y_SCALE = ROAD_RISE / 0.02;
+const BEND_X = -80;
+const BEND_HALF = ROAD_WIDTH / 2;
+
+function span(from: number, to: number) {
+  const dir = Math.sign(to - from) || 1;
+  const pieces: { center: number; length: number }[] = [];
+  let cursor = from;
+  while ((to - (cursor + dir * TILE)) * dir >= -0.01) {
+    pieces.push({ center: cursor + (dir * TILE) / 2, length: TILE });
+    cursor += dir * TILE;
+  }
+  const remain = Math.abs(to - cursor);
+  if (remain > 0.05) pieces.push({ center: (cursor + to) / 2, length: Math.round(remain * 100) / 100 });
+  return pieces;
+}
+
+function straightX(z: number, from: number, to: number): Piece[] {
+  return span(from, to).map((piece) => ({
     url: STRAIGHT,
-    position: [x, 0.004, 0] as [number, number, number],
+    position: [piece.center, 0, z] as [number, number, number],
     rotation: [0, 0, 0] as [number, number, number],
-    scale: [TILE, 1, TILE] as [number, number, number],
-  })),
-  {
-    url: BEND,
-    position: [-80, 0.004, 0],
-    rotation: [0, Math.PI / 2, 0],
-    scale: [TILE, 1, TILE],
-  },
-  ...range(4, 52, 4).map((z) => ({
+    scale: [piece.length, Y_SCALE, ROAD_WIDTH] as [number, number, number],
+  }));
+}
+
+function straightZ(x: number, from: number, to: number): Piece[] {
+  return span(from, to).map((piece) => ({
     url: STRAIGHT,
-    position: [-80, 0.004, z] as [number, number, number],
+    position: [x, 0, piece.center] as [number, number, number],
     rotation: [0, Math.PI / 2, 0] as [number, number, number],
-    scale: [TILE, 1, TILE] as [number, number, number],
-  })),
+    scale: [piece.length, Y_SCALE, ROAD_WIDTH] as [number, number, number],
+  }));
+}
+
+export const ROADS: Piece[] = [
+  ...straightX(0, 14, BEND_X + BEND_HALF),
   {
     url: BEND,
-    position: [-80, 0.004, 56],
-    rotation: [0, Math.PI, 0],
-    scale: [TILE, 1, TILE],
+    position: [BEND_X, 0.01, 0],
+    rotation: [0, Math.PI / 2, 0],
+    scale: BEND_SCALE,
   },
-  ...range(-76, 12, 4).map((x) => ({
-    url: STRAIGHT,
-    position: [x, 0.004, 56] as [number, number, number],
-    rotation: [0, 0, 0] as [number, number, number],
-    scale: [TILE, 1, TILE] as [number, number, number],
-  })),
+  ...straightZ(BEND_X, BEND_HALF, 56 - BEND_HALF),
+  {
+    url: BEND,
+    position: [BEND_X, 0.01, 56],
+    rotation: [0, Math.PI, 0],
+    scale: BEND_SCALE,
+  },
+  ...straightX(56, BEND_X + BEND_HALF, 14),
 ];
 
 export const ARROWS: { position: [number, number, number]; yaw: number }[] = [
-  ...range(8, -72, 8).map((x) => ({ position: [x, 0.03, 0] as [number, number, number], yaw: Math.PI })),
-  ...range(8, 48, 8).map((z) => ({ position: [-80, 0.03, z] as [number, number, number], yaw: -Math.PI / 2 })),
-  ...range(-72, 8, 8).map((x) => ({ position: [x, 0.03, 56] as [number, number, number], yaw: 0 })),
+  ...range(8, -72, 8).map((x) => ({ position: [x, ROAD_RISE + 0.02, 0] as [number, number, number], yaw: Math.PI })),
+  ...range(8, 48, 8).map((z) => ({ position: [-80, ROAD_RISE + 0.02, z] as [number, number, number], yaw: -Math.PI / 2 })),
+  ...range(-72, 8, 8).map((x) => ({ position: [x, ROAD_RISE + 0.02, 56] as [number, number, number], yaw: 0 })),
 ];
 
 type Tree = { url: string; position: [number, number, number]; scale: number };
@@ -139,11 +164,11 @@ export const BUILDINGS: {
   },
 ];
 
-export const PARKING = { x: -30, z: 14 };
+export const PARKING = { x: -30, z: 17 };
 
 export const CAMERA_ZONES: { x: number; z: number; radius: number; focus: [number, number] }[] = [
   { x: 4, z: 0, radius: 14, focus: [5, 5] },
-  { x: -30, z: 0, radius: 18, focus: [-30, 14] },
+  { x: -30, z: 0, radius: 18, focus: [-30, 17] },
   { x: -66, z: 0, radius: 16, focus: [-66, 13] },
   { x: -64, z: 56, radius: 16, focus: [-64, 66] },
   { x: -36, z: 56, radius: 15, focus: [-36, 66] },
@@ -155,9 +180,23 @@ export const SKILL_ISLANDS = [
   "React",
   "TypeScript",
   "Next.js",
+  "JavaScript",
   "Redux Toolkit",
+  "React Router",
+  "CSS-modules",
+  "SCSS",
+  "Tailwind",
+  "Styled Components",
+  "Vite",
+  "Webpack",
   "Node.js",
+  "Express",
+  "REST",
   "PostgreSQL",
   "WebSocket",
+  "Jest",
+  "Testing Library",
+  "Git",
   "GitHub Actions",
+  "Figma",
 ];
