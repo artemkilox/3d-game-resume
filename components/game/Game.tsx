@@ -7,6 +7,7 @@ import { Physics } from "@react-three/rapier";
 import * as THREE from "three";
 import { CARS, type CarId } from "./cars";
 import { Desert } from "./Desert";
+import { SceneOutline } from "./Outline";
 import { useDriveInput, type Input } from "./input";
 import { Vehicle } from "./Vehicle";
 
@@ -111,6 +112,7 @@ function Scene({ url }: { url: string }) {
         <Vehicle key={car.id} car={car} input={input} groundRef={groundRef} carRef={carRef} />
       </Physics>
       <FollowCamera carRef={carRef} />
+      <SceneOutline />
     </>
   );
 }

@@ -18,6 +18,7 @@ import type { DynamicRayCastVehicleController } from "@dimforge/rapier3d-compat"
 import * as THREE from "three";
 import { WHEEL_ORDER, type CarConfig } from "./cars";
 import type { Input } from "./input";
+import { attachOutline } from "./Outline";
 import { heightAt, SPAWN } from "./terrain";
 
 const WHEEL_RADIUS = 0.3;
@@ -67,6 +68,7 @@ function CarModel({
       if (obj.name.startsWith("wheel-")) found.push(obj);
     });
     wheels.current = found;
+    return attachOutline(model, 1.04);
   }, [model]);
 
   useFrame(() => {
