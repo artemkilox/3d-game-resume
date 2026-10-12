@@ -68,7 +68,7 @@ function CarModel({
       if (obj.name.startsWith("wheel-")) found.push(obj);
     });
     wheels.current = found;
-    return attachOutline(model, 1.04);
+    return attachOutline(model, 1.02);
   }, [model]);
 
   useFrame(() => {

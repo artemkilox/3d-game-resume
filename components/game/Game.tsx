@@ -7,8 +7,10 @@ import { Physics } from "@react-three/rapier";
 import * as THREE from "three";
 import { CARS, type CarId } from "./cars";
 import { Desert } from "./Desert";
+import { Minimap, type CarPose } from "./Minimap";
 import { SceneOutline } from "./Outline";
 import { useDriveInput, type Input } from "./input";
+import { SPAWN } from "./terrain";
 import { Vehicle } from "./Vehicle";
 
 const CAMERA_HEIGHT = 6.3;
@@ -18,7 +20,13 @@ const UP = new THREE.Vector3(0, 1, 0);
 
 for (const car of CARS) useGLTF.preload(car.url);
 
-function FollowCamera({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
+function FollowCamera({
+  carRef,
+  poseRef,
+}: {
+  carRef: RefObject<THREE.Group | null>;
+  poseRef: RefObject<CarPose>;
+}) {
   "use no memo";
   const { camera } = useThree();
   const desired = useMemo(() => new THREE.Vector3(), []);
@@ -35,6 +43,9 @@ function FollowCamera({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
     car.getWorldQuaternion(worldQuat);
     euler.setFromQuaternion(worldQuat, "YXZ");
     const yaw = euler.y;
+    poseRef.current.x = worldPos.x;
+    poseRef.current.z = worldPos.z;
+    poseRef.current.yaw = yaw;
 
     desired.set(0, CAMERA_HEIGHT, -CAMERA_BACK).applyAxisAngle(UP, yaw).add(worldPos);
     const k = 1 - Math.exp(-5 * Math.min(delta, 0.05));
@@ -83,7 +94,7 @@ function FollowLight({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
   );
 }
 
-function Scene({ url }: { url: string }) {
+function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
   "use no memo";
   const car = CARS.find((item) => item.url === url) ?? CARS[0];
   const carRef = useRef<THREE.Group>(null);
@@ -111,7 +122,7 @@ function Scene({ url }: { url: string }) {
         <Desert groundRef={groundRef} />
         <Vehicle key={car.id} car={car} input={input} groundRef={groundRef} carRef={carRef} />
       </Physics>
-      <FollowCamera carRef={carRef} />
+      <FollowCamera carRef={carRef} poseRef={poseRef} />
       <SceneOutline />
     </>
   );
@@ -158,6 +169,7 @@ export default function Game() {
   "use no memo";
   const [carId, setCarId] = useState<CarId>("race");
   const car = CARS.find((item) => item.id === carId) ?? CARS[0];
+  const poseRef = useRef<CarPose>({ x: SPAWN.x, z: SPAWN.z, yaw: 0 });
 
   return (
     <div className="relative h-full w-full" onContextMenu={(event) => event.preventDefault()}>
@@ -171,9 +183,10 @@ export default function Game() {
           position: [SPAWN_CAMERA.x, SPAWN_CAMERA.y, SPAWN_CAMERA.z],
         }}
       >
-        <Scene url={car.url} />
+        <Scene url={car.url} poseRef={poseRef} />
       </Canvas>
       <Hud carId={carId} onSelect={setCarId} />
+      <Minimap poseRef={poseRef} />
     </div>
   );
 }
