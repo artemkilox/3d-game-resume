@@ -303,6 +303,7 @@ export function Vehicle({
       ref={bodyRef}
       colliders={false}
       position={[SPAWN.x, spawnY, SPAWN.z]}
+      rotation={[0, SPAWN.yaw, 0]}
       canSleep={false}
       ccd
       linearDamping={0.15}

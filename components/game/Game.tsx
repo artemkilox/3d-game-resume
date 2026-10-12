@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useMemo, useRef, useState, type RefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
@@ -8,18 +8,18 @@ import * as THREE from "three";
 import { CARS, type CarId } from "./cars";
 import { Desert } from "./Desert";
 import { Minimap, type CarPose } from "./Minimap";
-import { Pois } from "./Pois";
+import { CityColliders, CityScene } from "./city/CityMap";
 import { SceneOutline } from "./Outline";
 import { useDriveInput, type Input } from "./input";
+import { CAMERA_ZONES } from "./city/layout";
 import { SPAWN } from "./terrain";
 import { Vehicle } from "./Vehicle";
 
-const ISO_ELEVATION = (48 * Math.PI) / 180;
-const CAMERA_DISTANCE = 18;
+const CAMERA_FOV = 32;
+const ISO_ELEVATION = (30 * Math.PI) / 180;
+const CAMERA_DISTANCE = 120;
 const CAMERA_HEIGHT = Math.sin(ISO_ELEVATION) * CAMERA_DISTANCE;
 const CAMERA_BACK = Math.cos(ISO_ELEVATION) * CAMERA_DISTANCE;
-const CAMERA_LOOK_AHEAD = 0.8;
-const VIEW_HEIGHT = 12;
 
 for (const car of CARS) useGLTF.preload(car.url);
 
@@ -31,25 +31,10 @@ function FollowCamera({
   poseRef: RefObject<CarPose>;
 }) {
   "use no memo";
-  const { camera, size } = useThree();
+  const { camera } = useThree();
   const desired = useMemo(() => new THREE.Vector3(), []);
-
-  useLayoutEffect(() => {
-    const ortho = camera as THREE.OrthographicCamera;
-    if (!ortho.isOrthographicCamera) return;
-    ortho.manual = true;
-    const aspect = size.width / Math.max(size.height, 1);
-    const half = VIEW_HEIGHT / 2;
-    ortho.top = half;
-    ortho.bottom = -half;
-    ortho.left = -half * aspect;
-    ortho.right = half * aspect;
-    ortho.near = 0.1;
-    ortho.far = 180;
-    ortho.zoom = 1;
-    ortho.updateProjectionMatrix();
-  }, [camera, size]);
   const look = useMemo(() => new THREE.Vector3(), []);
+  const framed = useRef({ x: SPAWN.x, z: SPAWN.z, distance: CAMERA_DISTANCE });
   const worldPos = useMemo(() => new THREE.Vector3(), []);
   const worldQuat = useMemo(() => new THREE.Quaternion(), []);
   const euler = useMemo(() => new THREE.Euler(0, 0, 0, "YXZ"), []);
@@ -66,10 +51,40 @@ function FollowCamera({
     poseRef.current.z = worldPos.z;
     poseRef.current.yaw = yaw;
 
-    desired.set(worldPos.x, worldPos.y + CAMERA_HEIGHT, worldPos.z - CAMERA_BACK);
-    const k = 1 - Math.exp(-5 * Math.min(delta, 0.05));
+    let focusX = worldPos.x;
+    let focusZ = worldPos.z;
+    let distance = CAMERA_DISTANCE;
+    let pull = 0;
+    for (const zone of CAMERA_ZONES) {
+      const dx = worldPos.x - zone.x;
+      const dz = worldPos.z - zone.z;
+      const away = Math.hypot(dx, dz);
+      const t = 1 - THREE.MathUtils.smoothstep(away, zone.radius * 0.4, zone.radius);
+      if (t > pull) {
+        pull = t;
+        focusX = zone.focus[0];
+        focusZ = zone.focus[1];
+        const separation = Math.hypot(focusX - worldPos.x, focusZ - worldPos.z);
+        const tan = Math.tan(THREE.MathUtils.degToRad(CAMERA_FOV / 2));
+        const halfWanted = Math.max(16, separation * 0.95);
+        distance = halfWanted / tan;
+      }
+    }
+
+    const aimX = worldPos.x + (focusX - worldPos.x) * pull * 0.82;
+    const aimZ = worldPos.z + (focusZ - worldPos.z) * pull * 0.82;
+    const aimDistance = THREE.MathUtils.lerp(CAMERA_DISTANCE, distance, pull);
+    const blend = 1 - Math.exp(-8 * Math.min(delta, 0.05));
+    framed.current.x = THREE.MathUtils.lerp(framed.current.x, aimX, blend);
+    framed.current.z = THREE.MathUtils.lerp(framed.current.z, aimZ, blend);
+    framed.current.distance = THREE.MathUtils.lerp(framed.current.distance, aimDistance, blend);
+
+    const height = Math.sin(ISO_ELEVATION) * framed.current.distance;
+    const back = Math.cos(ISO_ELEVATION) * framed.current.distance;
+    desired.set(framed.current.x, worldPos.y + height, framed.current.z - back);
+    const k = 1 - Math.exp(-8 * Math.min(delta, 0.05));
     camera.position.lerp(desired, k);
-    look.set(worldPos.x, worldPos.y, worldPos.z + CAMERA_LOOK_AHEAD);
+    look.set(framed.current.x, worldPos.y, framed.current.z);
     camera.lookAt(look);
   });
 
@@ -100,11 +115,11 @@ function FollowLight({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
       shadow-mapSize-height={1024}
       shadow-bias={-0.0008}
       shadow-camera-near={2}
-      shadow-camera-far={48}
-      shadow-camera-left={-18}
-      shadow-camera-right={18}
-      shadow-camera-top={18}
-      shadow-camera-bottom={-18}
+      shadow-camera-far={90}
+      shadow-camera-left={-40}
+      shadow-camera-right={40}
+      shadow-camera-top={40}
+      shadow-camera-bottom={-40}
     />
   );
 }
@@ -129,15 +144,16 @@ function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
   return (
     <>
       <color attach="background" args={["#f6e2b8"]} />
-      <fog attach="fog" args={["#f6e2b8", 55, 140]} />
+      <fog attach="fog" args={["#f6e2b8", 90, 260]} />
       <hemisphereLight args={["#fff6df", "#c9a56a", 0.75]} />
       <ambientLight intensity={0.25} />
       <FollowLight carRef={carRef} />
       <Physics gravity={[0, -12, 0]} timeStep={1 / 60} colliders={false}>
         <Desert groundRef={groundRef} />
+        <CityColliders />
         <Vehicle key={car.id} car={car} input={input} groundRef={groundRef} carRef={carRef} />
       </Physics>
-      <Pois />
+      <CityScene />
       <FollowCamera carRef={carRef} poseRef={poseRef} />
       <SceneOutline />
     </>
@@ -185,17 +201,17 @@ export default function Game() {
   "use no memo";
   const [carId, setCarId] = useState<CarId>("race");
   const car = CARS.find((item) => item.id === carId) ?? CARS[0];
-  const poseRef = useRef<CarPose>({ x: SPAWN.x, z: SPAWN.z, yaw: 0 });
+  const poseRef = useRef<CarPose>({ x: SPAWN.x, z: SPAWN.z, yaw: SPAWN.yaw });
 
   return (
     <div className="relative h-full w-full" onContextMenu={(event) => event.preventDefault()}>
       <Canvas
         shadows
         dpr={[1, 1.5]}
-        orthographic
         camera={{
-          near: 0.1,
-          far: 180,
+          fov: CAMERA_FOV,
+          near: 0.5,
+          far: 600,
           position: [SPAWN_CAMERA.x, SPAWN_CAMERA.y, SPAWN_CAMERA.z],
         }}
       >
@@ -207,4 +223,4 @@ export default function Game() {
   );
 }
 
-const SPAWN_CAMERA = { x: 0, y: CAMERA_HEIGHT, z: -8 - CAMERA_BACK };
+const SPAWN_CAMERA = { x: SPAWN.x, y: CAMERA_HEIGHT, z: SPAWN.z - CAMERA_BACK };

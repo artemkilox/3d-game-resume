@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 export const WORLD_SIZE = 260;
 
-export const SPAWN = { x: 0, z: -8 };
+export const SPAWN = { x: 4, z: 0, yaw: -Math.PI / 2 };
 
 type Hill = { x: number; z: number; height: number; sigma: number };
 
@@ -17,46 +17,13 @@ export type Oasis = {
 };
 
 export const HILLS: Hill[] = [
-  { x: 0, z: 28, height: 5.2, sigma: 9 },
-  { x: -34, z: -14, height: 4.4, sigma: 11 },
-  { x: 32, z: -30, height: 6, sigma: 12 },
+  { x: -46, z: -24, height: 1.7, sigma: 9 },
+  { x: -108, z: 30, height: 2.1, sigma: 10 },
 ];
 
-export const OASES: Oasis[] = [
-  {
-    x: -22,
-    z: 14,
-    groundRadius: 12,
-    depth: 0.55,
-    sigma: 6.5,
-    waterRadius: 3.4,
-    palms: [15, 80, 150, 220, 290],
-  },
-  {
-    x: 24,
-    z: 6,
-    groundRadius: 11,
-    depth: 0.5,
-    sigma: 6,
-    waterRadius: 3.1,
-    palms: [40, 110, 180, 250, 320],
-  },
-];
+export const OASES: Oasis[] = [];
 
-export const ROCKS: { x: number; z: number; radius: number; color: string }[] = [
-  { x: 4.2, z: 10, radius: 1.15, color: "#8d7058" },
-  { x: -3.2, z: 13.5, radius: 0.65, color: "#6f5846" },
-  { x: 9, z: 18, radius: 0.8, color: "#a08468" },
-  { x: -7, z: 7, radius: 0.9, color: "#7b624c" },
-  { x: 14, z: -4, radius: 1.25, color: "#91745c" },
-  { x: -12, z: -8, radius: 1.05, color: "#65503e" },
-  { x: 1.5, z: 34, radius: 0.7, color: "#9a7d62" },
-  { x: -4, z: 31, radius: 1, color: "#7d6450" },
-  { x: 18, z: -16, radius: 0.85, color: "#8a6e56" },
-  { x: -18, z: 20, radius: 0.55, color: "#a88b70" },
-  { x: 6, z: -18, radius: 1.35, color: "#74604c" },
-  { x: -1.5, z: 22, radius: 0.5, color: "#8f735b" },
-];
+export const ROCKS: { x: number; z: number; radius: number; color: string }[] = [];
 
 function influence(x: number, z: number, originX: number, originZ: number, sigma: number) {
   const dx = x - originX;
