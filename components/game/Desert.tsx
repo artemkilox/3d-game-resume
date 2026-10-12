@@ -35,7 +35,7 @@ function Palm({ position }: { position: [number, number, number] }) {
   return (
     <group position={position}>
       <RigidBody type="fixed" colliders={false} position={[0, trunk / 2, 0]}>
-        <CylinderCollider args={[trunk / 2, 0.22]} friction={0.9} collisionGroups={interactionGroups([2], [1])} />
+        <CylinderCollider args={[trunk / 2, 0.22]} friction={0.3} collisionGroups={interactionGroups([2], [1])} />
       </RigidBody>
       <mesh position={[0, trunk / 2, 0]} castShadow>
         <cylinderGeometry args={[0.12, 0.2, trunk, 6]} />
@@ -87,7 +87,7 @@ export function Desert({ groundRef }: { groundRef: RefObject<Mesh | null> }) {
           >
             <CylinderCollider
               args={[rock.radius, rock.radius * 0.88]}
-              friction={1}
+              friction={0.3}
               collisionGroups={interactionGroups([2], [1])}
             />
             <mesh castShadow receiveShadow>

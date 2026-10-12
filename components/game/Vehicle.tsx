@@ -45,9 +45,11 @@ const wheelIndex: Record<string, number> = {
 function CarModel({
   url,
   vehicleRef,
+  skidSpin,
 }: {
   url: string;
   vehicleRef: RefObject<DynamicRayCastVehicleController | null>;
+  skidSpin: RefObject<number>;
 }) {
   "use no memo";
   const { scene } = useGLTF(url);
@@ -72,7 +74,7 @@ function CarModel({
     for (const wheel of wheels.current) {
       const index = wheelIndex[wheel.name];
       if (index === undefined) continue;
-      const spin = vehicle?.wheelRotation(index) ?? 0;
+      const spin = (vehicle?.wheelRotation(index) ?? 0) + skidSpin.current;
       const steer = wheel.name.includes("front") ? (vehicle?.wheelSteering(index) ?? 0) : 0;
       steerQuat.setFromAxisAngle(UP, steer);
       spinQuat.setFromAxisAngle(AXLE, spin);
@@ -148,12 +150,14 @@ function VehicleSimulation({
   groundRef,
   bodyRef,
   vehicleRef,
+  skidSpin,
 }: {
   car: CarConfig;
   input: RefObject<Input | null>;
   groundRef: RefObject<THREE.Mesh | null>;
   bodyRef: RefObject<RapierRigidBody | null>;
   vehicleRef: RefObject<DynamicRayCastVehicleController | null>;
+  skidSpin: RefObject<number>;
 }) {
   "use no memo";
   const { world, rapier } = useRapier();
@@ -226,13 +230,15 @@ function VehicleSimulation({
     const obstacle = obstacleAhead(world, chassis, forwardX * castSign, forwardZ * castSign);
     const blocked = !!obstacle && obstacle.time_of_impact < 0.28;
 
+    const skid = blocked && castSign > 0 && throttle > 0;
     let force = 0;
     let brake = 0.35;
     const reversing = (throttle > 0 && speed < -0.4) || (throttle < 0 && speed > 0.4);
-    if (blocked) throttle = 0;
-    if (reversing) {
+    if (skid) {
+      brake = 0;
+    } else if (reversing) {
       brake = 1.8;
-    } else if (throttle > 0 && speed < MAX_SPEED) {
+    } else if (throttle > 0 && speed < MAX_SPEED && !blocked) {
       force = ENGINE;
       brake = 0;
     } else if (throttle < 0 && speed > -MAX_REVERSE) {
@@ -241,7 +247,6 @@ function VehicleSimulation({
     } else if (throttle === 0) {
       brake = 0.7;
     }
-    if (blocked) brake = 2.4;
 
     vehicle.setWheelEngineForce(0, force * 0.65);
     vehicle.setWheelEngineForce(1, force * 0.65);
@@ -263,6 +268,12 @@ function VehicleSimulation({
         );
       }
     }
+
+    if (skid) {
+      skidSpin.current += 16 * dt;
+      const ang = chassis.angvel();
+      chassis.setAngvel({ x: ang.x * 0.25, y: steerState.current * 1.6, z: ang.z * 0.25 }, true);
+    }
   });
 
   return null;
@@ -281,6 +292,7 @@ export function Vehicle({
 }) {
   "use no memo";
   const vehicleRef = useRef<DynamicRayCastVehicleController | null>(null);
+  const skidSpin = useRef(0);
   const bodyRef = useRef<RapierRigidBody>(null);
   const spawnY = heightAt(SPAWN.x, SPAWN.z) + 0.45;
 
@@ -308,10 +320,11 @@ export function Vehicle({
         groundRef={groundRef}
         bodyRef={bodyRef}
         vehicleRef={vehicleRef}
+        skidSpin={skidSpin}
       />
       <group ref={carRef}>
         <Suspense fallback={null}>
-          <CarModel url={car.url} vehicleRef={vehicleRef} />
+          <CarModel url={car.url} vehicleRef={vehicleRef} skidSpin={skidSpin} />
         </Suspense>
       </group>
     </RigidBody>

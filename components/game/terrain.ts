@@ -93,9 +93,9 @@ export function createDesertGeometry() {
 
   const position = geometry.attributes.position;
   const colors = new Float32Array(position.count * 3);
-  const plain = new THREE.Color("#a3471c");
-  const crest = new THREE.Color("#fff0b0");
-  const slopeShade = new THREE.Color("#3f2412");
+  const plain = new THREE.Color("#e3923a");
+  const crest = new THREE.Color("#f6c84a");
+  const slopeShade = new THREE.Color("#c86a22");
   const oasis = new THREE.Color("#2f8f3a");
   const color = new THREE.Color();
   const grid = segments + 1;
@@ -118,9 +118,9 @@ export function createDesertGeometry() {
       slope = Math.max(slope, Math.abs(position.getY(i + grid) - position.getY(i - grid)));
     }
 
-    const rise = THREE.MathUtils.smoothstep(height, 0.05, 1.35);
+    const rise = THREE.MathUtils.smoothstep(height, 0.2, 2.4);
     color.copy(plain).lerp(crest, rise);
-    color.lerp(slopeShade, THREE.MathUtils.clamp(slope / 0.45, 0, 1) * 0.85);
+    color.lerp(slopeShade, THREE.MathUtils.clamp(slope / 0.7, 0, 1) * 0.55);
     for (const spot of OASES) {
       const distance = Math.hypot(x - spot.x, z - spot.z);
       const blend = 1 - THREE.MathUtils.smoothstep(distance, spot.groundRadius * 0.3, spot.groundRadius);
