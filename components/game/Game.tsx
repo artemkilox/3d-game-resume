@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type RefObject } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
@@ -8,15 +8,18 @@ import * as THREE from "three";
 import { CARS, type CarId } from "./cars";
 import { Desert } from "./Desert";
 import { Minimap, type CarPose } from "./Minimap";
+import { Pois } from "./Pois";
 import { SceneOutline } from "./Outline";
 import { useDriveInput, type Input } from "./input";
 import { SPAWN } from "./terrain";
 import { Vehicle } from "./Vehicle";
 
-const CAMERA_HEIGHT = 6.3;
-const CAMERA_BACK = 10;
-const CAMERA_LOOK_AHEAD = 2.5;
-const UP = new THREE.Vector3(0, 1, 0);
+const ISO_ELEVATION = (48 * Math.PI) / 180;
+const CAMERA_DISTANCE = 18;
+const CAMERA_HEIGHT = Math.sin(ISO_ELEVATION) * CAMERA_DISTANCE;
+const CAMERA_BACK = Math.cos(ISO_ELEVATION) * CAMERA_DISTANCE;
+const CAMERA_LOOK_AHEAD = 0.8;
+const VIEW_HEIGHT = 12;
 
 for (const car of CARS) useGLTF.preload(car.url);
 
@@ -28,8 +31,24 @@ function FollowCamera({
   poseRef: RefObject<CarPose>;
 }) {
   "use no memo";
-  const { camera } = useThree();
+  const { camera, size } = useThree();
   const desired = useMemo(() => new THREE.Vector3(), []);
+
+  useLayoutEffect(() => {
+    const ortho = camera as THREE.OrthographicCamera;
+    if (!ortho.isOrthographicCamera) return;
+    ortho.manual = true;
+    const aspect = size.width / Math.max(size.height, 1);
+    const half = VIEW_HEIGHT / 2;
+    ortho.top = half;
+    ortho.bottom = -half;
+    ortho.left = -half * aspect;
+    ortho.right = half * aspect;
+    ortho.near = 0.1;
+    ortho.far = 180;
+    ortho.zoom = 1;
+    ortho.updateProjectionMatrix();
+  }, [camera, size]);
   const look = useMemo(() => new THREE.Vector3(), []);
   const worldPos = useMemo(() => new THREE.Vector3(), []);
   const worldQuat = useMemo(() => new THREE.Quaternion(), []);
@@ -47,14 +66,10 @@ function FollowCamera({
     poseRef.current.z = worldPos.z;
     poseRef.current.yaw = yaw;
 
-    desired.set(0, CAMERA_HEIGHT, -CAMERA_BACK).applyAxisAngle(UP, yaw).add(worldPos);
+    desired.set(worldPos.x, worldPos.y + CAMERA_HEIGHT, worldPos.z - CAMERA_BACK);
     const k = 1 - Math.exp(-5 * Math.min(delta, 0.05));
     camera.position.lerp(desired, k);
-    look.set(
-      worldPos.x + Math.sin(yaw) * CAMERA_LOOK_AHEAD,
-      worldPos.y,
-      worldPos.z + Math.cos(yaw) * CAMERA_LOOK_AHEAD,
-    );
+    look.set(worldPos.x, worldPos.y, worldPos.z + CAMERA_LOOK_AHEAD);
     camera.lookAt(look);
   });
 
@@ -122,6 +137,7 @@ function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
         <Desert groundRef={groundRef} />
         <Vehicle key={car.id} car={car} input={input} groundRef={groundRef} carRef={carRef} />
       </Physics>
+      <Pois />
       <FollowCamera carRef={carRef} poseRef={poseRef} />
       <SceneOutline />
     </>
@@ -176,10 +192,10 @@ export default function Game() {
       <Canvas
         shadows
         dpr={[1, 1.5]}
+        orthographic
         camera={{
-          fov: 38,
           near: 0.1,
-          far: 280,
+          far: 180,
           position: [SPAWN_CAMERA.x, SPAWN_CAMERA.y, SPAWN_CAMERA.z],
         }}
       >
