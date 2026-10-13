@@ -4,14 +4,14 @@ export const CAR_WIDTH = 1.2;
 export const ROAD_WIDTH = 6.4;
 export const ROAD_RAMP = 1.25;
 
-export const MAP_CENTER = { x: -32, z: 28 };
+export const MAP_CENTER = { x: -30.33, z: -15.9 };
 export const MAP_EXTENT = 64;
 
 export const ROAD_POLYLINE: [number, number][] = [
-  [12, 0],
-  [-80, 0],
-  [-80, 56],
-  [14, 56],
+  [13.67, -43.9],
+  [-78.33, -43.9],
+  [-78.33, 12.1],
+  [15.67, 12.1],
 ];
 
 type Piece = { url: string; position: [number, number, number]; rotation: [number, number, number]; scale: [number, number, number] };
@@ -167,13 +167,13 @@ export const BUILDINGS: {
 export const PARKING = { x: -30, z: 17 };
 
 export const CAMERA_ZONES: { x: number; z: number; radius: number; focus: [number, number] }[] = [
-  { x: 4, z: 0, radius: 14, focus: [5, 5] },
-  { x: -30, z: 0, radius: 18, focus: [-30, 17] },
-  { x: -66, z: 0, radius: 16, focus: [-66, 13] },
-  { x: -64, z: 56, radius: 16, focus: [-64, 66] },
-  { x: -36, z: 56, radius: 15, focus: [-36, 66] },
-  { x: -8, z: 56, radius: 15, focus: [-8, 66] },
-  { x: 12, z: 56, radius: 14, focus: [18, 62] },
+  { x: 5.67, z: -43.9, radius: 14, focus: [6.67, -38.9] },
+  { x: -28.33, z: -43.9, radius: 18, focus: [-28.33, -26.9] },
+  { x: -64.33, z: -43.9, radius: 16, focus: [-64.33, -30.9] },
+  { x: -62.33, z: 12.1, radius: 16, focus: [-62.33, 22.1] },
+  { x: -34.33, z: 12.1, radius: 15, focus: [-34.33, 22.1] },
+  { x: -6.33, z: 12.1, radius: 15, focus: [-6.33, 22.1] },
+  { x: 13.67, z: 12.1, radius: 14, focus: [19.67, 18.1] },
 ];
 
 export const SKILL_ISLANDS = [

@@ -6,13 +6,13 @@ import { MAP_CENTER, MAP_EXTENT, ROAD_POLYLINE } from "./city/layout";
 export type CarPose = { x: number; z: number; yaw: number };
 
 const PLACES = [
-  { x: 12, z: 2, label: "Старт" },
-  { x: -30, z: 14, label: "Стек" },
-  { x: -66, z: 16, label: "Учёба" },
-  { x: -64, z: 68, label: "1" },
-  { x: -36, z: 68, label: "2" },
-  { x: -8, z: 68, label: "3" },
-  { x: 20, z: 62, label: "Связь" },
+  { x: 13.67, z: -41.9, label: "Старт" },
+  { x: -28.33, z: -29.9, label: "Стек" },
+  { x: -64.33, z: -27.9, label: "Учёба" },
+  { x: -62.33, z: 24.1, label: "1" },
+  { x: -34.33, z: 24.1, label: "2" },
+  { x: -6.33, z: 24.1, label: "3" },
+  { x: 21.67, z: 18.1, label: "Связь" },
 ];
 
 function project(x: number, z: number) {
@@ -47,7 +47,7 @@ export function Minimap({ poseRef }: { poseRef: RefObject<CarPose> }) {
   return (
     <div className="pointer-events-none absolute bottom-4 left-4">
       <div
-        className="relative h-44 w-44 overflow-hidden rounded-full border-2 border-stone-900/70 bg-[#e3923a] shadow-lg"
+        className="relative h-44 w-44 overflow-hidden rounded-full border-2 border-stone-900/70 bg-[#5c9a3e] shadow-lg"
         aria-label="Миникарта"
       >
         <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">

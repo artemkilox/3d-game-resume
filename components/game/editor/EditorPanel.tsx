@@ -302,7 +302,8 @@ function SelectedFields({
           <NumberField label="Высота" value={entity.height} onChange={(height) => onChange({ ...entity, height })} />
         </div>
       ) : null}
-      {entity.kind === "model" && entity.url.includes("billboard") ? (
+      {entity.kind === "model" &&
+      (entity.url.includes("billboard") || entity.url.toLowerCase().includes("sign")) ? (
         <label className="block">
           Надпись
           <input

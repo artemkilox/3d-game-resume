@@ -24,6 +24,7 @@ import { heightAt, SPAWN } from "./terrain";
 
 const WHEEL_RADIUS = 0.3;
 const SUSPENSION_REST = 0.18;
+const RIDE_HEIGHT = 0.1;
 const MAX_SPEED = 13;
 const MAX_REVERSE = 6;
 const ENGINE = 48;
@@ -77,6 +78,10 @@ function CarModel({
     for (const wheel of wheels.current) {
       const index = wheelIndex[wheel.name];
       if (index === undefined) continue;
+      if (wheel.userData.baseY === undefined) wheel.userData.baseY = wheel.position.y;
+      const length = vehicle?.wheelSuspensionLength(index);
+      const travel = typeof length === "number" ? length - SUSPENSION_REST : 0;
+      wheel.position.y = (wheel.userData.baseY as number) - RIDE_HEIGHT - travel;
       const spin = (vehicle?.wheelRotation(index) ?? 0) + skidSpin.current;
       const steer = wheel.name.includes("front") ? (vehicle?.wheelSteering(index) ?? 0) : 0;
       steerQuat.setFromAxisAngle(UP, steer);
@@ -103,7 +108,7 @@ function createVehicle(
   for (const name of WHEEL_ORDER) {
     const [x, y, z] = car.wheels[name];
     vehicle.addWheel(
-      new rapier.Vector3(x, y + SUSPENSION_REST, z),
+      new rapier.Vector3(x, y + SUSPENSION_REST - RIDE_HEIGHT, z),
       direction,
       axle,
       SUSPENSION_REST,
@@ -297,7 +302,7 @@ export function Vehicle({
   const vehicleRef = useRef<DynamicRayCastVehicleController | null>(null);
   const skidSpin = useRef(0);
   const bodyRef = useRef<RapierRigidBody>(null);
-  const spawnY = heightAt(SPAWN.x, SPAWN.z) + ROAD_RISE + 0.45;
+  const spawnY = heightAt(SPAWN.x, SPAWN.z) + ROAD_RISE + 0.45 + RIDE_HEIGHT;
 
   return (
     <RigidBody

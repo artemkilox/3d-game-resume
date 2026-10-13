@@ -201,9 +201,9 @@ function Scene({
 
   return (
     <>
-      <color attach="background" args={["#f6e2b8"]} />
-      <fog attach="fog" args={["#f6e2b8", 90, 260]} />
-      <hemisphereLight args={["#fff6df", "#c9a56a", 0.75]} />
+      <color attach="background" args={["#cfe8b8"]} />
+      <fog attach="fog" args={["#cfe8b8", 90, 260]} />
+      <hemisphereLight args={["#fff6df", "#6d9a52", 0.75]} />
       <ambientLight intensity={0.25} />
       <PublishPose carRef={carRef} poseRef={poseRef} />
       <FollowLight carRef={carRef} />
@@ -296,7 +296,7 @@ export default function Game() {
   const dev = process.env.NODE_ENV === "development";
 
   if (!doc.map) {
-    return <div className="grid h-full place-items-center bg-[#f6e2b8] text-stone-800">Загрузка карты…</div>;
+    return <div className="grid h-full place-items-center bg-[#cfe8b8] text-stone-800">Загрузка карты…</div>;
   }
 
   return (

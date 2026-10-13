@@ -3,11 +3,13 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { ConvexHullCollider, CuboidCollider, RigidBody, interactionGroups } from "@react-three/rapier";
-import { Box3, CanvasTexture, DoubleSide, ExtrudeGeometry, Matrix4, Quaternion, Shape, SRGBColorSpace, Sprite, Vector3, type Group, type Mesh, type MeshStandardMaterial, type Object3D } from "three";
+import { ConvexHullCollider, CuboidCollider, RigidBody, interactionGroups, type RapierRigidBody } from "@react-three/rapier";
+import { Box3, BufferGeometry, CanvasTexture, DoubleSide, ExtrudeGeometry, Float32BufferAttribute, Matrix4, Quaternion, Shape, SRGBColorSpace, Sprite, Vector3, type Group, type Mesh, type MeshStandardMaterial, type Object3D } from "three";
 import { attachOutline } from "../Outline";
 import { ROAD_RAMP, ROAD_RISE } from "./layout";
 import type { MapEntity, ModelEntity, Vec3 } from "./map-types";
+import { driftDistance, driftPose, driftSkids } from "./drift-paths";
+import { fittedBoxes } from "./model-colliders";
 import { FloorText, GroundControls, GroundCopy } from "./Signs";
 
 const LAYER_STEP = 0.16;
@@ -26,8 +28,9 @@ const MODELS = [
   "/models/commercial/building-skyscraper-d.glb",
   "/models/commercial/building-skyscraper-e.glb",
   "/models/people/character-male-d.glb",
-  "/models/sedan.glb",
+  "/models/sedan-sports.glb",
   "/models/billboard.glb",
+  "/models/Sign by Zsky - 9UeVfOHm6k.glb",
 ];
 
 for (const url of MODELS) useGLTF.preload(url);
@@ -105,7 +108,7 @@ function Host({ scale }: { scale: number }) {
   }, [scene]);
 
   useFrame(({ clock }) => {
-    const wave = Math.sin(clock.elapsedTime * 5) * 0.14;
+    const wave = Math.sin(clock.elapsedTime * 10) * 0.14;
     if (torso.current) torso.current.rotation.set(0, 0, -0.12);
     if (right.current) right.current.rotation.set(0.2, -0.85, -1.22 + wave);
     if (left.current) left.current.rotation.set(0, 0, -1.2);
@@ -113,79 +116,6 @@ function Host({ scale }: { scale: number }) {
   });
 
   return <primitive object={scene} scale={scale} />;
-}
-
-function loopPose(t: number) {
-  const hw = 20.6;
-  const hh = 8.6;
-  const radius = 2.8;
-  const lenX = 2 * (hw - radius);
-  const lenZ = 2 * (hh - radius);
-  const arc = (Math.PI * radius) / 2;
-  const segs = [
-    { len: lenX, kind: "bottom" },
-    { len: arc, kind: "br" },
-    { len: lenZ, kind: "right" },
-    { len: arc, kind: "tr" },
-    { len: lenX, kind: "top" },
-    { len: arc, kind: "tl" },
-    { len: lenZ, kind: "left" },
-    { len: arc, kind: "bl" },
-  ];
-  const total = segs.reduce((sum, seg) => sum + seg.len, 0);
-  let dist = ((t % 1) + 1) % 1 * total;
-  let kind = "bottom";
-  let local = 0;
-  for (const seg of segs) {
-    if (dist <= seg.len) {
-      kind = seg.kind;
-      local = seg.len === 0 ? 0 : dist / seg.len;
-      break;
-    }
-    dist -= seg.len;
-  }
-
-  const x1 = hw - radius;
-  const z1 = hh - radius;
-  let x = 0;
-  let z = 0;
-  let yaw = 0;
-  let drifting = false;
-
-  if (kind === "bottom") {
-    x = -x1 + local * lenX;
-    z = -hh;
-    yaw = Math.PI / 2;
-  } else if (kind === "right") {
-    x = hw;
-    z = -z1 + local * lenZ;
-    yaw = 0;
-  } else if (kind === "top") {
-    x = x1 - local * lenX;
-    z = hh;
-    yaw = -Math.PI / 2;
-  } else if (kind === "left") {
-    x = -hw;
-    z = z1 - local * lenZ;
-    yaw = Math.PI;
-  } else {
-    drifting = true;
-    const theta =
-      kind === "br" ? -Math.PI / 2 + local * (Math.PI / 2) :
-      kind === "tr" ? local * (Math.PI / 2) :
-      kind === "tl" ? Math.PI / 2 + local * (Math.PI / 2) :
-      Math.PI + local * (Math.PI / 2);
-    const cx = kind === "br" || kind === "tr" ? x1 : -x1;
-    const cz = kind === "br" || kind === "bl" ? -z1 : z1;
-    x = cx + radius * Math.cos(theta);
-    z = cz + radius * Math.sin(theta);
-    const dx = -Math.sin(theta);
-    const dz = Math.cos(theta);
-    yaw = Math.atan2(dx, dz);
-    yaw += kind === "tl" || kind === "bl" ? -1.05 : 1.05;
-  }
-
-  return { x, z, yaw, drifting };
 }
 
 function useSmokeTexture() {
@@ -212,10 +142,69 @@ function useSmokeTexture() {
   return texture;
 }
 
-function DriftCar({ offset }: { offset: number }) {
+const DRIFT_COLOR = ["#3a74e0", "#37b85a", "#e23b3a"];
+
+function tintBodyTexture(image: CanvasImageSource & { width: number; height: number }, color: string) {
+  const canvas = document.createElement("canvas");
+  canvas.width = image.width;
+  canvas.height = image.height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.drawImage(image, 0, 0);
+  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = pixels.data;
+  const hex = Number.parseInt(color.slice(1), 16);
+  const tr = (hex >> 16) & 255;
+  const tg = (hex >> 8) & 255;
+  const tb = hex & 255;
+  for (let index = 0; index < data.length; index += 4) {
+    const red = data[index];
+    const green = data[index + 1];
+    const blue = data[index + 2];
+    const paint = red > 170 && green < 150 && red > green + 45 && red > blue + 50;
+    if (!paint) continue;
+    const max = Math.max(red, green, blue);
+    const shade = max / 255;
+    data[index] = tr * shade;
+    data[index + 1] = tg * shade;
+    data[index + 2] = tb * shade;
+  }
+  ctx.putImageData(pixels, 0, 0);
+  const texture = new CanvasTexture(canvas);
+  texture.colorSpace = SRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function paintDriftModel(model: Object3D, color: string) {
+  let tint: CanvasTexture | null = null;
+  model.traverse((obj) => {
+    const mesh = obj as Mesh;
+    if (!mesh.isMesh || (mesh.name !== "body" && mesh.name !== "spoiler")) return;
+    const source = mesh.material as MeshStandardMaterial;
+    if (!tint && source.map?.image) {
+      tint = tintBodyTexture(source.map.image, color);
+      if (tint && source.map) {
+        tint.flipY = source.map.flipY;
+        tint.colorSpace = source.map.colorSpace;
+      }
+    }
+    if (!tint) return;
+    const material = source.clone();
+    material.map = tint;
+    material.color.set("#ffffff");
+    mesh.material = material;
+  });
+}
+
+function DriftCar({ route }: { route: number }) {
   "use no memo";
-  const { scene } = useGLTF("/models/sedan.glb");
-  const model = useMemo(() => scene.clone(true), [scene]);
+  const { scene } = useGLTF("/models/sedan-sports.glb");
+  const model = useMemo(() => {
+    const copy = scene.clone(true);
+    paintDriftModel(copy, DRIFT_COLOR[route]);
+    return copy;
+  }, [route, scene]);
   const group = useRef<Group>(null);
   const puffs = useRef<Sprite[]>([]);
   const smokeTexture = useSmokeTexture();
@@ -223,15 +212,15 @@ function DriftCar({ offset }: { offset: number }) {
   useFrame(({ clock }) => {
     const car = group.current;
     if (!car) return;
-    const pose = loopPose(clock.elapsedTime * 0.15 + offset);
+    const pose = driftPose(route, driftDistance(route, clock.elapsedTime));
     car.position.set(pose.x, ROAD_RISE + 0.02, pose.z);
     car.rotation.y = pose.yaw;
     puffs.current.forEach((puff, index) => {
       const age = (clock.elapsedTime * 1.4 + index * 0.17) % 1;
-      puff.visible = pose.drifting;
+      puff.visible = pose.drift > 0.08;
       puff.position.set(index % 2 === 0 ? -0.28 : 0.28, 0.2 + age * 0.7, -0.85 - age * 0.9);
       puff.scale.setScalar(0.25 + age * 0.85);
-      puff.material.opacity = pose.drifting ? 0.55 * (1 - age) : 0;
+      puff.material.opacity = 0.55 * (1 - age) * pose.drift;
     });
   });
 
@@ -251,6 +240,78 @@ function DriftCar({ offset }: { offset: number }) {
           ))
         : null}
     </group>
+  );
+}
+
+function skidGeometry() {
+  const positions: number[] = [];
+  const alphas: number[] = [];
+  const indices: number[] = [];
+  const y = ROAD_RISE + 0.045;
+  const track = 0.15;
+  const half = 0.03;
+  for (const run of driftSkids()) {
+    for (const side of [track, -track]) {
+      const base = positions.length / 3;
+      for (let index = 0; index < run.length; index += 1) {
+        const prev = run[Math.max(0, index - 1)];
+        const next = run[Math.min(run.length - 1, index + 1)];
+        const dx = next.x - prev.x;
+        const dz = next.z - prev.z;
+        const length = Math.hypot(dx, dz) || 1;
+        const sideX = dz / length;
+        const sideZ = -dx / length;
+        const centerX = run[index].x + sideX * side;
+        const centerZ = run[index].z + sideZ * side;
+        const fade = run[index].fade * 0.2;
+        positions.push(
+          centerX + sideX * half, y, centerZ + sideZ * half,
+          centerX - sideX * half, y, centerZ - sideZ * half,
+        );
+        alphas.push(fade, fade);
+      }
+      for (let index = 0; index < run.length - 1; index += 1) {
+        const vertex = base + index * 2;
+        indices.push(vertex, vertex + 2, vertex + 1, vertex + 1, vertex + 2, vertex + 3);
+      }
+    }
+  }
+  const geometry = new BufferGeometry();
+  geometry.setAttribute("position", new Float32BufferAttribute(positions, 3));
+  geometry.setAttribute("alpha", new Float32BufferAttribute(alphas, 1));
+  geometry.setIndex(indices);
+  return geometry;
+}
+
+const skids = skidGeometry();
+
+function DriftSkids() {
+  return (
+    <mesh geometry={skids} renderOrder={2}>
+      <shaderMaterial
+        transparent
+        depthWrite={false}
+        side={DoubleSide}
+        polygonOffset
+        polygonOffsetFactor={-2}
+        polygonOffsetUnits={-2}
+        toneMapped={false}
+        vertexShader={`
+          attribute float alpha;
+          varying float vAlpha;
+          void main() {
+            vAlpha = alpha;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `}
+        fragmentShader={`
+          varying float vAlpha;
+          void main() {
+            gl_FragColor = vec4(0.0, 0.0, 0.0, vAlpha);
+          }
+        `}
+      />
+    </mesh>
   );
 }
 
@@ -298,6 +359,136 @@ function paintBillboard(image: CanvasImageSource, text: string) {
   texture.flipY = false;
   texture.needsUpdate = true;
   return texture;
+}
+
+const ARROW_UP = "/signs/arrow-up.png";
+const SIGN_ASPECT = 9.38128 / 4.87847;
+
+function whiteArrow(image: HTMLImageElement) {
+  const scratch = document.createElement("canvas");
+  scratch.width = image.width;
+  scratch.height = image.height;
+  const ctx = scratch.getContext("2d");
+  if (!ctx) return scratch;
+  ctx.drawImage(image, 0, 0);
+  ctx.globalCompositeOperation = "source-in";
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, scratch.width, scratch.height);
+  return scratch;
+}
+
+function paintRoadSign(arrow: HTMLImageElement, text: string) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1024;
+  canvas.height = 1024;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.fillStyle = "#1d5812";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (text) {
+    const glyph = whiteArrow(arrow);
+    const drawFace = (cx: number, cy: number) => {
+      ctx.save();
+      // The long edge of the board is vertical in the texture. Both faces read upright from outside.
+      ctx.setTransform(0, 1 / SIGN_ASPECT, -1, 0, cx, cy);
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      let size = 120;
+      const layout = () => {
+        ctx.font = `700 ${size}px "Segoe UI", sans-serif`;
+        const textW = ctx.measureText(text).width;
+        const arrowH = size * 0.92;
+        const arrowW = arrowH * (arrow.width / arrow.height);
+        const gap = size * 0.28;
+        return { textW, arrowH, arrowW, gap, total: textW + gap * 2 + arrowW * 2 };
+      };
+      let fitted = layout();
+      while (size > 36 && (fitted.total > 420 || fitted.arrowH > 200)) {
+        size -= 2;
+        fitted = layout();
+      }
+      const { textW, arrowH, arrowW, gap, total } = fitted;
+      const left = -total / 2;
+      ctx.drawImage(glyph, left, -arrowH / 2, arrowW, arrowH);
+      ctx.fillText(text, left + arrowW + gap + textW / 2, 2);
+      ctx.drawImage(glyph, left + arrowW + gap + textW + gap, -arrowH / 2, arrowW, arrowH);
+      ctx.restore();
+    };
+    drawFace(512, 128);
+    drawFace(512, 640);
+  }
+  const texture = new CanvasTexture(canvas);
+  texture.colorSpace = SRGBColorSpace;
+  texture.flipY = false;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function RoadSign({
+  url,
+  scale,
+  label,
+  reportHalf,
+}: {
+  url: string;
+  scale: number;
+  label: string;
+  reportHalf?: (half: Vec3) => void;
+}) {
+  const { scene } = useGLTF(url);
+  const model = useMemo(() => {
+    const object = scene.clone(true);
+    object.traverse((obj) => {
+      const mesh = obj as Mesh;
+      if (!mesh.isMesh) return;
+      mesh.material = Array.isArray(mesh.material)
+        ? mesh.material.map((material) => material.clone())
+        : mesh.material.clone();
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+    });
+    return object;
+  }, [scene]);
+  const textureRef = useRef<CanvasTexture | null>(null);
+
+  useLayoutEffect(() => {
+    let cancelled = false;
+    const image = new Image();
+    image.onload = () => {
+      if (cancelled) return;
+      const texture = paintRoadSign(image, label);
+      if (!texture) return;
+      textureRef.current?.dispose();
+      textureRef.current = texture;
+      model.traverse((obj) => {
+        const mesh = obj as Mesh;
+        if (!mesh.isMesh) return;
+        const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+        for (const material of materials) {
+          const standard = material as MeshStandardMaterial;
+          if (!standard.name.toLowerCase().includes("green")) continue;
+          standard.map = texture;
+          standard.color.set("#ffffff");
+          standard.needsUpdate = true;
+        }
+      });
+    };
+    image.src = ARROW_UP;
+    return () => {
+      cancelled = true;
+    };
+  }, [model, label]);
+
+  useEffect(() => () => textureRef.current?.dispose(), []);
+
+  useLayoutEffect(() => {
+    if (!reportHalf) return;
+    const half = measureHalf(model);
+    if (half) reportHalf(half);
+  }, [model, reportHalf]);
+
+  return <primitive object={model} scale={scale} />;
 }
 
 function StackBillboard({
@@ -390,6 +581,104 @@ function RoadRamps({ length, width }: { length: number; width: number }) {
   );
 }
 
+const SLANT_PROFILE: [number, number][] = [
+  [-1, 0.02],
+  [-0.8, 0.029],
+  [-0.6, 0.069],
+  [-0.4, 0.113],
+  [-0.2, 0.2],
+  [0, 0.28],
+  [0.2, 0.38],
+  [0.4, 0.435],
+  [0.6, 0.475],
+  [0.8, 0.512],
+  [1, 0.52],
+];
+
+function FittedModel({ url, scale }: { url: string; scale: number }) {
+  const boxes = fittedBoxes(url) ?? [];
+  return (
+    <>
+      {boxes.map((item, index) => (
+        <CuboidCollider
+          key={index}
+          args={[item.half[0] * scale, item.half[1] * scale, item.half[2] * scale]}
+          position={[item.center[0] * scale, item.center[1] * scale, item.center[2] * scale]}
+          friction={0.4}
+          collisionGroups={interactionGroups([2], [1])}
+        />
+      ))}
+    </>
+  );
+}
+
+function SlantSurface({ scale }: { scale: number }) {
+  return (
+    <>
+      {SLANT_PROFILE.slice(0, -1).map(([x0, h0], index) => {
+        const [x1, h1] = SLANT_PROFILE[index + 1];
+        const y0 = h0 * scale;
+        const y1 = h1 * scale;
+        const dx = (x1 - x0) * scale;
+        const dy = y1 - y0;
+        const length = Math.hypot(dx, dy) + 0.4;
+        const angle = Math.atan2(dy, dx);
+        return (
+          <CuboidCollider
+            key={index}
+            args={[length / 2, 0.08, scale * 0.48]}
+            position={[((x0 + x1) / 2) * scale, (y0 + y1) / 2 - 0.08, 0]}
+            rotation={[0, 0, angle]}
+            friction={1.2}
+            collisionGroups={interactionGroups([0], [1])}
+          />
+        );
+      })}
+    </>
+  );
+}
+
+const UP_AXIS = new Vector3(0, 1, 0);
+
+function DriftObstacles({ position, rotationY }: { position: Vec3; rotationY: number }) {
+  "use no memo";
+  const bodies = useRef<(RapierRigidBody | null)[]>([]);
+  const turn = useMemo(() => new Quaternion(), []);
+
+  useFrame(({ clock }) => {
+    const cos = Math.cos(rotationY);
+    const sin = Math.sin(rotationY);
+    [0, 1, 2].forEach((route) => {
+      const body = bodies.current[route];
+      if (!body) return;
+      const pose = driftPose(route, driftDistance(route, clock.elapsedTime));
+      const x = position[0] + pose.x * cos + pose.z * sin;
+      const z = position[2] - pose.x * sin + pose.z * cos;
+      turn.setFromAxisAngle(UP_AXIS, pose.yaw + rotationY);
+      body.setNextKinematicTranslation({ x, y: position[1] + ROAD_RISE + 0.4, z });
+      body.setNextKinematicRotation({ x: turn.x, y: turn.y, z: turn.z, w: turn.w });
+    });
+  });
+
+  return (
+    <>
+      {[0, 1, 2].map((index) => (
+        <RigidBody
+          key={index}
+          ref={(body) => {
+            bodies.current[index] = body;
+          }}
+          type="kinematicPosition"
+          colliders={false}
+          position={position}
+        >
+          <CuboidCollider args={[0.34, 0.28, 0.58]} collisionGroups={interactionGroups([2], [1])} friction={0.4} />
+        </RigidBody>
+      ))}
+    </>
+  );
+}
+
 export function CityColliders({ entities }: { entities: MapEntity[] }) {
   return (
     <group>
@@ -445,18 +734,86 @@ export function CityColliders({ entities }: { entities: MapEntity[] }) {
             </RigidBody>
           );
         }
-        if (entity.kind === "model" && entity.collider === "building" && entity.half) {
+        if (entity.kind === "model" && entity.collider === "building" && fittedBoxes(entity.url)) {
           return (
             <RigidBody
               key={entity.id}
               type="fixed"
               colliders={false}
-              position={[entity.position[0], stackedPosition(entity)[1] + entity.half[1], entity.position[2]]}
+              position={stackedPosition(entity)}
               rotation={[0, entity.rotationY, 0]}
             >
-              <CuboidCollider args={entity.half} friction={0.3} collisionGroups={interactionGroups([2], [1])} />
+              <FittedModel url={entity.url} scale={entity.scale} />
             </RigidBody>
           );
+        }
+        if (entity.kind === "model" && entity.url.includes("road-slant-curve")) {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={stackedPosition(entity)}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <SlantSurface scale={entity.scale} />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "model" && entity.collider === "building" && entity.half) {
+          const hy = Math.max(entity.half[1], 0.4);
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={[entity.position[0], stackedPosition(entity)[1] + hy, entity.position[2]]}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <CuboidCollider
+                args={[entity.half[0], hy, entity.half[2]]}
+                friction={0.3}
+                collisionGroups={interactionGroups([2], [1])}
+              />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "character") {
+          const hx = 0.384 * entity.scale;
+          const hy = 0.361 * entity.scale;
+          const hz = 0.172 * entity.scale;
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={[entity.position[0], stackedPosition(entity)[1] + hy, entity.position[2]]}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <CuboidCollider args={[hx, hy, hz]} friction={0.4} collisionGroups={interactionGroups([2], [1])} />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "island") {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={stackedPosition(entity)}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <CuboidCollider
+                args={[1.85, 0.45, 0.98]}
+                position={[0, ROAD_RISE + 0.45, 0]}
+                friction={0.4}
+                collisionGroups={interactionGroups([2], [1])}
+              />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "drift") {
+          return <DriftObstacles key={entity.id} position={entity.position} rotationY={entity.rotationY} />;
         }
         return null;
       })}
@@ -526,6 +883,9 @@ function ModelBody({ entity, onHalf }: { entity: ModelEntity; onHalf?: (id: stri
   const reportHalf = entity.collider === "building" && !entity.half ? report : undefined;
   if (entity.label && entity.url.includes("billboard")) {
     return <StackBillboard scale={entity.scale} label={entity.label} reportHalf={reportHalf} />;
+  }
+  if (entity.url.toLowerCase().includes("sign")) {
+    return <RoadSign url={entity.url} scale={entity.scale} label={entity.label ?? ""} reportHalf={reportHalf} />;
   }
   return (
     <StaticModel
@@ -610,9 +970,10 @@ function EntityBody({
     case "drift":
       return (
         <>
-          <DriftCar offset={0} />
-          <DriftCar offset={0.33} />
-          <DriftCar offset={0.66} />
+          <DriftSkids />
+          <DriftCar route={0} />
+          <DriftCar route={1} />
+          <DriftCar route={2} />
         </>
       );
     default:

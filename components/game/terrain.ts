@@ -3,7 +3,7 @@ import { ROAD_RAMP, ROAD_WIDTH } from "./city/layout";
 
 export const WORLD_SIZE = 260;
 
-export const SPAWN = { x: 4, z: 0, yaw: -Math.PI / 2 };
+export const SPAWN = { x: 5.67, z: -43.9, yaw: -Math.PI / 2 };
 
 type Hill = { x: number; z: number; height: number; sigma: number };
 
@@ -18,8 +18,8 @@ export type Oasis = {
 };
 
 export const HILLS: Hill[] = [
-  { x: -46, z: -24, height: 1.7, sigma: 9 },
-  { x: -108, z: 30, height: 2.1, sigma: 10 },
+  { x: -44.33, z: -67.9, height: 1.7, sigma: 9 },
+  { x: -106.33, z: -13.9, height: 2.1, sigma: 10 },
 ];
 
 export const OASES: Oasis[] = [];
@@ -36,11 +36,13 @@ function influence(x: number, z: number, originX: number, originZ: number, sigma
 const ROAD_CLEAR = ROAD_WIDTH / 2 + ROAD_RAMP + 4;
 
 function sandBlocked(x: number, z: number) {
+  const lx = x - 1.67;
+  const lz = z + 43.9;
   const west = -80 - ROAD_CLEAR;
   const east = 16;
-  if (Math.abs(z) <= ROAD_CLEAR && x <= east && x >= west) return true;
-  if (Math.abs(z - 56) <= ROAD_CLEAR && x <= east && x >= west) return true;
-  if (Math.abs(x + 80) <= ROAD_CLEAR && z >= -ROAD_CLEAR && z <= 56 + ROAD_CLEAR) return true;
+  if (Math.abs(lz) <= ROAD_CLEAR && lx <= east && lx >= west) return true;
+  if (Math.abs(lz - 56) <= ROAD_CLEAR && lx <= east && lx >= west) return true;
+  if (Math.abs(lx + 80) <= ROAD_CLEAR && lz >= -ROAD_CLEAR && lz <= 56 + ROAD_CLEAR) return true;
   return false;
 }
 
@@ -73,9 +75,9 @@ export function createDesertGeometry() {
 
   const position = geometry.attributes.position;
   const colors = new Float32Array(position.count * 3);
-  const plain = new THREE.Color("#e3923a");
-  const crest = new THREE.Color("#f6c84a");
-  const slopeShade = new THREE.Color("#c86a22");
+  const plain = new THREE.Color("#5c9a3e");
+  const crest = new THREE.Color("#8fbf62");
+  const slopeShade = new THREE.Color("#3c7a32");
   const oasis = new THREE.Color("#2f8f3a");
   const color = new THREE.Color();
   const grid = segments + 1;

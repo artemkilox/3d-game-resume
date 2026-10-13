@@ -204,6 +204,7 @@ export function useMapDocument(viewRef: RefObject<EditorView>) {
     (url: string) => {
       const file = url.split("/").pop()?.replace(/\.glb$/i, "") ?? "Модель";
       const billboard = url.includes("billboard");
+      const labeled = billboard || url.toLowerCase().includes("sign");
       insert({
         id: createId(),
         name: file,
@@ -214,7 +215,7 @@ export function useMapDocument(viewRef: RefObject<EditorView>) {
         scale: billboard ? 0.012 : 1,
         outline: false,
         collider: "none",
-        label: billboard ? "Текст" : undefined,
+        label: labeled ? "Текст" : undefined,
       });
     },
     [here, insert],

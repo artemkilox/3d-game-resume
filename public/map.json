@@ -7,9 +7,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        12,
+        13.67,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -26,9 +26,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        8,
+        9.67,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -45,9 +45,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        4,
+        5.67,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -64,9 +64,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
+        1.67,
         0,
-        0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -83,9 +83,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -4,
+        -2.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -102,104 +102,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -8,
+        -6.33,
         0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-6",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -12,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-7",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -16,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-8",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -20,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-9",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -24,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-10",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -28,
-        0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -216,113 +121,19 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -32,
-        0,
-        0
+        -30.33,
+        3.2,
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
-        4,
+        20,
         7,
         6.4
       ],
       "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-12",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -36,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-13",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -40,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-14",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -44,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-15",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -48,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-16",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -52,
-        0,
-        0
-      ],
-      "rotationY": 0,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
+      "bend": false,
+      "layer": 0
     },
     {
       "id": "road-17",
@@ -330,9 +141,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -56,
+        -54.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -349,9 +160,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -60,
+        -58.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -368,9 +179,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -64,
+        -62.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -387,9 +198,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -68,
+        -66.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -406,9 +217,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -72,
+        -70.33,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -425,9 +236,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -75.4,
+        -73.73,
         0,
-        0
+        -43.9
       ],
       "rotationY": 0,
       "scale": [
@@ -444,11 +255,11 @@
       "kind": "road",
       "url": "/models/roads/road-bend.glb",
       "position": [
-        -80,
+        30.71,
         0.01,
-        0
+        -43.89
       ],
-      "rotationY": 1.5708,
+      "rotationY": 0,
       "scale": [
         6.4,
         7,
@@ -463,9 +274,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        5.2
+        -38.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -482,9 +293,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        9.2
+        -34.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -501,9 +312,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        13.2
+        -30.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -520,9 +331,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        17.2
+        -26.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -539,9 +350,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        21.2
+        -22.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -558,9 +369,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        25.2
+        -18.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -577,66 +388,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        29.2
-      ],
-      "rotationY": 1.5708,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-31",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -80,
-        0,
-        33.2
-      ],
-      "rotationY": 1.5708,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-32",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -80,
-        0,
-        37.2
-      ],
-      "rotationY": 1.5708,
-      "scale": [
-        4,
-        7,
-        6.4
-      ],
-      "ramps": true,
-      "bend": false
-    },
-    {
-      "id": "road-33",
-      "name": "Дорога",
-      "kind": "road",
-      "url": "/models/roads/road-straight.glb",
-      "position": [
-        -80,
-        0,
-        41.2
+        -14.7
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -653,9 +407,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        45.2
+        1.3
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -672,9 +426,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        49.2
+        5.3
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -691,9 +445,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -80,
+        -78.33,
         0,
-        52
+        8.1
       ],
       "rotationY": 1.5708,
       "scale": [
@@ -710,9 +464,9 @@
       "kind": "road",
       "url": "/models/roads/road-bend.glb",
       "position": [
-        -80,
+        -78.33,
         0.01,
-        56
+        12.1
       ],
       "rotationY": 3.14159,
       "scale": [
@@ -729,9 +483,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -74.8,
+        -73.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -748,9 +502,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -70.8,
+        -69.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -767,9 +521,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -66.8,
+        -65.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -786,9 +540,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -62.8,
+        -61.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -805,9 +559,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -58.8,
+        -57.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -824,9 +578,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -54.8,
+        -53.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -843,9 +597,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -50.8,
+        -49.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -862,9 +616,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -46.8,
+        -45.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -881,9 +635,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -42.8,
+        -41.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -900,9 +654,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -38.8,
+        -37.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -919,9 +673,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -34.8,
+        -33.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -938,9 +692,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -30.8,
+        -29.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -957,9 +711,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -26.8,
+        -25.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -976,9 +730,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -22.8,
+        -21.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -995,9 +749,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -18.8,
+        -17.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1014,9 +768,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -14.8,
+        -13.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1033,9 +787,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -10.8,
+        -9.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1052,9 +806,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -6.8,
+        -5.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1071,9 +825,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        -2.8,
+        -1.13,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1090,9 +844,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        1.2,
+        2.87,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1109,9 +863,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        5.2,
+        6.87,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1128,9 +882,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        9.2,
+        10.87,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1147,9 +901,9 @@
       "kind": "road",
       "url": "/models/roads/road-straight.glb",
       "position": [
-        12.6,
+        14.27,
         0,
-        56
+        12.1
       ],
       "rotationY": 0,
       "scale": [
@@ -1165,9 +919,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        8,
+        9.67,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1176,9 +930,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        0,
+        1.67,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1187,9 +941,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -8,
+        -6.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1198,9 +952,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -16,
+        -14.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1209,9 +963,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -24,
+        -22.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1220,9 +974,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -32,
+        -30.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1231,9 +985,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -40,
+        -38.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1242,9 +996,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -48,
+        -46.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1253,9 +1007,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -56,
+        -54.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1264,9 +1018,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -64,
+        -62.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1275,9 +1029,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -72,
+        -70.33,
         0.16,
-        0
+        -43.9
       ],
       "rotationY": 3.14159
     },
@@ -1286,9 +1040,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        8
+        -35.9
       ],
       "rotationY": -1.5708
     },
@@ -1297,9 +1051,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        16
+        -27.9
       ],
       "rotationY": -1.5708
     },
@@ -1308,9 +1062,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        24
+        -19.9
       ],
       "rotationY": -1.5708
     },
@@ -1319,9 +1073,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        32
+        -11.9
       ],
       "rotationY": -1.5708
     },
@@ -1330,9 +1084,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        40
+        -3.9
       ],
       "rotationY": -1.5708
     },
@@ -1341,9 +1095,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -80,
+        -78.33,
         0.16,
-        48
+        4.1
       ],
       "rotationY": -1.5708
     },
@@ -1352,9 +1106,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -72,
+        -70.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1363,9 +1117,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -64,
+        -62.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1374,9 +1128,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -56,
+        -54.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1385,9 +1139,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -48,
+        -46.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1396,9 +1150,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -40,
+        -38.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1407,9 +1161,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -32,
+        -30.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1418,9 +1172,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -24,
+        -22.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1429,9 +1183,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -16,
+        -14.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1440,9 +1194,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        -8,
+        -6.33,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1451,9 +1205,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        0,
+        1.67,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1462,9 +1216,9 @@
       "name": "Стрелка",
       "kind": "chevron",
       "position": [
-        8,
+        9.67,
         0.16,
-        56
+        12.1
       ],
       "rotationY": 0
     },
@@ -1474,9 +1228,9 @@
       "kind": "model",
       "url": "/models/commercial/building-k.glb",
       "position": [
-        -66.12,
+        -64.56,
         0,
-        24.24
+        -20.21
       ],
       "rotationY": 0,
       "scale": 8.1,
@@ -1494,12 +1248,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-a.glb",
       "position": [
-        -70,
+        -67.47,
         0,
-        70
+        34.06
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1514,12 +1268,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-b.glb",
       "position": [
-        -58,
+        -58.97,
         0,
-        70
+        34.1
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1534,12 +1288,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-b.glb",
       "position": [
-        -42,
+        -39.28,
         0,
-        70
+        34.25
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1554,12 +1308,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-c.glb",
       "position": [
-        -30,
+        -30.17,
         0,
-        70
+        34.28
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1574,12 +1328,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-d.glb",
       "position": [
-        -14,
+        -12.44,
         0,
-        70
+        34.63
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1594,12 +1348,12 @@
       "kind": "model",
       "url": "/models/commercial/building-skyscraper-e.glb",
       "position": [
-        -2,
+        -3.64,
         0,
-        70
+        34.55
       ],
       "rotationY": 0,
-      "scale": 1.7,
+      "scale": 5,
       "outline": true,
       "collider": "building",
       "half": [
@@ -1618,9 +1372,9 @@
         "Двигайтесь дальше, чтобы узнать больше обо мне"
       ],
       "position": [
-        4.2,
+        5.87,
         0.04,
-        -5.45
+        -49.35
       ],
       "rotationY": 0,
       "width": 16,
@@ -1632,9 +1386,9 @@
       "name": "Управление",
       "kind": "controls",
       "position": [
-        14.8,
+        11.72,
         0.04,
-        8.6
+        -36.39
       ],
       "rotationY": 0,
       "width": 9.6,
@@ -1652,13 +1406,13 @@
         "React / Next.js / TypeScript"
       ],
       "position": [
-        1.5,
+        1.71,
         0.04,
-        8.6
+        -36.26
       ],
       "rotationY": 0,
-      "width": 11,
-      "height": 6
+      "width": 8.6,
+      "height": 5.4
     },
     {
       "id": "text-education",
@@ -1671,21 +1425,22 @@
         "Информационные системы и технологии"
       ],
       "position": [
-        -65.67,
+        -64.23,
         0.04,
-        14.01
+        -29.43
       ],
       "rotationY": 0,
       "width": 12,
       "height": 6.4,
-      "layer": 1
+      "layer": 1,
+      "color": "white"
     },
     {
       "id": "text-indevlabs",
-      "name": "ИндевЛабс",
+      "name": "Frontend-разработчик",
       "kind": "text",
       "variant": "copy",
-      "title": "ИндевЛабс",
+      "title": "Frontend-разработчик",
       "lines": [
         "март 2022 — август 2024",
         "JWT, 2FA и роли",
@@ -1693,20 +1448,22 @@
         "Таблицы и платежи на фронте"
       ],
       "position": [
-        -64,
+        -62.81,
         0.04,
-        63
+        23.82
       ],
       "rotationY": 0,
       "width": 12,
-      "height": 7
+      "height": 7,
+      "layer": 1,
+      "color": "white"
     },
     {
       "id": "text-businessmaket",
-      "name": "Бизнесмакет",
+      "name": "Frontend-разработчик",
       "kind": "text",
       "variant": "copy",
-      "title": "Бизнесмакет",
+      "title": "Frontend-разработчик",
       "lines": [
         "июнь 2023 — декабрь 2025",
         "Свет, звук и видео по WebSocket",
@@ -1714,34 +1471,38 @@
         "Экраны под сенсор"
       ],
       "position": [
-        -36,
+        -34.47,
         0.04,
-        63
+        24.04
       ],
       "rotationY": 0,
       "width": 12,
-      "height": 7
+      "height": 7,
+      "layer": 1,
+      "color": "white"
     },
     {
       "id": "text-pushkin",
-      "name": "Пушкин",
+      "name": "Ведущий разработчик",
       "kind": "text",
       "variant": "copy",
-      "title": "Пушкин",
+      "title": "Ведущий разработчик",
       "lines": [
         "август 2024 — август 2026",
-        "Ведущий разработчик",
+        "",
         "Загрузка 3 с → 1,2 с",
         "UI-kit, LMS, CI/CD"
       ],
       "position": [
-        -8,
+        -7.55,
         0.04,
-        63
+        24.36
       ],
       "rotationY": 0,
       "width": 12,
-      "height": 7
+      "height": 7,
+      "color": "white",
+      "layer": 1
     },
     {
       "id": "text-contacts",
@@ -1751,29 +1512,31 @@
       "title": "Контакты",
       "lines": [
         "+7 980 392-42-61",
-        "@ArtemChernykh001",
+        "tg: @ArtemChernykh001",
         "artemchernykh001@yandex.ru",
         "Реутов · офис, гибрид, удалённо"
       ],
       "position": [
-        18,
+        16.24,
         0.04,
-        62
+        23.71
       ],
       "rotationY": 0,
       "width": 12,
-      "height": 7
+      "height": 7,
+      "color": "white",
+      "layer": 1
     },
     {
       "id": "character",
       "name": "Персонаж",
       "kind": "character",
       "position": [
-        -5.2,
+        -1.62,
         0,
-        11.5
+        -33.58
       ],
-      "rotationY": 2.44159,
+      "rotationY": 2.70339,
       "scale": 2.3
     },
     {
@@ -1781,22 +1544,23 @@
       "name": "Парковка",
       "kind": "deck",
       "position": [
-        -65.73,
+        -64.26,
         0,
-        13.64
+        -29.18
       ],
       "rotationY": 0,
       "length": 16,
-      "width": 12
+      "width": 12,
+      "layer": 0
     },
     {
       "id": "curb-north",
       "name": "Бордюр",
       "kind": "curb",
       "position": [
-        -29.9,
+        -28.23,
         0.13,
-        25.29
+        -18.61
       ],
       "rotationY": 0,
       "size": [
@@ -1810,9 +1574,9 @@
       "name": "Бордюр",
       "kind": "curb",
       "position": [
-        -30.01,
+        -28.25,
         0.13,
-        8.13
+        -35.74
       ],
       "rotationY": 0,
       "size": [
@@ -1826,9 +1590,9 @@
       "name": "Бордюр",
       "kind": "curb",
       "position": [
-        -8.81,
+        -7.14,
         0.13,
-        16.72
+        -27.18
       ],
       "rotationY": 0,
       "size": [
@@ -1842,9 +1606,9 @@
       "name": "Бордюр",
       "kind": "curb",
       "position": [
-        -50.97,
+        -49.3,
         0.13,
-        16.76
+        -27.14
       ],
       "rotationY": 0,
       "size": [
@@ -1861,9 +1625,9 @@
         "React"
       ],
       "position": [
-        -46.5,
+        -44.83,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1875,9 +1639,9 @@
         "TypeScript"
       ],
       "position": [
-        -39.9,
+        -38.23,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1889,9 +1653,9 @@
         "Next.js"
       ],
       "position": [
-        -33.3,
+        -31.63,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1903,9 +1667,9 @@
         "JavaScript"
       ],
       "position": [
-        -26.7,
+        -25.03,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1918,9 +1682,9 @@
         "Toolkit"
       ],
       "position": [
-        -20.1,
+        -18.43,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1933,9 +1697,9 @@
         "Router"
       ],
       "position": [
-        -13.5,
+        -11.83,
         0,
-        11.45
+        -32.45
       ],
       "rotationY": 0
     },
@@ -1947,9 +1711,9 @@
         "CSS-modules"
       ],
       "position": [
-        -46.5,
+        -44.83,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -1961,9 +1725,9 @@
         "SCSS"
       ],
       "position": [
-        -39.9,
+        -38.23,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -1975,9 +1739,9 @@
         "Tailwind"
       ],
       "position": [
-        -33.3,
+        -31.63,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -1990,9 +1754,9 @@
         "Components"
       ],
       "position": [
-        -26.7,
+        -25.03,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -2004,9 +1768,9 @@
         "Vite"
       ],
       "position": [
-        -20.1,
+        -18.43,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -2018,9 +1782,9 @@
         "Webpack"
       ],
       "position": [
-        -13.5,
+        -11.83,
         0,
-        15.15
+        -28.75
       ],
       "rotationY": 0
     },
@@ -2032,9 +1796,9 @@
         "Node.js"
       ],
       "position": [
-        -46.5,
+        -44.83,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2046,9 +1810,9 @@
         "Express"
       ],
       "position": [
-        -39.9,
+        -38.23,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2060,9 +1824,9 @@
         "REST"
       ],
       "position": [
-        -33.3,
+        -31.63,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2074,9 +1838,9 @@
         "PostgreSQL"
       ],
       "position": [
-        -26.7,
+        -25.03,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2088,9 +1852,9 @@
         "WebSocket"
       ],
       "position": [
-        -20.1,
+        -18.43,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2102,9 +1866,9 @@
         "Jest"
       ],
       "position": [
-        -13.5,
+        -11.83,
         0,
-        18.85
+        -25.05
       ],
       "rotationY": 0
     },
@@ -2117,9 +1881,9 @@
         "Library"
       ],
       "position": [
-        -39.9,
+        -38.23,
         0,
-        22.55
+        -21.35
       ],
       "rotationY": 0
     },
@@ -2131,9 +1895,9 @@
         "Git"
       ],
       "position": [
-        -33.3,
+        -31.63,
         0,
-        22.55
+        -21.35
       ],
       "rotationY": 0
     },
@@ -2146,9 +1910,9 @@
         "Actions"
       ],
       "position": [
-        -26.7,
+        -25.03,
         0,
-        22.55
+        -21.35
       ],
       "rotationY": 0
     },
@@ -2160,9 +1924,9 @@
         "Figma"
       ],
       "position": [
-        -20.1,
+        -18.43,
         0,
-        22.55
+        -21.35
       ],
       "rotationY": 0
     },
@@ -2172,9 +1936,9 @@
       "kind": "model",
       "url": "/models/billboard.glb",
       "position": [
-        -9,
+        -7.33,
         0.18,
-        5.15
+        -38.75
       ],
       "rotationY": 1.5708,
       "scale": 0.012,
@@ -2192,9 +1956,9 @@
       "name": "Машины на парковке",
       "kind": "drift",
       "position": [
-        -30,
+        -28.33,
         0,
-        17
+        -26.9
       ],
       "rotationY": 0
     },
@@ -2204,9 +1968,9 @@
       "kind": "model",
       "url": "/models/billboard.glb",
       "position": [
-        -57.21,
+        -55.56,
         0.18,
-        5.32
+        -38.58
       ],
       "rotationY": 1.5708,
       "scale": 0.012,
@@ -2224,13 +1988,5527 @@
       "name": "Парковка копия",
       "kind": "deck",
       "position": [
-        -29.93,
+        -28.26,
         0,
-        16.78
+        -27.12
       ],
       "rotationY": 0,
       "length": 42,
       "width": 17
+    },
+    {
+      "id": "53f2531e-5b8b-4dd4-ad22-b98947b3eba2",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -72.11,
+        0.13,
+        -29.23
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "2233eb0f-daec-4179-a8fe-0e24bd368fd2",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -56.47,
+        0.13,
+        -28.92
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "a63fda86-fe08-4e61-8df0-0907fb851ed3",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -64.28,
+        0.13,
+        -35.08
+      ],
+      "rotationY": 0,
+      "size": [
+        16,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "415b2647-88ae-4daf-b4b5-ae6da1a683b0",
+      "name": "Sign by Zsky - 9UeVfOHm6k",
+      "kind": "model",
+      "url": "/models/Sign by Zsky - 9UeVfOHm6k.glb",
+      "position": [
+        -78.34,
+        -1,
+        -35.65
+      ],
+      "rotationY": 0,
+      "scale": 1.2,
+      "outline": false,
+      "collider": "building",
+      "label": "Опыт работы"
+    },
+    {
+      "id": "414e89e4-70e9-446a-951a-c5d4bd298f16",
+      "name": "Билборд копия",
+      "kind": "model",
+      "url": "/models/billboard.glb",
+      "position": [
+        -69.82,
+        0.18,
+        17.26
+      ],
+      "rotationY": 1.5708,
+      "scale": 0.012,
+      "outline": false,
+      "collider": "building",
+      "label": "INDEVLABS",
+      "half": [
+        2.641,
+        4.02,
+        3.71
+      ]
+    },
+    {
+      "id": "6c8b20f7-5b71-4f1b-8e28-10429c29868b",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -62.83,
+        0,
+        23.74
+      ],
+      "rotationY": 0,
+      "length": 16,
+      "width": 12,
+      "layer": 0
+    },
+    {
+      "id": "b70486e8-5e31-48b3-b8eb-b3315f672642",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -70.75,
+        0.13,
+        23.81
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "8cafde18-afd9-4d59-a330-a3d382530fd5",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -57.7,
+        0.13,
+        17.95
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "58eda5a8-cc18-46e3-bbec-45900069a648",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -54.9,
+        0.13,
+        23.75
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "6bd8131a-0662-4d32-8f0a-d590c170272a",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -67.86,
+        0.13,
+        17.95
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "fa191e2e-e85a-4211-aef7-d68e134371f6",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -62.89,
+        0.13,
+        29.63
+      ],
+      "rotationY": 0,
+      "size": [
+        16,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "c96600cf-ea84-4082-a622-b038a234ae33",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -62.78,
+        0,
+        18.37
+      ],
+      "rotationY": 0,
+      "length": 4.2,
+      "width": 3.9,
+      "layer": 0
+    },
+    {
+      "id": "d19f072a-8818-4182-8ff0-e471ee9045cb",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -59.02,
+        0,
+        33.9
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "e362663a-b38a-4ad5-bb3a-a1383db14add",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -67.51,
+        0,
+        33.96
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "465711f4-0846-4050-80f4-9a2cb0a48518",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -39.24,
+        0,
+        34.34
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "1d16f778-77f5-4f23-96e8-fcf0c93db173",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -34.74,
+        0,
+        23.86
+      ],
+      "rotationY": 0,
+      "length": 16,
+      "width": 12,
+      "layer": 0
+    },
+    {
+      "id": "3791ee8d-ce45-4d1a-bba6-f5a9be0b2bd7",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -34.63,
+        0,
+        18.32
+      ],
+      "rotationY": 0,
+      "length": 4.2,
+      "width": 3.9,
+      "layer": 0
+    },
+    {
+      "id": "abacabfc-8b93-48fe-bf45-64448b194718",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -39.7,
+        0.13,
+        18.06
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "19bdc38f-6cd2-4a3d-8cfd-022ce1a25733",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -29.54,
+        0.13,
+        18.06
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "0e0f4be5-708a-43e8-8d09-e86917a4a272",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -26.76,
+        0.13,
+        23.93
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "1fabe7a9-9c46-4ef9-859a-7bed9302146a",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -42.56,
+        0.13,
+        23.87
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "3ea8c3d7-85da-4e78-8c61-75d829a1f2b2",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -34.74,
+        0.13,
+        29.74
+      ],
+      "rotationY": 0,
+      "size": [
+        16,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "7017d69f-3f26-415b-ab3e-9c9b8e791a3e",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -30.17,
+        0,
+        34.34
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "8e2ea26a-2c82-4158-9d9b-dd5ce577a86b",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -7.81,
+        0,
+        24.19
+      ],
+      "rotationY": 0,
+      "length": 16,
+      "width": 12,
+      "layer": 0
+    },
+    {
+      "id": "84a5d728-3e2e-44e2-af28-65a99727dc0e",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -7.81,
+        0,
+        18.32
+      ],
+      "rotationY": 0,
+      "length": 4.2,
+      "width": 3.9,
+      "layer": 0
+    },
+    {
+      "id": "78889737-6287-4130-97e5-83f5e1fd24a1",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -12.79,
+        0.13,
+        18.44
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "e94f73be-4e85-4cc1-8538-5bdca0e0353d",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -2.73,
+        0.13,
+        18.44
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "4ff44840-ebc0-40c4-bd95-666fff5fa96b",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -15.61,
+        0.13,
+        24.28
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "a972467e-7409-43c0-9767-5d6cfc8bfd0b",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        0.04,
+        0.13,
+        24.28
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "7e814673-0fe9-4ce2-9756-53182b0f34b3",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        -7.82,
+        0.13,
+        30.11
+      ],
+      "rotationY": 0,
+      "size": [
+        16,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "abe02841-b593-4e6c-98fc-55d61f3ca94a",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -12.31,
+        0,
+        34.6
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "17158cf9-b5f9-4272-95de-129a2559709c",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -3.38,
+        0,
+        34.54
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "b1f2a9a4-ca58-48f1-8d09-cb9781d27860",
+      "name": "building-skyscraper-e копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-e.glb",
+      "position": [
+        -21.41,
+        0,
+        63.03
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.105,
+        3.468,
+        1.054
+      ]
+    },
+    {
+      "id": "e399de09-2184-4076-8283-20462dc082eb",
+      "name": "building-skyscraper-c копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-c.glb",
+      "position": [
+        -9.43,
+        0,
+        67.8
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.72,
+        1.156
+      ]
+    },
+    {
+      "id": "33f0fe20-6437-4d1b-842d-c9dd8e2f3536",
+      "name": "building-skyscraper-a копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-a.glb",
+      "position": [
+        -21.03,
+        0,
+        53.79
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.448,
+        1.156
+      ]
+    },
+    {
+      "id": "3ad1309a-b20a-4054-8297-aa9e37995ed3",
+      "name": "building-skyscraper-a копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-a.glb",
+      "position": [
+        -29.76,
+        0,
+        53.69
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.448,
+        1.156
+      ]
+    },
+    {
+      "id": "9e696128-d56f-4959-aedb-a16dbfcc389a",
+      "name": "building-skyscraper-a копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-a.glb",
+      "position": [
+        -0.73,
+        0,
+        67.9
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.448,
+        1.156
+      ]
+    },
+    {
+      "id": "87f8e3d2-e023-4539-8e70-7e949fe81e94",
+      "name": "building-skyscraper-b копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        -39.25,
+        0,
+        52.96
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "b127817c-a4a7-403b-af25-87ce559af646",
+      "name": "building-skyscraper-b копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        0.2,
+        0,
+        57.53
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "37e29069-f2d2-42f3-b731-fee571742211",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        0.15,
+        0,
+        57.51
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "33e1454f-fc11-46c7-a856-810237ea9f2c",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -0.43,
+        0,
+        67.99
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "98e5929d-ee1c-4d1d-ac3b-ee769940c0ad",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -9.32,
+        0,
+        67.7
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "54c67139-9681-4ccb-9c19-a7ac402b4549",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -21.07,
+        0,
+        63.2
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "d8a478f9-8117-42c5-a4a2-f84cf96daf1f",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -20.86,
+        0,
+        53.8
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "8f5e8d34-3424-41a5-a0af-f82271cc6e58",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -29.54,
+        0,
+        53.73
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "0bd18013-fab2-491a-8835-1e38aec8f5d3",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -39,
+        0,
+        53.11
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "1203bd43-df8a-42c3-99a4-6497832c5735",
+      "name": "road-crossroad-line",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        30.68,
+        0,
+        12.1
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "bf11f35c-d214-4c74-abbc-eafa4866b6c2",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -78.34,
+        0,
+        -4.33
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false,
+      "layer": 0
+    },
+    {
+      "id": "fb7f1d1e-74f4-4746-8e57-dfe22b00c557",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -78.34,
+        0,
+        -1.04
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "ccaac231-d253-4e15-ac36-fbd5e5c78ea2",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -73.14,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "d6ee4bab-be28-4a65-b8ef-72db0fc7d65c",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -83.52,
+        0,
+        -9.5
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false,
+      "layer": 0
+    },
+    {
+      "id": "95b714f8-0da8-4bf5-8d6d-5105833ed985",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -69.16,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "37d01802-17ab-491c-8d94-1726ac87037c",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -59.19,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "aee52a45-b0fd-4015-a6eb-cdb098012a81",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -65.16,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "b15eecac-1c0e-4fd6-b1be-6116052ac5b7",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -63.16,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "ebbe95df-c008-4271-91d8-97b8c3bf836a",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -55.19,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f6ff2cfc-9c7f-4db1-8ff5-9f403ba25ec0",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -51.2,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "9cf78662-47f3-46b5-a212-55605afb5d7e",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -47.25,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "52af678d-f4f1-442e-aeb6-fa104cd88174",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -43.27,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "dd19bdfd-3ebb-44c1-8ed6-28b1ff71b398",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -39.34,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "4c1f561b-857f-4ddc-9dba-1231db7812fa",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -35.37,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f34a565b-27cb-4c82-bcf3-c6edb2658be4",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -31.4,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "2156b07c-f563-4032-bef9-8f59a7a42095",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -27.43,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "55da9bfd-17cf-4f2e-b3c1-77da4a75e8e9",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -23.49,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "28b83ad9-3ed5-43b7-896a-2ecafb9e6ea0",
+      "name": "Поворот копия",
+      "kind": "road",
+      "url": "/models/roads/road-bend.glb",
+      "position": [
+        -78.32,
+        0.01,
+        -43.88
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        6.4,
+        7,
+        6.4
+      ],
+      "ramps": false,
+      "bend": true
+    },
+    {
+      "id": "1517a86c-a7a4-4201-9201-6151bbf96cab",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -19.5,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "a12b0cfe-d77d-4f7b-93ea-b6c7f594373f",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -15.56,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "b90aa4a4-cb8d-4f79-b564-57743988d029",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -11.57,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f2565f7a-f150-491c-b5bf-2a99d9bc82f2",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -7.59,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "d1328609-ddc6-4482-be93-d63174d08d26",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -3.65,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "c37df214-f384-44e8-8b2b-41dd0c669d90",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        0.24,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "17e2788e-e167-4000-8ffc-16510e4d6333",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        4.18,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "42d271c9-ad7f-447f-beea-80e0fa2201c2",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        8.14,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "79df4fb1-6f6b-43c8-bcae-38b5e0407945",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        -78.34,
+        0,
+        -9.5
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "9550193a-6163-4bea-acd1-d17a72a4c1b2",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        30.75,
+        0,
+        -9.55
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "ed771413-f873-414f-a468-e4990e036ca7",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.72,
+        0,
+        -38.72
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "5a2ec501-2f16-4195-85c2-1eefce9374d1",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        17.6,
+        0,
+        -43.9
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "e7157de5-772c-4fc2-ad58-22a8b3bac694",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        21.54,
+        0,
+        -43.9
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "c6092948-e1d9-4049-b5f8-d6c495846cb3",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        25.51,
+        0,
+        -43.9
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "abce8c2b-453b-4d85-b07b-60a3e8fc7a28",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        12.14,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f5a8e395-6f27-4105-ab0a-ce388f2e736d",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        16.01,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "3673dc50-11b4-4e11-a005-f6b3b0f6dfac",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        19.95,
+        0,
+        -9.52
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f35f7338-0ef9-4d63-ae2e-47094dae4f54",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        23.95,
+        0,
+        -9.51
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "a540f3db-6762-4563-ac45-5b52761d86b7",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.7,
+        0,
+        -34.74
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "02e731f8-408c-464d-b03a-5c6eb7daf8eb",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.7,
+        0,
+        -30.74
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f4c0ca00-4eb6-4c66-9813-ce6079f5dff3",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.69,
+        0,
+        -26.85
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "b57135bd-d496-4d46-a90f-fead584f5cfc",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.69,
+        0,
+        -22.86
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "7d34fd9a-4968-44fc-99b1-497a5d42236f",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.69,
+        0,
+        -18.87
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "0504e6b8-aa0b-404b-a1bd-9b24c4f54276",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.68,
+        0,
+        -14.88
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "b54e302b-a61f-48f6-9c06-04fbd57ea91b",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        25.6,
+        0,
+        -9.53
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "ec71c0ee-7c8f-4b9f-9f6b-d4d8d1eb4fe2",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.68,
+        0,
+        -14.58
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "ee22ac56-89a1-4446-93cd-160a3d207156",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        16.93,
+        0,
+        12.09
+      ],
+      "rotationY": 0,
+      "scale": [
+        2.8,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "f2252964-94eb-4d4e-9719-bff5cbff48d6",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        22.51,
+        0,
+        12.08
+      ],
+      "rotationY": 0,
+      "scale": [
+        10,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "5e4d5c86-e380-4c17-ab1e-6e1025fdf05f",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.68,
+        0,
+        1.16
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        16,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "7686ad39-b22b-4cbf-9b48-195656016458",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.67,
+        0,
+        27.73
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        25,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "e1526b00-c15c-4ada-9390-2fbc9888b2e4",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        43.82,
+        0,
+        12.09
+      ],
+      "rotationY": 0,
+      "scale": [
+        20,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "14602086-ad14-4c3f-9d5c-54aa461a4dbc",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        43.87,
+        0,
+        -9.5
+      ],
+      "rotationY": 0,
+      "scale": [
+        20,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "d8e7cbaa-d952-4444-82af-b3c15eee9778",
+      "name": "Билборд копия",
+      "kind": "model",
+      "url": "/models/billboard.glb",
+      "position": [
+        -41.28,
+        0.18,
+        17.26
+      ],
+      "rotationY": 1.5708,
+      "scale": 0.012,
+      "outline": false,
+      "collider": "building",
+      "label": "Бизнесмакет",
+      "half": [
+        2.641,
+        4.02,
+        3.71
+      ]
+    },
+    {
+      "id": "27c8a686-5471-40e2-b014-22dfb1079b36",
+      "name": "Билборд копия",
+      "kind": "model",
+      "url": "/models/billboard.glb",
+      "position": [
+        -14.42,
+        0.18,
+        17.33
+      ],
+      "rotationY": 1.5708,
+      "scale": 0.012,
+      "outline": false,
+      "collider": "building",
+      "label": "Институт Пушкина",
+      "half": [
+        2.641,
+        4.02,
+        3.71
+      ]
+    },
+    {
+      "id": "91692317-8c8c-4018-a434-53bebb858503",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        16.21,
+        0,
+        23.83
+      ],
+      "rotationY": 0,
+      "length": 16,
+      "width": 12,
+      "layer": 0
+    },
+    {
+      "id": "bfb2ac32-b5f2-4aca-acad-38dc142cd112",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        16.2,
+        0,
+        18.38
+      ],
+      "rotationY": 0,
+      "length": 4.2,
+      "width": 3.9,
+      "layer": 0
+    },
+    {
+      "id": "f4507e72-8af4-4951-a852-024a8bf782c7",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        11.13,
+        0.13,
+        18.01
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ],
+      "layer": 0
+    },
+    {
+      "id": "7d715a1a-1453-460e-9363-613acab0fed6",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        21.28,
+        0.13,
+        18.02
+      ],
+      "rotationY": 0,
+      "size": [
+        6,
+        0.26,
+        0.38
+      ],
+      "layer": 0
+    },
+    {
+      "id": "cb489a23-beff-4bd6-a166-658ba155637e",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        8.32,
+        0.13,
+        23.82
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "eef80cad-581c-4022-9dd6-ec4a251e7161",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        24.09,
+        0.13,
+        23.83
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        12
+      ]
+    },
+    {
+      "id": "9c506e13-61a2-4eec-be0d-9f16e6983683",
+      "name": "Бордюр копия",
+      "kind": "curb",
+      "position": [
+        16.25,
+        0.13,
+        29.64
+      ],
+      "rotationY": 0,
+      "size": [
+        16,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "53aad57c-7bfb-4609-bc2d-0423daddd25e",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -22.51,
+        0,
+        43.43
+      ],
+      "rotationY": 3.1416,
+      "scale": [
+        100,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "310effd5-95c8-4323-82c0-f7d78cae48bc",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        30.68,
+        0,
+        43.43
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "4a57d75d-3502-43bd-a802-43a13bb502a1",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        30.68,
+        0,
+        59.1
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        25,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "01083c47-748a-46c0-8e40-2ed3bccb7401",
+      "name": "Дорога копия",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        43.87,
+        0,
+        43.42
+      ],
+      "rotationY": 0,
+      "scale": [
+        20,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "51663ebe-c8b4-4f0b-8c4c-b8a3641e1e80",
+      "name": "building-a",
+      "kind": "model",
+      "url": "/models/city/building-a.glb",
+      "position": [
+        21.23,
+        0,
+        -19.31
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "cb352e1b-afcc-461a-9319-4d5aa3de3c36",
+      "name": "building-c",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        -12.62,
+        0,
+        1.48
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "b1d7f0b3-550f-4dbd-9c88-e18a12f35dae",
+      "name": "building-e",
+      "kind": "model",
+      "url": "/models/city/building-e.glb",
+      "position": [
+        -66.78,
+        0,
+        0.52
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bce077c1-7b27-4efe-bf4b-133ed1e9ffcb",
+      "name": "building-d",
+      "kind": "model",
+      "url": "/models/city/building-d.glb",
+      "position": [
+        -20.97,
+        0,
+        1.58
+      ],
+      "rotationY": 0,
+      "scale": 7,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d750661c-3df8-4e8b-b75d-fe121c075473",
+      "name": "building-f",
+      "kind": "model",
+      "url": "/models/city/building-f.glb",
+      "position": [
+        -47.69,
+        0,
+        0.46
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bd1667f7-1c40-4882-9beb-00d265e67f4e",
+      "name": "building-h",
+      "kind": "model",
+      "url": "/models/city/building-h.glb",
+      "position": [
+        -56.78,
+        0,
+        0.55
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2aa3f37d-70a0-462e-b349-8ce27dfbb72b",
+      "name": "building-i",
+      "kind": "model",
+      "url": "/models/city/building-i.glb",
+      "position": [
+        -31.28,
+        0,
+        0.7
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "56666be1-ff25-419c-90cd-47dc2afd0f6a",
+      "name": "building-f копия",
+      "kind": "model",
+      "url": "/models/city/building-f.glb",
+      "position": [
+        -42.3,
+        0,
+        0.31
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "dcbe4123-179c-40aa-9372-3363e9fff222",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        -3.91,
+        0,
+        1.55
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9baba469-0526-47e5-b16f-16dcd12731dd",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        4.91,
+        0,
+        1.27
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "763e1cc0-50bf-41c3-80ae-b3aa3a7613b0",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        13.37,
+        0,
+        1.53
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bf7ffbe8-83f8-4441-8f10-ac145033e016",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        22.07,
+        0,
+        1.35
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7567cd40-6854-49f8-83f9-635e4ae8494e",
+      "name": "building-b копия",
+      "kind": "model",
+      "url": "/models/city/building-b.glb",
+      "position": [
+        1.39,
+        0,
+        -18.5
+      ],
+      "rotationY": -3.14159,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "fce037ff-520c-48fe-8754-5eb9b647079d",
+      "name": "building-e копия",
+      "kind": "model",
+      "url": "/models/city/building-e.glb",
+      "position": [
+        6.78,
+        0,
+        -28.2
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d3949c8a-edb0-4f85-a552-dbca46b12fbf",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        40.82,
+        0,
+        -19.17
+      ],
+      "rotationY": 1.5708,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "aa408edf-bee6-48a8-a446-138c3785b0f3",
+      "name": "building-a копия",
+      "kind": "model",
+      "url": "/models/city/building-a.glb",
+      "position": [
+        21.02,
+        0,
+        -29.49
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "04a178c0-95c3-4c73-96aa-ec3b2481cf67",
+      "name": "building-b копия",
+      "kind": "model",
+      "url": "/models/city/building-b.glb",
+      "position": [
+        10.62,
+        0,
+        -18.79
+      ],
+      "rotationY": -3.14159,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "cca6a817-96bf-402b-8cfa-d17a74d84967",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        40.68,
+        0,
+        -26.76
+      ],
+      "rotationY": 1.5708,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5814814e-9f1f-4cef-bcac-a7b09088daf4",
+      "name": "building-a копия",
+      "kind": "model",
+      "url": "/models/city/building-a.glb",
+      "position": [
+        40.73,
+        0,
+        -37.52
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c412225b-6b7f-497b-a228-3b7a31d87b7f",
+      "name": "building-a копия",
+      "kind": "model",
+      "url": "/models/city/building-a.glb",
+      "position": [
+        49.87,
+        0,
+        -18.64
+      ],
+      "rotationY": 3.14159,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9fc52b46-d254-42c5-9c92-810a36c2f3a2",
+      "name": "building-a копия",
+      "kind": "model",
+      "url": "/models/city/building-a.glb",
+      "position": [
+        49.52,
+        0,
+        -37.5
+      ],
+      "rotationY": 0,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f243e996-25a3-4dba-a695-4523f51b8b34",
+      "name": "building-b копия",
+      "kind": "model",
+      "url": "/models/city/building-b.glb",
+      "position": [
+        39.84,
+        0,
+        21.68
+      ],
+      "rotationY": 0,
+      "scale": 7,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "05ff3268-4ced-46af-b392-3bd9aaf6b576",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        11.62,
+        0,
+        34.51
+      ],
+      "rotationY": 0,
+      "scale": 7,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ac9358c1-a982-43a8-9e33-fcfc8d4bd6a0",
+      "name": "building-b копия",
+      "kind": "model",
+      "url": "/models/city/building-b.glb",
+      "position": [
+        19.96,
+        0,
+        33.95
+      ],
+      "rotationY": 0,
+      "scale": 7,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c040c5c0-7288-4939-bb3e-94dc09ab4de9",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        40.94,
+        0,
+        0.85
+      ],
+      "rotationY": 1.5708,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "366a4f52-1367-498b-8bbe-3b70bd953cd0",
+      "name": "building-c копия",
+      "kind": "model",
+      "url": "/models/city/building-c.glb",
+      "position": [
+        50.86,
+        0,
+        1.66
+      ],
+      "rotationY": 3.14159,
+      "scale": 6,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "728ad974-41db-4f9c-b534-664f7f60e09e",
+      "name": "road-slant-curve",
+      "kind": "model",
+      "url": "/models/roads/road-slant-curve.glb",
+      "position": [
+        -14.63,
+        0,
+        -43.89
+      ],
+      "rotationY": 3.14159,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none"
+    },
+    {
+      "id": "5c4f6747-de78-41c4-8129-7d7f66ba8e71",
+      "name": "road-slant-curve копия",
+      "kind": "model",
+      "url": "/models/roads/road-slant-curve.glb",
+      "position": [
+        -45.98,
+        0,
+        -43.89
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none"
+    },
+    {
+      "id": "ea372198-e790-4a43-a9d4-558f54db7fce",
+      "name": "building-skyscraper-b копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        10.08,
+        0,
+        57.33
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "ea675d67-53ac-4333-a428-95885f2f35dd",
+      "name": "building-skyscraper-b копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        19.04,
+        0,
+        57.13
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "f2bac813-6cf1-4704-ae17-a60f400bf3e4",
+      "name": "building-skyscraper-e копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-e.glb",
+      "position": [
+        10.36,
+        0,
+        67.09
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.105,
+        3.468,
+        1.054
+      ]
+    },
+    {
+      "id": "722760dc-7579-4d1b-acd4-0c47600968e4",
+      "name": "building-skyscraper-e копия",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-e.glb",
+      "position": [
+        19.03,
+        0,
+        67.14
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.105,
+        3.468,
+        1.054
+      ]
+    },
+    {
+      "id": "0c22605a-80c2-496d-b8ca-86c466b763d6",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        10.16,
+        0,
+        57.42
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "ebd81644-addb-4a3d-9efa-a3b78f38f90f",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        19.18,
+        0,
+        57.28
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "df526536-c235-43f0-8105-77a0218a8983",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        19.08,
+        0,
+        67.33
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "354b3620-d7c3-4675-9743-7e49e2b5f4ae",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        10.51,
+        0,
+        66.98
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "35aef91a-528c-49a3-9c00-6ef041ede6b1",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        11.8,
+        0,
+        34.26
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 8,
+      "layer": 0
+    },
+    {
+      "id": "af94ed9e-a56e-4491-b297-3fd57aaa013c",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        20.39,
+        0,
+        34.45
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 8,
+      "layer": 0
+    },
+    {
+      "id": "eedf838f-a15c-410f-abbf-0a52c91858c6",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        40.12,
+        0,
+        21.93
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 8,
+      "layer": 0
+    },
+    {
+      "id": "3674005a-c935-4cd6-ac5e-2c86f4df01bc",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        40.79,
+        0,
+        1.25
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "1ec7a7c2-20c7-4f10-94ae-3bcd37f3d8b1",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        50.68,
+        0,
+        1.86
+      ],
+      "rotationY": 0,
+      "length": 7,
+      "width": 8,
+      "layer": 0
+    },
+    {
+      "id": "1f69c641-f229-471c-b04e-8a46862373b0",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        40.99,
+        0,
+        -18.55
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 8,
+      "layer": 0
+    },
+    {
+      "id": "ef280a9f-3147-4592-a402-8be24d5df66a",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        40.71,
+        0,
+        -26.89
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "196c8608-5e7c-4f8f-b65e-af6b0e9296e0",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        50.11,
+        0,
+        -18.73
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "612eb724-0acb-4433-9a28-46622804d4bd",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        49.97,
+        0,
+        -36.75
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "d3e07174-50b7-4d53-b246-93809a30c82b",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        41.17,
+        0,
+        -36.75
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "d530a67c-2aae-4337-9332-ce052cd79591",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        21.16,
+        0,
+        -29.01
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "724cb2be-2a0a-43d9-9631-b036e8cb9f1e",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        21.48,
+        0,
+        -18.94
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "c2c0b04a-be39-485e-b715-4c05d92cfaea",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        10.65,
+        0,
+        -18.62
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "339cccc2-c520-4b73-958a-8b7b9dd7eb4b",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        1.2,
+        0,
+        -18.56
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "603f2779-4f2b-41d5-9fae-ccb4f627877c",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        6.63,
+        0,
+        -27.61
+      ],
+      "rotationY": 0,
+      "length": 12,
+      "width": 10,
+      "layer": 0
+    },
+    {
+      "id": "e91cbb42-35cc-437e-b38e-be264da74de9",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        13.58,
+        0,
+        1.39
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "c3bd02b0-601a-4857-a300-641f7bbc850e",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        21.98,
+        0,
+        1.41
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "7a862a1c-468a-42bd-9fef-803fcf0e55a0",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        4.9,
+        0,
+        1.35
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "b61a6e97-cb3e-4045-bd57-1cb648c33c0d",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -3.79,
+        0,
+        1.4
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "ce0f185e-b2ed-4486-8f2a-19d7c209f553",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -12.57,
+        0,
+        1.35
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "e73961c4-3a9f-4cc1-870a-a5b5e3ab3a94",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -21.07,
+        0,
+        1.4
+      ],
+      "rotationY": 0,
+      "length": 8,
+      "width": 7,
+      "layer": 0
+    },
+    {
+      "id": "9353caed-412b-4621-a383-d8266f3051b4",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -31.21,
+        0,
+        1.08
+      ],
+      "rotationY": 0,
+      "length": 10,
+      "width": 10,
+      "layer": 0
+    },
+    {
+      "id": "0f484105-f7b6-4ebf-8c82-7fec9d28cb3e",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -44.79,
+        0,
+        1.31
+      ],
+      "rotationY": 0,
+      "length": 13,
+      "width": 10,
+      "layer": 0
+    },
+    {
+      "id": "22a44e04-f824-444d-b926-712a0c0b0800",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -63.03,
+        0,
+        1.36
+      ],
+      "rotationY": 0,
+      "length": 20,
+      "width": 10,
+      "layer": 0
+    },
+    {
+      "id": "5ed431d9-e826-49a9-8ea2-1f0312f69ce7",
+      "name": "planter",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        24.51,
+        0,
+        -37.97
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "27ee668c-87e1-4fe3-8a08-365d278addb8",
+      "name": "tree-large",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -8.81,
+        0,
+        -48.4
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "1ec2b8b2-4227-4d73-a96b-cb3d15337941",
+      "name": "tree-small",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        25.24,
+        0,
+        17.95
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "36327df9-339a-417d-8123-bb3062848445",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        17.67,
+        0,
+        -31.84
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "e7dea08e-d980-46e7-8927-36b2c0f208cb",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        17.67,
+        0,
+        -26.36
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "af8534e3-87ce-4531-bfb0-c24b4fe7a020",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        12.05,
+        0,
+        -31.96
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f536342f-81a9-4c42-b27c-8963bfc76c0f",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        24.66,
+        0,
+        -31.72
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5ecf907f-8310-4bf8-9b59-41c7ac8e4496",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        24.59,
+        0,
+        -35.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3c593b17-8d5a-4a7b-b4ec-541d29e8f9b9",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        21.82,
+        0,
+        -37.97
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0f4c9d65-1d6f-48cc-99d9-9c4643b1e130",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        17.03,
+        0,
+        -49.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c79051d0-cd4f-4f57-aab1-a30598874946",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -1.66,
+        0,
+        -57.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "a2877f58-620d-4fe2-8284-d4a7dba47455",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        6.44,
+        0,
+        -59.85
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "47e4b497-d685-4b87-b502-206bc80cd113",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        7.59,
+        0,
+        -54.71
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f9bd5a68-79ad-403c-ad9c-26c04b6d3953",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -12.76,
+        0,
+        -57.92
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "37065a4c-d4d9-47f6-b9f4-189129c03717",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        18.98,
+        0,
+        -60.25
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7d0f8f2e-3e17-4546-99a2-4ddbf10c4c9a",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        8.85,
+        0,
+        -68.55
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c154ed8e-b22c-4301-99f1-8e21485cf1b4",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -48.3,
+        0,
+        -16.87
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9bbc4cee-7e1d-4ccc-bb86-3725cc10835a",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -45.5,
+        0,
+        -16.81
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "47a585c3-8a57-455a-ba77-9112419ad6e0",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -42.61,
+        0,
+        -16.81
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c015737f-84bf-4c1d-a609-bf44e7586d9c",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -39.89,
+        0,
+        -16.81
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "dca94c40-fe4e-4b83-95f1-b65b5eebb5d4",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -37.05,
+        0,
+        -16.76
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "08f428ae-1000-47d1-b5f4-5b75bc3268c5",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -33.99,
+        0,
+        -16.71
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "525d18d7-2801-45ea-b9a0-1b79fbf277ac",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -30.7,
+        0,
+        -16.6
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "a5b248a3-6dbf-462e-996a-6e410fe350c4",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -27.45,
+        0,
+        -16.6
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "eb714a3a-1804-48d7-996d-39318677d2ce",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -24.82,
+        0,
+        -16.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "37d43638-3a69-4095-a5c2-2d43d16e62bc",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -21.95,
+        0,
+        -16.7
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3772fcf3-e06c-4f4f-9094-6b2254399bf5",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -18.95,
+        0,
+        -16.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3730e0d3-9e8e-4344-b53b-61333c72272c",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -16.07,
+        0,
+        -16.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6dcb6db9-cff1-46e0-ae85-3937291c93e5",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -13.57,
+        0,
+        -16.6
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2734c143-e4fb-49a7-99b2-accdc5e6fc64",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -10.93,
+        0,
+        -16.54
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "eda71233-3e22-4f3e-bf19-da152845b710",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -8.12,
+        0,
+        -16.7
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c11864ec-2679-4e78-b607-4fab06c6a521",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -52.74,
+        0,
+        -37.59
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "1a33aecc-e5f9-4de7-874d-be3652a049ee",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -55.04,
+        0,
+        -30
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "cc36250c-db35-4ad9-9507-2344d08e4271",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -53.18,
+        0,
+        -25.38
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d19ab8b7-2ebe-4b34-8e56-97623d7bf371",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -51.58,
+        0,
+        -20.61
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "038a1b80-9dd5-483f-97c0-2667ab4906d5",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -54.64,
+        0,
+        -17.85
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6cfcb0ea-06a0-40b8-8680-b23e30690275",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -43.73,
+        0,
+        -37.59
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9912ea1f-1038-4b67-84d5-afc99639f40d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -35.46,
+        0,
+        -55.21
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "404103ae-df6a-47d0-a8ce-a18badeda64e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -57.15,
+        0,
+        -54.78
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c9aee9c2-2f55-47fc-95d9-7231c96abdc8",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -42.25,
+        0.9,
+        -58.4
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2ae9f4a7-aa40-4c32-98a5-26c9414ae060",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -32.85,
+        0.6,
+        -61.85
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d6c388eb-4f94-4208-a381-1c39df284086",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -76.21,
+        0,
+        -49.02
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f26f59d6-28ec-4ee2-921a-c15b72717f1d",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -79.24,
+        0,
+        -47.83
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "b95cf82c-6b94-4f4f-aba0-4222b4313893",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -51.56,
+        0,
+        -31.5
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "cf870bd5-2b3b-4ddb-80f8-b14e138332d6",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -81.07,
+        0,
+        -45.99
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6b4a939b-80ad-4aab-b86f-4edde834b890",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -82.61,
+        0,
+        -43.55
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "54b5d565-8662-4d35-aab4-d35261298d0c",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -83.54,
+        0,
+        -41.18
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f652fea2-75fb-43e9-9bbe-c1b13c9af1d3",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -63.25,
+        0,
+        -49.18
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2d6a3ee1-34f7-4630-857d-09f76b2173d6",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -71,
+        0,
+        -36.92
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "60d0660e-d8bf-469a-aa06-271e0e86af5a",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -72.53,
+        0,
+        -36.98
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "30d8f5e2-9a61-48b7-a773-1b0db0b839dd",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -91.67,
+        0,
+        -43.73
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "88997f64-47f1-4fdb-846c-b8dc2d72d2f1",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -94.94,
+        0,
+        -29.88
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9fa5d2f9-4ef5-48e6-a06c-390f16c04d98",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -90.05,
+        0,
+        -27.11
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "193d00b2-9728-42cf-b71b-c76bc853dcad",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -86.84,
+        0,
+        -34.71
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9ee8f272-1f17-400a-bb4f-64a96e52f733",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -83.93,
+        0,
+        -16.77
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bdcc591e-9332-4f7c-a8c1-bfa2423d0cfe",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -85.55,
+        0,
+        -23.55
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d8f72c47-0f80-4d6e-9873-ff2a1234fc86",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -92.62,
+        0,
+        -18.81
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c145c96e-0032-48ab-9939-9b8040a1d9a6",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -88.65,
+        0,
+        -19.04
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5d5f42c0-62db-480c-b38d-1f95c20a7f84",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -83.57,
+        0,
+        -4.02
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ad9305e8-1225-45f6-9298-2e4c5d445fa1",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -72.9,
+        0,
+        -4.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "830a7410-d95d-498d-b6c1-7d388dc1dd4e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -52.26,
+        0,
+        -3.95
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "35c34c02-b783-4821-9a01-4b06026f0ba5",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -52.31,
+        0,
+        0.1
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f2a4324c-94fa-4ad7-8a6c-26a3bd61b7f4",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -52.35,
+        0,
+        4.23
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "fadb817d-b159-4961-b38a-ff723b08dd41",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -73.15,
+        0,
+        6.56
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "fa66f72a-60ba-42ca-a293-8650014c59c4",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -37.11,
+        0,
+        4.74
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bc9000fa-0d4d-488a-b4ef-465ce8f69a9e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -37.22,
+        0,
+        1.07
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0f092ff5-efd4-4a64-b564-552f3e11c9a3",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -37.31,
+        0,
+        -2.88
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f21565aa-40da-489a-99af-aa710a77de76",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -25.68,
+        0,
+        5.85
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "4563b802-b4ec-45ab-86f2-cce256739c80",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -25.67,
+        0,
+        2.02
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6725d315-30b3-4c11-834d-a2064729321b",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -25.87,
+        0,
+        -2.28
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0e05f898-f6bb-40c7-a7d0-380505b25635",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -16.83,
+        0,
+        -3.34
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "715e6c4f-d6c5-4283-a948-1a7661d00ec8",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -16.12,
+        0,
+        5.76
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "47b16502-6d6a-4e75-b992-5f2ceade61ac",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -9.41,
+        0,
+        -3.34
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0280c267-f4fc-4ab1-99b8-d8e1fd302c74",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -0.28,
+        0,
+        -1.77
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "fdc0ef9b-c25f-4018-be09-6710b7f5bb88",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        0.06,
+        0,
+        5.38
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ad4cd576-2840-4c64-a06f-78a3265d7ae3",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        8.73,
+        0,
+        -3.03
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5ac574f8-b712-4de1-9c03-2a2ede715ae0",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        17.64,
+        0,
+        5.68
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "88fa6f6d-effc-463c-9062-200cee06934d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        24.93,
+        0,
+        -3.81
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "a92a5b5a-e4f6-465c-9f7b-b3ff96cf2c83",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        24.87,
+        0,
+        5.92
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "142d3bdf-bf16-459d-ba52-0ecdc1c38fdc",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        2.97,
+        0,
+        18.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d9264910-d937-4110-b30a-6686258055f2",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.13,
+        0,
+        21.67
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f4d01dab-f611-4d12-954d-5702c7cc3b5f",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.14,
+        0,
+        18.65
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "4ab01db5-bb3f-403f-b9c0-22c313d34b13",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.32,
+        0,
+        24.68
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "4e650dae-3afb-458a-9318-2fbbc9472b08",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.28,
+        0,
+        27.41
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ae4bf4b0-e311-4dd2-a81b-f4845d1c4331",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.37,
+        0,
+        21.7
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "69fadb8c-2c28-4bea-ad82-9dbe5e253bb4",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.44,
+        0,
+        24.68
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2fc7995d-d7c9-42a4-b18a-a617e98bf978",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.33,
+        0,
+        29.89
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "4d558c77-9992-4250-8d59-ea3419b08278",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.43,
+        0,
+        32.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7a07ddfc-241c-4e39-951b-7e45ecba8b07",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        3.44,
+        0,
+        35.54
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d62f93f4-8144-441e-896d-1e4c89873244",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.28,
+        0,
+        27.41
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "fae5fdaf-cec7-456a-88ba-c574e809cfc5",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.33,
+        0,
+        29.89
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7d364bbb-3251-4963-bdef-fd3a5905fdfd",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.43,
+        0,
+        32.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2d8e4789-fddc-4efd-8852-f5442ef2516d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        5.44,
+        0,
+        35.54
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "dd4f2be4-6c86-4667-86d1-965f175ed0a9",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.42,
+        0,
+        19.83
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3048cd98-ebea-4af9-8ade-9f47ff5e042e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -51.2,
+        0,
+        20.3
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "24b74124-0300-442a-bc1b-189af8b68636",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.38,
+        0,
+        23.14
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2eadf655-58aa-4eb2-a0e5-8ba1eea6f41e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.38,
+        0,
+        26.05
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2aa97927-6d07-4455-bc65-73cce01a655d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.35,
+        0,
+        28.83
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "40aa6c82-bb6f-4540-8ed1-1a87dc546793",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.32,
+        0,
+        31.8
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f9958924-b69f-4637-8329-6960355a0614",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -23.23,
+        0,
+        34.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "32353c39-2e56-4c1c-a7bb-64781f2f8852",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.38,
+        0,
+        23.14
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6ad4bc89-aed9-4671-a7ce-9eef743638af",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.38,
+        0,
+        26.05
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "efb8258f-dc8a-4083-bec5-17d4f4a569ce",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.35,
+        0,
+        28.83
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ff9eeb03-5c00-466f-a4f6-b240266136d6",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.32,
+        0,
+        31.8
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "63f86f6b-b56c-44b8-97b8-2e94f655de61",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.23,
+        0,
+        34.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0e3e1f9c-02e9-47a6-bf68-29299ca331db",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -21.42,
+        0,
+        19.83
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "363051d2-32d0-49da-9712-3f70c6ba1729",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -51.02,
+        0,
+        22.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d698c2d4-d286-4f71-8d5c-745ef0278326",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -51.02,
+        0,
+        25.59
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "935ec31f-d190-4b2a-82bd-44ebfb397983",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -50.95,
+        0,
+        28.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "eb68364a-1af5-4d48-b0ed-dff027aa0543",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -50.8,
+        0,
+        31.19
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "49c16e14-19e2-4d39-850e-8afe3b9ae628",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -50.66,
+        0,
+        33.56
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7600cc0b-11ba-43c3-9c79-364101f92d76",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -50.68,
+        0,
+        36.67
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "696f7e34-a2f1-47d5-afc0-7f0316bef785",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -49.2,
+        0,
+        20.3
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2dd1e70f-3159-4d3a-b064-71d9467408cf",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -49.02,
+        0,
+        22.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f9009034-eaf0-4530-90cc-b5b83cde6d0a",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -49.02,
+        0,
+        25.59
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "76524f92-f85c-4a80-9818-60a68b7281cb",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -48.95,
+        0,
+        28.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0cb47954-232b-474f-a489-56ffb6720195",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -48.8,
+        0,
+        31.19
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "a0936367-936f-4338-bfd8-eea3a0aabdab",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -48.66,
+        0,
+        33.56
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "54ee2ec2-cc2c-44d4-ace2-dd2daf2195ba",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        -48.68,
+        0,
+        36.67
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bc6350fd-6785-455e-b604-b68abb94dcbd",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        25.15,
+        0,
+        25.77
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "9ba12a7e-4e64-4739-b6f7-a3ab3198edfa",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        25.22,
+        0,
+        36.55
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "249425ea-e17f-4a9e-bed1-bc8e6fee99cb",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        35.61,
+        0,
+        17.19
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3fa63889-bce7-414f-b359-d8523a7d742c",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        35.43,
+        0,
+        37.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d8b2d641-d7e6-4c01-9a0f-f725019f5e06",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        35.62,
+        0,
+        27.88
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "df85da4b-11ff-41fe-afd0-60ef24c764d9",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        36.66,
+        0,
+        -3.44
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0b44be99-0846-4beb-a4ed-73ccfa0fa629",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        36.2,
+        0,
+        6.27
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "281ea66f-bb8e-4cd0-afdf-a063f651bfb9",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        21.77,
+        0,
+        52.18
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "b3d8cc4a-cb6c-47bb-884c-1916cb4dd71c",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        16.68,
+        0,
+        52.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "eacbdcf1-30bd-4afe-88e5-47b243a2c235",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        11.89,
+        0,
+        52.24
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7def4420-ca26-4b0a-b948-de5e65a6c890",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        7.85,
+        0,
+        52.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3d2e70fb-7bc6-4ef6-b579-0545650fd396",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        2.44,
+        0,
+        52.3
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "137c6af9-7c3a-497d-9ffa-10a83a811a7b",
+      "name": "planter копия",
+      "kind": "model",
+      "url": "/models/plants/planter.glb",
+      "position": [
+        -2.2,
+        0,
+        52.18
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3f6cecb5-e606-4797-9373-5164bfcd9f18",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -9.04,
+        0,
+        58.13
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c22a1340-663b-40b9-8674-e7944593610c",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -13.25,
+        0,
+        60.24
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "04e765a0-6d71-47de-8aed-c761eb5d484b",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -1.67,
+        0,
+        58.24
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "e6754d4e-6fb9-4d2c-be52-2570c4a0777a",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -10.21,
+        0,
+        55.34
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "76b949ef-a9bd-4f0a-8ec6-771722bfea28",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -6.19,
+        0,
+        54.29
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d5c45ce5-b6df-47bd-a807-e961ab383b44",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -8.61,
+        0,
+        62.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "8fc43554-05c9-4466-a2c1-f4dd2a124fb6",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -5.45,
+        0,
+        58.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "926161f8-48ce-4280-a012-8cef763973cc",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -10.88,
+        0,
+        51.25
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bd940ed9-c33f-44de-b03a-254c65843646",
+      "name": "tree-small копия",
+      "kind": "model",
+      "url": "/models/plants/tree-small.glb",
+      "position": [
+        -13.25,
+        0,
+        56.25
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "7d21b8e8-1736-4b92-9451-9fc3388b41ec",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        57.03,
+        0,
+        -9.52
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "ef0e7c36-c543-4433-867d-113fdee550ba",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        56.85,
+        0,
+        12.08
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "e8da7220-1694-44e0-bb21-2d7d443ac24c",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        57.01,
+        0,
+        43.41
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "8ab6a40e-9558-4735-ac2a-75fd210b4fe3",
+      "name": "road-crossroad-line копия",
+      "kind": "model",
+      "url": "/models/roads/road-crossroad-line.glb",
+      "position": [
+        30.67,
+        0,
+        74.76
+      ],
+      "rotationY": 0,
+      "scale": 6.4,
+      "outline": false,
+      "collider": "none",
+      "layer": 0
+    },
+    {
+      "id": "54c2c66b-50ef-4130-9abc-ecd740a4d069",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        28.85,
+        0,
+        -53.2
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "582fdcd3-3f0f-40bf-a037-5f87e2a6da78",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        29.35,
+        0,
+        -59.51
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5bcc20f4-0ce1-4cb3-8217-c7d1795e2976",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        39.14,
+        0,
+        -52.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f7c2f17c-a498-4232-ac2c-da8b00282000",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        46.72,
+        0,
+        -61.58
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c684ca61-6c77-4749-ad7f-6b2749692169",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        54.2,
+        0,
+        -51.7
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "437cbc5e-e180-459c-acb1-ac3414d822f0",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        43.47,
+        0,
+        -77.36
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "63e013d6-58c8-4859-9bc9-0a37272d943c",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        27.31,
+        0,
+        -76.93
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "8df42c5b-72e2-4084-9be2-e5c24936670c",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        66.38,
+        0,
+        -40.84
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "f131eb60-ee16-48ad-b274-3be25a2badde",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        62.6,
+        0,
+        -29.36
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "39c8be0d-0052-4406-a183-ba140d9507ce",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        83.6,
+        0,
+        -4.56
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2c59cc3d-40b3-4529-b019-ad9a70180e7c",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        80.17,
+        0,
+        -27.71
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "2faf5386-fa24-48fd-9b4d-536d0a4b144d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        72.6,
+        0,
+        -13.33
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "580ca561-644e-4094-8f88-a2be4048592d",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        66.49,
+        0,
+        1.66
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "91054ece-05ab-4cff-b3d0-79d25766b3c5",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        71.2,
+        0,
+        -27.82
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "62715d17-8660-47df-8bb1-ff3efed73678",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        79.66,
+        0,
+        7.01
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "470a499d-ce61-4209-b583-b031dd5a7159",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        57.04,
+        0,
+        5.14
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "c97e0420-ef2f-463a-aea9-045f5a5beb05",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        78.85,
+        0,
+        24.94
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "0436dbbc-3724-4c68-b03e-66cdc32cc9d6",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        91.8,
+        0,
+        20.29
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "bd836acf-29d7-4875-8f0a-2ad716a1d95a",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        94.94,
+        0,
+        2.57
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "73272717-9d76-45f7-8a5b-d05652edb334",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        89.57,
+        0,
+        11.64
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "b839ccb1-f057-42a2-abe9-b43034216578",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        60.53,
+        0,
+        24.64
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "1a35b8e0-ed8a-4f71-8571-9121af3f478f",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        49.74,
+        0,
+        32.26
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "a8c94dfc-4724-4df2-a387-b8e1170e75e8",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        51.47,
+        0,
+        21.71
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5d344a71-d7b9-4163-b1ec-add8714f0046",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        65.2,
+        0,
+        33.75
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "d225298b-704c-4c17-af44-72672586405c",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        68.64,
+        0,
+        15.64
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "eecfb964-144d-4882-9e6c-bf8adb0faf20",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        74.37,
+        0,
+        36.41
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "97844eeb-dd9d-4f75-8ab9-9de768ee8cde",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        84.3,
+        0,
+        37.46
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "23464efb-a668-46f6-bcf9-dd8ed9613f9e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        64.85,
+        0,
+        49.43
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "cc17405e-ca1c-4493-b087-d8a11c66430e",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        55.75,
+        0,
+        59.98
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "6ea87e0b-a1f0-4dd5-9aab-08884ca200ac",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        65.43,
+        0,
+        73.69
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "3f00e094-c8d5-4da6-8787-3c6de64e335f",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        82.16,
+        0,
+        60.34
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "10d7e629-929d-4f07-bf2f-d33e7f5ac9fa",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        68.63,
+        0,
+        62.12
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "ecfdece3-0e9a-448b-b866-6f9a16ebcbf7",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        76.91,
+        0,
+        49.25
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "5143ad1c-729e-4e6e-ac22-8d9d82cc5ff7",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        49.94,
+        0,
+        72.04
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
+    },
+    {
+      "id": "1822c4df-8f2e-4ab7-81de-8fa0208e3fa9",
+      "name": "tree-large копия",
+      "kind": "model",
+      "url": "/models/plants/tree-large.glb",
+      "position": [
+        45.48,
+        0,
+        59.48
+      ],
+      "rotationY": 0,
+      "scale": 5,
+      "outline": false,
+      "collider": "building"
     }
   ]
 }
