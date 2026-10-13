@@ -18,6 +18,7 @@ import { useDriveInput, type Input } from "./input";
 import { CAMERA_ZONES } from "./city/layout";
 import { SPAWN } from "./terrain";
 import { Vehicle } from "./Vehicle";
+import { asset } from "@/lib/asset";
 
 const CAMERA_FOV = 32;
 const ISO_ELEVATION = (30 * Math.PI) / 180;
@@ -27,7 +28,7 @@ const POI_DISTANCE = 32;
 const CAMERA_HEIGHT = Math.sin(POI_ELEVATION) * POI_DISTANCE;
 const CAMERA_BACK = Math.cos(POI_ELEVATION) * POI_DISTANCE;
 
-for (const car of CARS) useGLTF.preload(car.url);
+for (const car of CARS) useGLTF.preload(asset(car.url));
 
 function FollowCamera({
   carRef,

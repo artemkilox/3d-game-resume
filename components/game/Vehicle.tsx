@@ -21,6 +21,7 @@ import type { Input } from "./input";
 import { attachOutline } from "./Outline";
 import { ROAD_RISE } from "./city/layout";
 import { heightAt, SPAWN } from "./terrain";
+import { asset } from "@/lib/asset";
 
 const WHEEL_RADIUS = 0.3;
 const SUSPENSION_REST = 0.18;
@@ -55,7 +56,7 @@ function CarModel({
   skidSpin: RefObject<number>;
 }) {
   "use no memo";
-  const { scene } = useGLTF(url);
+  const { scene } = useGLTF(asset(url));
   const model = useMemo(() => scene.clone(true), [scene]);
   const wheels = useRef<THREE.Object3D[]>([]);
 

@@ -5,6 +5,7 @@ import { ROAD_RISE, ROAD_WIDTH, TILE } from "../city/layout";
 import { createDefaultMap } from "../city/default-map";
 import type { MapEntity, MapFile, Vec3 } from "../city/map-types";
 import type { EditorFocus, EditorView } from "./EditorController";
+import { asset } from "@/lib/asset";
 
 function round(value: number, digits: number) {
   const scale = 10 ** digits;
@@ -78,7 +79,7 @@ export function useMapDocument(viewRef: RefObject<EditorView>) {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/map")
+    fetch(asset("/map.json"))
       .then((response) => {
         if (!response.ok) throw new Error("map");
         return response.json() as Promise<MapFile>;
@@ -89,12 +90,14 @@ export function useMapDocument(viewRef: RefObject<EditorView>) {
       .catch(() => {
         if (!cancelled) setMap(createDefaultMap());
       });
-    fetch("/api/models")
-      .then((response) => response.json() as Promise<string[]>)
-      .then((urls) => {
-        if (!cancelled && Array.isArray(urls)) setModels(urls);
-      })
-      .catch(() => {});
+    if (process.env.NODE_ENV === "development") {
+      fetch("/api/models")
+        .then((response) => response.json() as Promise<string[]>)
+        .then((urls) => {
+          if (!cancelled && Array.isArray(urls)) setModels(urls);
+        })
+        .catch(() => {});
+    }
     return () => {
       cancelled = true;
     };

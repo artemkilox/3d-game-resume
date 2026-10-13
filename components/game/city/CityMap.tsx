@@ -11,6 +11,7 @@ import type { MapEntity, ModelEntity, Vec3 } from "./map-types";
 import { driftDistance, driftPose, driftSkids } from "./drift-paths";
 import { fittedBoxes } from "./model-colliders";
 import { FloorText, GroundControls, GroundCopy } from "./Signs";
+import { asset } from "@/lib/asset";
 
 const LAYER_STEP = 0.16;
 
@@ -33,7 +34,7 @@ const MODELS = [
   "/models/Sign by Zsky - 9UeVfOHm6k.glb",
 ];
 
-for (const url of MODELS) useGLTF.preload(url);
+for (const url of MODELS) useGLTF.preload(asset(url));
 
 function measureHalf(object: Object3D): Vec3 | null {
   object.updateWorldMatrix(true, true);
@@ -73,7 +74,7 @@ function StaticModel({
   outline?: boolean;
   reportHalf?: (half: Vec3) => void;
 }) {
-  const { scene } = useGLTF(url);
+  const { scene } = useGLTF(asset(url));
   const object = useMemo(() => scene.clone(true), [scene]);
 
   useLayoutEffect(() => {
@@ -92,7 +93,7 @@ function StaticModel({
 
 function Host({ scale }: { scale: number }) {
   "use no memo";
-  const { scene } = useGLTF("/models/people/character-male-d.glb");
+  const { scene } = useGLTF(asset("/models/people/character-male-d.glb"));
   const right = useRef<Object3D>(null);
   const left = useRef<Object3D>(null);
   const head = useRef<Object3D>(null);
@@ -182,8 +183,9 @@ function paintDriftModel(model: Object3D, color: string) {
     const mesh = obj as Mesh;
     if (!mesh.isMesh || (mesh.name !== "body" && mesh.name !== "spoiler")) return;
     const source = mesh.material as MeshStandardMaterial;
-    if (!tint && source.map?.image) {
-      tint = tintBodyTexture(source.map.image, color);
+    const image = source.map?.image as (CanvasImageSource & { width: number; height: number }) | undefined;
+    if (!tint && image) {
+      tint = tintBodyTexture(image, color);
       if (tint && source.map) {
         tint.flipY = source.map.flipY;
         tint.colorSpace = source.map.colorSpace;
@@ -199,7 +201,7 @@ function paintDriftModel(model: Object3D, color: string) {
 
 function DriftCar({ route }: { route: number }) {
   "use no memo";
-  const { scene } = useGLTF("/models/sedan-sports.glb");
+  const { scene } = useGLTF(asset("/models/sedan-sports.glb"));
   const model = useMemo(() => {
     const copy = scene.clone(true);
     paintDriftModel(copy, DRIFT_COLOR[route]);
@@ -436,7 +438,7 @@ function RoadSign({
   label: string;
   reportHalf?: (half: Vec3) => void;
 }) {
-  const { scene } = useGLTF(url);
+  const { scene } = useGLTF(asset(url));
   const model = useMemo(() => {
     const object = scene.clone(true);
     object.traverse((obj) => {
@@ -474,7 +476,7 @@ function RoadSign({
         }
       });
     };
-    image.src = ARROW_UP;
+    image.src = asset(ARROW_UP);
     return () => {
       cancelled = true;
     };
@@ -500,7 +502,7 @@ function StackBillboard({
   label: string;
   reportHalf?: (half: Vec3) => void;
 }) {
-  const { scene } = useGLTF("/models/billboard.glb");
+  const { scene } = useGLTF(asset("/models/billboard.glb"));
   const model = useMemo(() => {
     const object = scene.clone(true);
     let source: CanvasImageSource | null = null;

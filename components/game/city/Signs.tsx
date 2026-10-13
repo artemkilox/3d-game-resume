@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CanvasTexture, SRGBColorSpace } from "three";
 import { TEXT_COLORS, type TextColor } from "./map-types";
+import { asset } from "@/lib/asset";
 
 function inkOf(color?: TextColor) {
   return TEXT_COLORS[color ?? "black"];
@@ -200,7 +201,7 @@ export function GroundControls({
       if (!active) return;
       setTexture(paintGroundControls(image));
     };
-    image.src = "/controls/right-click.png";
+    image.src = asset("/controls/right-click.png");
     return () => {
       active = false;
     };
