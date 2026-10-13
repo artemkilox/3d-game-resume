@@ -1,0 +1,2236 @@
+{
+  "version": 1,
+  "entities": [
+    {
+      "id": "road-0",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        12,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-1",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        8,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-2",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        4,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-3",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-4",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -4,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-5",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -8,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-6",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -12,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-7",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -16,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-8",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -20,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-9",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -24,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-10",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -28,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-11",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -32,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-12",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -36,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-13",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -40,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-14",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -44,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-15",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -48,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-16",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -52,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-17",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -56,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-18",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -60,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-19",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -64,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-20",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -68,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-21",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -72,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-22",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -75.4,
+        0,
+        0
+      ],
+      "rotationY": 0,
+      "scale": [
+        2.8,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-23",
+      "name": "Поворот",
+      "kind": "road",
+      "url": "/models/roads/road-bend.glb",
+      "position": [
+        -80,
+        0.01,
+        0
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        6.4,
+        7,
+        6.4
+      ],
+      "ramps": false,
+      "bend": true
+    },
+    {
+      "id": "road-24",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        5.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-25",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        9.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-26",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        13.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-27",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        17.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-28",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        21.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-29",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        25.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-30",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        29.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-31",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        33.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-32",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        37.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-33",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        41.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-34",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        45.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-35",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        49.2
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-36",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -80,
+        0,
+        52
+      ],
+      "rotationY": 1.5708,
+      "scale": [
+        1.6,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-37",
+      "name": "Поворот",
+      "kind": "road",
+      "url": "/models/roads/road-bend.glb",
+      "position": [
+        -80,
+        0.01,
+        56
+      ],
+      "rotationY": 3.14159,
+      "scale": [
+        6.4,
+        7,
+        6.4
+      ],
+      "ramps": false,
+      "bend": true
+    },
+    {
+      "id": "road-38",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -74.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-39",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -70.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-40",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -66.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-41",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -62.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-42",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -58.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-43",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -54.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-44",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -50.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-45",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -46.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-46",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -42.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-47",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -38.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-48",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -34.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-49",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -30.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-50",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -26.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-51",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -22.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-52",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -18.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-53",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -14.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-54",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -10.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-55",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -6.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-56",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        -2.8,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-57",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        1.2,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-58",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        5.2,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-59",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        9.2,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        4,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "road-60",
+      "name": "Дорога",
+      "kind": "road",
+      "url": "/models/roads/road-straight.glb",
+      "position": [
+        12.6,
+        0,
+        56
+      ],
+      "rotationY": 0,
+      "scale": [
+        2.8,
+        7,
+        6.4
+      ],
+      "ramps": true,
+      "bend": false
+    },
+    {
+      "id": "arrow-0",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        8,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-1",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        0,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-2",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -8,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-3",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -16,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-4",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -24,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-5",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -32,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-6",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -40,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-7",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -48,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-8",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -56,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-9",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -64,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-10",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -72,
+        0.16,
+        0
+      ],
+      "rotationY": 3.14159
+    },
+    {
+      "id": "arrow-11",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        8
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-12",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        16
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-13",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        24
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-14",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        32
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-15",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        40
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-16",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -80,
+        0.16,
+        48
+      ],
+      "rotationY": -1.5708
+    },
+    {
+      "id": "arrow-17",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -72,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-18",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -64,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-19",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -56,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-20",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -48,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-21",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -40,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-22",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -32,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-23",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -24,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-24",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -16,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-25",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        -8,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-26",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        0,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "arrow-27",
+      "name": "Стрелка",
+      "kind": "chevron",
+      "position": [
+        8,
+        0.16,
+        56
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "building-0",
+      "name": "building-k",
+      "kind": "model",
+      "url": "/models/commercial/building-k.glb",
+      "position": [
+        -66.12,
+        0,
+        24.24
+      ],
+      "rotationY": 0,
+      "scale": 8.1,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        2.084,
+        1.47,
+        0.942
+      ]
+    },
+    {
+      "id": "building-1",
+      "name": "building-skyscraper-a",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-a.glb",
+      "position": [
+        -70,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.448,
+        1.156
+      ]
+    },
+    {
+      "id": "building-2",
+      "name": "building-skyscraper-b",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        -58,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "building-3",
+      "name": "building-skyscraper-b",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-b.glb",
+      "position": [
+        -42,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.55,
+        1.156
+      ]
+    },
+    {
+      "id": "building-4",
+      "name": "building-skyscraper-c",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-c.glb",
+      "position": [
+        -30,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.156,
+        2.72,
+        1.156
+      ]
+    },
+    {
+      "id": "building-5",
+      "name": "building-skyscraper-d",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-d.glb",
+      "position": [
+        -14,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.122,
+        3.06,
+        1.122
+      ]
+    },
+    {
+      "id": "building-6",
+      "name": "building-skyscraper-e",
+      "kind": "model",
+      "url": "/models/commercial/building-skyscraper-e.glb",
+      "position": [
+        -2,
+        0,
+        70
+      ],
+      "rotationY": 0,
+      "scale": 1.7,
+      "outline": true,
+      "collider": "building",
+      "half": [
+        1.105,
+        3.468,
+        1.054
+      ]
+    },
+    {
+      "id": "text-continue",
+      "name": "Продолжение",
+      "kind": "text",
+      "variant": "floor",
+      "title": "",
+      "lines": [
+        "Двигайтесь дальше, чтобы узнать больше обо мне"
+      ],
+      "position": [
+        4.2,
+        0.04,
+        -5.45
+      ],
+      "rotationY": 0,
+      "width": 16,
+      "height": 1.7,
+      "fitted": true
+    },
+    {
+      "id": "controls",
+      "name": "Управление",
+      "kind": "controls",
+      "position": [
+        14.8,
+        0.04,
+        8.6
+      ],
+      "rotationY": 0,
+      "width": 9.6,
+      "height": 4.62
+    },
+    {
+      "id": "text-about",
+      "name": "Обо мне",
+      "kind": "text",
+      "variant": "copy",
+      "title": "",
+      "lines": [
+        "Привет, я Черных Артём",
+        "Middle Frontend-разработчик",
+        "React / Next.js / TypeScript"
+      ],
+      "position": [
+        1.5,
+        0.04,
+        8.6
+      ],
+      "rotationY": 0,
+      "width": 11,
+      "height": 6
+    },
+    {
+      "id": "text-education",
+      "name": "МИСиС",
+      "kind": "text",
+      "variant": "copy",
+      "title": "МИСиС",
+      "lines": [
+        "Старый Оскол, 2023",
+        "Информационные системы и технологии"
+      ],
+      "position": [
+        -65.67,
+        0.04,
+        14.01
+      ],
+      "rotationY": 0,
+      "width": 12,
+      "height": 6.4,
+      "layer": 1
+    },
+    {
+      "id": "text-indevlabs",
+      "name": "ИндевЛабс",
+      "kind": "text",
+      "variant": "copy",
+      "title": "ИндевЛабс",
+      "lines": [
+        "март 2022 — август 2024",
+        "JWT, 2FA и роли",
+        "TypeScript, 200+ файлов",
+        "Таблицы и платежи на фронте"
+      ],
+      "position": [
+        -64,
+        0.04,
+        63
+      ],
+      "rotationY": 0,
+      "width": 12,
+      "height": 7
+    },
+    {
+      "id": "text-businessmaket",
+      "name": "Бизнесмакет",
+      "kind": "text",
+      "variant": "copy",
+      "title": "Бизнесмакет",
+      "lines": [
+        "июнь 2023 — декабрь 2025",
+        "Свет, звук и видео по WebSocket",
+        "Redux и PostgreSQL",
+        "Экраны под сенсор"
+      ],
+      "position": [
+        -36,
+        0.04,
+        63
+      ],
+      "rotationY": 0,
+      "width": 12,
+      "height": 7
+    },
+    {
+      "id": "text-pushkin",
+      "name": "Пушкин",
+      "kind": "text",
+      "variant": "copy",
+      "title": "Пушкин",
+      "lines": [
+        "август 2024 — август 2026",
+        "Ведущий разработчик",
+        "Загрузка 3 с → 1,2 с",
+        "UI-kit, LMS, CI/CD"
+      ],
+      "position": [
+        -8,
+        0.04,
+        63
+      ],
+      "rotationY": 0,
+      "width": 12,
+      "height": 7
+    },
+    {
+      "id": "text-contacts",
+      "name": "Контакты",
+      "kind": "text",
+      "variant": "copy",
+      "title": "Контакты",
+      "lines": [
+        "+7 980 392-42-61",
+        "@ArtemChernykh001",
+        "artemchernykh001@yandex.ru",
+        "Реутов · офис, гибрид, удалённо"
+      ],
+      "position": [
+        18,
+        0.04,
+        62
+      ],
+      "rotationY": 0,
+      "width": 12,
+      "height": 7
+    },
+    {
+      "id": "character",
+      "name": "Персонаж",
+      "kind": "character",
+      "position": [
+        -5.2,
+        0,
+        11.5
+      ],
+      "rotationY": 2.44159,
+      "scale": 2.3
+    },
+    {
+      "id": "deck",
+      "name": "Парковка",
+      "kind": "deck",
+      "position": [
+        -65.73,
+        0,
+        13.64
+      ],
+      "rotationY": 0,
+      "length": 16,
+      "width": 12
+    },
+    {
+      "id": "curb-north",
+      "name": "Бордюр",
+      "kind": "curb",
+      "position": [
+        -29.9,
+        0.13,
+        25.29
+      ],
+      "rotationY": 0,
+      "size": [
+        42.5,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "curb-south",
+      "name": "Бордюр",
+      "kind": "curb",
+      "position": [
+        -30.01,
+        0.13,
+        8.13
+      ],
+      "rotationY": 0,
+      "size": [
+        42.5,
+        0.26,
+        0.38
+      ]
+    },
+    {
+      "id": "curb-east",
+      "name": "Бордюр",
+      "kind": "curb",
+      "position": [
+        -8.81,
+        0.13,
+        16.72
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        17.5
+      ]
+    },
+    {
+      "id": "curb-west",
+      "name": "Бордюр",
+      "kind": "curb",
+      "position": [
+        -50.97,
+        0.13,
+        16.76
+      ],
+      "rotationY": 0,
+      "size": [
+        0.38,
+        0.26,
+        17.5
+      ]
+    },
+    {
+      "id": "island-0",
+      "name": "React",
+      "kind": "island",
+      "lines": [
+        "React"
+      ],
+      "position": [
+        -46.5,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-1",
+      "name": "TypeScript",
+      "kind": "island",
+      "lines": [
+        "TypeScript"
+      ],
+      "position": [
+        -39.9,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-2",
+      "name": "Next.js",
+      "kind": "island",
+      "lines": [
+        "Next.js"
+      ],
+      "position": [
+        -33.3,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-3",
+      "name": "JavaScript",
+      "kind": "island",
+      "lines": [
+        "JavaScript"
+      ],
+      "position": [
+        -26.7,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-4",
+      "name": "Redux Toolkit",
+      "kind": "island",
+      "lines": [
+        "Redux",
+        "Toolkit"
+      ],
+      "position": [
+        -20.1,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-5",
+      "name": "React Router",
+      "kind": "island",
+      "lines": [
+        "React",
+        "Router"
+      ],
+      "position": [
+        -13.5,
+        0,
+        11.45
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-6",
+      "name": "CSS-modules",
+      "kind": "island",
+      "lines": [
+        "CSS-modules"
+      ],
+      "position": [
+        -46.5,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-7",
+      "name": "SCSS",
+      "kind": "island",
+      "lines": [
+        "SCSS"
+      ],
+      "position": [
+        -39.9,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-8",
+      "name": "Tailwind",
+      "kind": "island",
+      "lines": [
+        "Tailwind"
+      ],
+      "position": [
+        -33.3,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-9",
+      "name": "Styled Components",
+      "kind": "island",
+      "lines": [
+        "Styled",
+        "Components"
+      ],
+      "position": [
+        -26.7,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-10",
+      "name": "Vite",
+      "kind": "island",
+      "lines": [
+        "Vite"
+      ],
+      "position": [
+        -20.1,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-11",
+      "name": "Webpack",
+      "kind": "island",
+      "lines": [
+        "Webpack"
+      ],
+      "position": [
+        -13.5,
+        0,
+        15.15
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-12",
+      "name": "Node.js",
+      "kind": "island",
+      "lines": [
+        "Node.js"
+      ],
+      "position": [
+        -46.5,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-13",
+      "name": "Express",
+      "kind": "island",
+      "lines": [
+        "Express"
+      ],
+      "position": [
+        -39.9,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-14",
+      "name": "REST",
+      "kind": "island",
+      "lines": [
+        "REST"
+      ],
+      "position": [
+        -33.3,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-15",
+      "name": "PostgreSQL",
+      "kind": "island",
+      "lines": [
+        "PostgreSQL"
+      ],
+      "position": [
+        -26.7,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-16",
+      "name": "WebSocket",
+      "kind": "island",
+      "lines": [
+        "WebSocket"
+      ],
+      "position": [
+        -20.1,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-17",
+      "name": "Jest",
+      "kind": "island",
+      "lines": [
+        "Jest"
+      ],
+      "position": [
+        -13.5,
+        0,
+        18.85
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-18",
+      "name": "Testing Library",
+      "kind": "island",
+      "lines": [
+        "Testing",
+        "Library"
+      ],
+      "position": [
+        -39.9,
+        0,
+        22.55
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-19",
+      "name": "Git",
+      "kind": "island",
+      "lines": [
+        "Git"
+      ],
+      "position": [
+        -33.3,
+        0,
+        22.55
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-20",
+      "name": "GitHub Actions",
+      "kind": "island",
+      "lines": [
+        "GitHub",
+        "Actions"
+      ],
+      "position": [
+        -26.7,
+        0,
+        22.55
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "island-21",
+      "name": "Figma",
+      "kind": "island",
+      "lines": [
+        "Figma"
+      ],
+      "position": [
+        -20.1,
+        0,
+        22.55
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "billboard",
+      "name": "Билборд",
+      "kind": "model",
+      "url": "/models/billboard.glb",
+      "position": [
+        -9,
+        0.18,
+        5.15
+      ],
+      "rotationY": 1.5708,
+      "scale": 0.012,
+      "outline": false,
+      "collider": "building",
+      "label": "Технологический стек",
+      "half": [
+        2.641,
+        4.02,
+        3.71
+      ]
+    },
+    {
+      "id": "drift",
+      "name": "Машины на парковке",
+      "kind": "drift",
+      "position": [
+        -30,
+        0,
+        17
+      ],
+      "rotationY": 0
+    },
+    {
+      "id": "c78b3edc-a578-4fbd-a5ed-e9c95d53faf4",
+      "name": "Билборд копия",
+      "kind": "model",
+      "url": "/models/billboard.glb",
+      "position": [
+        -57.21,
+        0.18,
+        5.32
+      ],
+      "rotationY": 1.5708,
+      "scale": 0.012,
+      "outline": false,
+      "collider": "building",
+      "label": "Образование",
+      "half": [
+        2.641,
+        4.02,
+        3.71
+      ]
+    },
+    {
+      "id": "87489277-74e7-4828-80f5-894f6ef7b4db",
+      "name": "Парковка копия",
+      "kind": "deck",
+      "position": [
+        -29.93,
+        0,
+        16.78
+      ],
+      "rotationY": 0,
+      "length": 42,
+      "width": 17
+    }
+  ]
+}

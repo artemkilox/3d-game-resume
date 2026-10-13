@@ -1,13 +1,20 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { ConvexHullCollider, CuboidCollider, RigidBody, interactionGroups } from "@react-three/rapier";
-import { CanvasTexture, DoubleSide, ExtrudeGeometry, Quaternion, Shape, SRGBColorSpace, Sprite, Vector3, type Group, type Mesh, type MeshStandardMaterial, type Object3D } from "three";
+import { Box3, CanvasTexture, DoubleSide, ExtrudeGeometry, Matrix4, Quaternion, Shape, SRGBColorSpace, Sprite, Vector3, type Group, type Mesh, type MeshStandardMaterial, type Object3D } from "three";
 import { attachOutline } from "../Outline";
-import { ARROWS, BUILDINGS, PARKING, ROAD_RAMP, ROAD_RISE, ROAD_WIDTH, ROADS, SKILL_ISLANDS, TILE } from "./layout";
+import { ROAD_RAMP, ROAD_RISE } from "./layout";
+import type { MapEntity, ModelEntity, Vec3 } from "./map-types";
 import { FloorText, GroundControls, GroundCopy } from "./Signs";
+
+const LAYER_STEP = 0.16;
+
+function stackedPosition(entity: { position: Vec3; layer?: number }): Vec3 {
+  return [entity.position[0], entity.position[1] + (entity.layer ?? 0) * LAYER_STEP, entity.position[2]];
+}
 
 const MODELS = [
   "/models/roads/road-straight.glb",
@@ -25,18 +32,43 @@ const MODELS = [
 
 for (const url of MODELS) useGLTF.preload(url);
 
+function measureHalf(object: Object3D): Vec3 | null {
+  object.updateWorldMatrix(true, true);
+  const root = object.parent ?? object;
+  const inverse = new Matrix4().copy(root.matrixWorld).invert();
+  const box = new Box3();
+  const part = new Box3();
+  let empty = true;
+  object.traverse((child) => {
+    const mesh = child as Mesh;
+    if (!mesh.isMesh || !mesh.geometry) return;
+    if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
+    const bounds = mesh.geometry.boundingBox;
+    if (!bounds) return;
+    part.copy(bounds).applyMatrix4(mesh.matrixWorld).applyMatrix4(inverse);
+    if (empty) box.copy(part);
+    else box.union(part);
+    empty = false;
+  });
+  if (empty) return null;
+  const size = box.getSize(new Vector3());
+  return [Math.abs(size.x) / 2, Math.abs(size.y) / 2, Math.abs(size.z) / 2];
+}
+
 function StaticModel({
   url,
   position,
   rotation = [0, 0, 0],
   scale = 1,
   outline = false,
+  reportHalf,
 }: {
   url: string;
   position: [number, number, number];
   rotation?: [number, number, number];
   scale?: number | [number, number, number];
   outline?: boolean;
+  reportHalf?: (half: Vec3) => void;
 }) {
   const { scene } = useGLTF(url);
   const object = useMemo(() => scene.clone(true), [scene]);
@@ -46,10 +78,16 @@ function StaticModel({
     return attachOutline(object, 1.02);
   }, [object, outline]);
 
+  useLayoutEffect(() => {
+    if (!reportHalf) return;
+    const half = measureHalf(object);
+    if (half) reportHalf(half);
+  }, [object, reportHalf]);
+
   return <primitive object={object} position={position} rotation={rotation} scale={scale} />;
 }
 
-function Host() {
+function Host({ scale }: { scale: number }) {
   "use no memo";
   const { scene } = useGLTF("/models/people/character-male-d.glb");
   const right = useRef<Object3D>(null);
@@ -74,7 +112,7 @@ function Host() {
     if (head.current) head.current.rotation.set(0, 0, -0.42);
   });
 
-  return <primitive object={scene} position={[-5.2, 0, 11.5]} rotation={[0, Math.PI - 0.7, 0]} scale={2.3} />;
+  return <primitive object={scene} scale={scale} />;
 }
 
 function loopPose(t: number) {
@@ -216,16 +254,6 @@ function DriftCar({ offset }: { offset: number }) {
   );
 }
 
-const LOT_LENGTH = 48;
-const LOT_WIDTH = 22;
-const CURB_WIDTH = 0.38;
-const CURB_HEIGHT = ROAD_RISE + 0.12;
-
-function skillLines(label: string) {
-  const words = label.split(" ");
-  return words.length > 1 ? [words[0], words.slice(1).join(" ")] : [label];
-}
-
 function roundedIslandGeometry() {
   const width = 3.7;
   const depth = 1.95;
@@ -247,35 +275,13 @@ function roundedIslandGeometry() {
   return geometry;
 }
 
-function ParkingCurbs({ length, width }: { length: number; width: number }) {
-  const w = CURB_WIDTH;
-  const h = CURB_HEIGHT;
-  return (
-    <group>
-      {[1, -1].map((dir) => (
-        <mesh key={`z${dir}`} position={[0, h / 2, (width / 2 + w / 2) * dir]} castShadow receiveShadow>
-          <boxGeometry args={[length + w * 2, h, w]} />
-          <meshStandardMaterial color="#f7f4ee" roughness={0.85} />
-        </mesh>
-      ))}
-      {[1, -1].map((dir) => (
-        <mesh key={`x${dir}`} position={[(length / 2 + w / 2) * dir, h / 2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[w, h, width]} />
-          <meshStandardMaterial color="#f7f4ee" roughness={0.85} />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-function paintBillboard(image: CanvasImageSource) {
+function paintBillboard(image: CanvasImageSource, text: string) {
   const canvas = document.createElement("canvas");
   canvas.width = 1024;
   canvas.height = 1024;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
   ctx.drawImage(image, 0, 0, 1024, 1024);
-  const text = "Технологический стек";
   ctx.fillStyle = "#171717";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -294,96 +300,52 @@ function paintBillboard(image: CanvasImageSource) {
   return texture;
 }
 
-function StackBillboard() {
+function StackBillboard({
+  scale,
+  label,
+  reportHalf,
+}: {
+  scale: number;
+  label: string;
+  reportHalf?: (half: Vec3) => void;
+}) {
   const { scene } = useGLTF("/models/billboard.glb");
   const model = useMemo(() => {
-    const clone = scene.clone(true);
-    clone.traverse((obj) => {
+    const object = scene.clone(true);
+    let source: CanvasImageSource | null = null;
+    object.traverse((obj) => {
       const mesh = obj as Mesh;
       if (!mesh.isMesh) return;
-      mesh.material = (mesh.material as MeshStandardMaterial).clone();
+      const material = (mesh.material as MeshStandardMaterial).clone();
+      if (!source && material.map?.image) source = material.map.image as CanvasImageSource;
+      mesh.material = material;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
     });
-    return clone;
+    return { object, source };
   }, [scene]);
 
   useLayoutEffect(() => {
-    let texture: CanvasTexture | null = null;
-    model.traverse((obj) => {
+    if (!model.source) return;
+    const texture = paintBillboard(model.source, label);
+    if (!texture) return;
+    model.object.traverse((obj) => {
       const mesh = obj as Mesh;
       if (!mesh.isMesh) return;
       const material = mesh.material as MeshStandardMaterial;
-      if (texture) {
-        material.map = texture;
-        material.needsUpdate = true;
-        return;
-      }
-      const image = material.map?.image as CanvasImageSource | undefined;
-      if (!image) return;
-      texture = paintBillboard(image);
-      if (!texture) return;
       material.map = texture;
       material.needsUpdate = true;
     });
-    return () => texture?.dispose();
-  }, [model]);
+    return () => texture.dispose();
+  }, [model, label]);
 
-  const scale = 0.012;
-  return (
-    <primitive
-      object={model}
-      position={[21, 15 * scale, -LOT_WIDTH / 2 - 0.85]}
-      rotation={[0, Math.PI / 2, 0]}
-      scale={scale}
-    />
-  );
-}
+  useLayoutEffect(() => {
+    if (!reportHalf) return;
+    const half = measureHalf(model.object);
+    if (half) reportHalf(half);
+  }, [model, reportHalf]);
 
-function Parking() {
-  const island = useMemo(() => roundedIslandGeometry(), []);
-  useEffect(() => {
-    return () => island.dispose();
-  }, [island]);
-
-  const columns = [-16.5, -9.9, -3.3, 3.3, 9.9, 16.5];
-  const rows = [-5.55, -1.85, 1.85, 5.55];
-
-  return (
-    <group position={[PARKING.x, 0, PARKING.z]}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, ROAD_RISE + 0.01, 0]} receiveShadow>
-        <planeGeometry args={[LOT_LENGTH, LOT_WIDTH]} />
-        <meshStandardMaterial color="#5e646c" roughness={1} />
-      </mesh>
-      <ParkingCurbs length={LOT_LENGTH} width={LOT_WIDTH} />
-      {SKILL_ISLANDS.map((label, index) => {
-        const row = Math.floor(index / columns.length);
-        const rowCount = Math.min(columns.length, SKILL_ISLANDS.length - row * columns.length);
-        const rowStart = (columns.length - rowCount) / 2;
-        const x = columns[rowStart + (index % columns.length)];
-        const z = rows[row];
-        return (
-          <group key={label} position={[x, 0, z]}>
-            <mesh geometry={island} position={[0, ROAD_RISE, 0]} receiveShadow>
-              <meshStandardMaterial color="#f4efe4" roughness={1} />
-            </mesh>
-            <FloorText
-              lines={skillLines(label)}
-              position={[0, ROAD_RISE + 0.18, 0]}
-              width={3.15}
-              height={1.45}
-              fitted
-              balanced
-            />
-          </group>
-        );
-      })}
-      <StackBillboard />
-      <DriftCar offset={0} />
-      <DriftCar offset={0.33} />
-      <DriftCar offset={0.66} />
-    </group>
-  );
+  return <primitive object={model.object} scale={scale} />;
 }
 
 function deckHull(length: number, width: number, rise: number) {
@@ -428,62 +390,76 @@ function RoadRamps({ length, width }: { length: number; width: number }) {
   );
 }
 
-export function CityColliders() {
+export function CityColliders({ entities }: { entities: MapEntity[] }) {
   return (
     <group>
-      {ROADS.map((road) => {
-        const bend = road.url.includes("bend");
-        return (
-          <RigidBody
-            key={road.position.join(":")}
-            type="fixed"
-            colliders={false}
-            position={road.position}
-            rotation={road.rotation}
-          >
-            <ConvexHullCollider
-              args={[roadHull(road.scale[0], road.scale[2], bend)]}
-              friction={1.2}
-              collisionGroups={interactionGroups([0], [1])}
-            />
-          </RigidBody>
-        );
+      {entities.map((entity) => {
+        if (entity.kind === "road") {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={stackedPosition(entity)}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <ConvexHullCollider
+                args={[roadHull(entity.scale[0], entity.scale[2], entity.bend)]}
+                friction={1.2}
+                collisionGroups={interactionGroups([0], [1])}
+              />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "deck") {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={stackedPosition(entity)}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <ConvexHullCollider
+                args={[deckHull(entity.length, entity.width, ROAD_RISE)]}
+                friction={1.2}
+                collisionGroups={interactionGroups([0], [1])}
+              />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "curb") {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={stackedPosition(entity)}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <CuboidCollider
+                args={[entity.size[0] / 2, entity.size[1] / 2, entity.size[2] / 2]}
+                friction={0.4}
+                collisionGroups={interactionGroups([0], [1])}
+              />
+            </RigidBody>
+          );
+        }
+        if (entity.kind === "model" && entity.collider === "building" && entity.half) {
+          return (
+            <RigidBody
+              key={entity.id}
+              type="fixed"
+              colliders={false}
+              position={[entity.position[0], stackedPosition(entity)[1] + entity.half[1], entity.position[2]]}
+              rotation={[0, entity.rotationY, 0]}
+            >
+              <CuboidCollider args={entity.half} friction={0.3} collisionGroups={interactionGroups([2], [1])} />
+            </RigidBody>
+          );
+        }
+        return null;
       })}
-      <RigidBody type="fixed" colliders={false} position={[PARKING.x, 0, PARKING.z]}>
-        <ConvexHullCollider
-          args={[deckHull(LOT_LENGTH, LOT_WIDTH, ROAD_RISE)]}
-          friction={1.2}
-          collisionGroups={interactionGroups([0], [1])}
-        />
-        {[1, -1].map((dir) => (
-          <CuboidCollider
-            key={`z${dir}`}
-            args={[(LOT_LENGTH + CURB_WIDTH * 2) / 2, CURB_HEIGHT / 2, CURB_WIDTH / 2]}
-            position={[0, CURB_HEIGHT / 2, (LOT_WIDTH / 2 + CURB_WIDTH / 2) * dir]}
-            friction={0.4}
-            collisionGroups={interactionGroups([0], [1])}
-          />
-        ))}
-        {[1, -1].map((dir) => (
-          <CuboidCollider
-            key={`x${dir}`}
-            args={[CURB_WIDTH / 2, CURB_HEIGHT / 2, LOT_WIDTH / 2]}
-            position={[(LOT_LENGTH / 2 + CURB_WIDTH / 2) * dir, CURB_HEIGHT / 2, 0]}
-            friction={0.4}
-            collisionGroups={interactionGroups([0], [1])}
-          />
-        ))}
-      </RigidBody>
-      {BUILDINGS.map((building) => (
-        <RigidBody
-          key={building.url + building.position.join(":")}
-          type="fixed"
-          colliders={false}
-          position={[building.position[0], building.half[1], building.position[2]]}
-        >
-          <CuboidCollider args={building.half} friction={0.3} collisionGroups={interactionGroups([2], [1])} />
-        </RigidBody>
-      ))}
     </group>
   );
 }
@@ -518,73 +494,157 @@ function RoadChevrons({ position, yaw }: { position: [number, number, number]; y
   );
 }
 
-export function CityScene() {
+function Selectable({
+  entity,
+  selected,
+  children,
+}: {
+  entity: MapEntity;
+  selected: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <group position={stackedPosition(entity)} rotation={[0, entity.rotationY, 0]} userData={{ mapId: entity.id }}>
+      {children}
+      {selected ? (
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.12, 0]}>
+          <ringGeometry args={[1.15, 1.4, 28]} />
+          <meshBasicMaterial color="#e23b2f" toneMapped={false} />
+        </mesh>
+      ) : null}
+    </group>
+  );
+}
+
+function ModelBody({ entity, onHalf }: { entity: ModelEntity; onHalf?: (id: string, half: Vec3) => void }) {
+  const report = useCallback(
+    (half: Vec3) => {
+      onHalf?.(entity.id, half);
+    },
+    [entity.id, onHalf],
+  );
+  const reportHalf = entity.collider === "building" && !entity.half ? report : undefined;
+  if (entity.label && entity.url.includes("billboard")) {
+    return <StackBillboard scale={entity.scale} label={entity.label} reportHalf={reportHalf} />;
+  }
+  return (
+    <StaticModel
+      url={entity.url}
+      position={[0, 0, 0]}
+      scale={entity.scale}
+      outline={entity.outline}
+      reportHalf={reportHalf}
+    />
+  );
+}
+
+function EntityBody({
+  entity,
+  island,
+  onHalf,
+}: {
+  entity: MapEntity;
+  island: ExtrudeGeometry;
+  onHalf?: (id: string, half: Vec3) => void;
+}) {
+  switch (entity.kind) {
+    case "model":
+      return <ModelBody entity={entity} onHalf={onHalf} />;
+    case "road":
+      return (
+        <>
+          <StaticModel url={entity.url} position={[0, 0, 0]} scale={entity.scale} />
+          {entity.ramps ? <RoadRamps length={entity.scale[0]} width={entity.scale[2]} /> : null}
+        </>
+      );
+    case "text":
+      return entity.variant === "floor" ? (
+        <FloorText
+          lines={entity.lines}
+          position={[0, 0, 0]}
+          width={entity.width}
+          height={entity.height}
+          fitted={entity.fitted}
+          balanced={entity.balanced}
+          color={entity.color}
+        />
+      ) : (
+        <GroundCopy
+          title={entity.title}
+          lines={entity.lines}
+          position={[0, 0, 0]}
+          width={entity.width}
+          height={entity.height}
+          color={entity.color}
+        />
+      );
+    case "controls":
+      return <GroundControls position={[0, 0, 0]} width={entity.width} height={entity.height} />;
+    case "chevron":
+      return <RoadChevrons position={[0, 0, 0]} yaw={0} />;
+    case "character":
+      return <Host scale={entity.scale} />;
+    case "deck":
+      return (
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, ROAD_RISE + 0.01, 0]} receiveShadow>
+          <planeGeometry args={[entity.length, entity.width]} />
+          <meshStandardMaterial color="#5e646c" roughness={1} />
+        </mesh>
+      );
+    case "curb":
+      return (
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={entity.size} />
+          <meshStandardMaterial color="#f7f4ee" roughness={0.85} />
+        </mesh>
+      );
+    case "island":
+      return (
+        <>
+          <mesh geometry={island} position={[0, ROAD_RISE, 0]} receiveShadow>
+            <meshStandardMaterial color="#f4efe4" roughness={1} />
+          </mesh>
+          <FloorText lines={entity.lines} position={[0, ROAD_RISE + 0.18, 0]} width={3.15} height={1.45} fitted balanced />
+        </>
+      );
+    case "drift":
+      return (
+        <>
+          <DriftCar offset={0} />
+          <DriftCar offset={0.33} />
+          <DriftCar offset={0.66} />
+        </>
+      );
+    default:
+      return null;
+  }
+}
+
+export function CityScene({
+  entities,
+  selectedId,
+  onHalf,
+}: {
+  entities: MapEntity[];
+  selectedId: string | null;
+  onHalf?: (id: string, half: Vec3) => void;
+}) {
+  const island = useMemo(() => roundedIslandGeometry(), []);
+  const ordered = useMemo(
+    () => [...entities].sort((a, b) => (a.layer ?? 0) - (b.layer ?? 0)),
+    [entities],
+  );
+  useEffect(() => {
+    return () => island.dispose();
+  }, [island]);
+
   return (
     <group>
-      {ROADS.map((road, index) => (
-        <group key={`${road.url}:${index}`} position={road.position} rotation={road.rotation}>
-          <StaticModel url={road.url} position={[0, 0, 0]} scale={road.scale} />
-          {road.url.includes("straight") ? <RoadRamps length={road.scale[0]} width={road.scale[2]} /> : null}
-        </group>
+      {ordered.map((entity) => (
+        <Selectable key={entity.id} entity={entity} selected={entity.id === selectedId}>
+          <EntityBody entity={entity} island={island} onHalf={onHalf} />
+        </Selectable>
       ))}
-      {ARROWS.map((arrow, index) => (
-        <RoadChevrons key={index} position={arrow.position} yaw={arrow.yaw} />
-      ))}
-      {BUILDINGS.map((building) => (
-        <StaticModel key={building.url + building.position.join(":")} url={building.url} position={building.position} scale={building.scale} outline />
-      ))}
-      <FloorText
-        lines={["Двигайтесь дальше, чтобы узнать больше обо мне"]}
-        position={[4.2, 0.04, -5.45]}
-        width={16}
-        height={1.7}
-        fitted
-      />
-      <GroundControls position={[14.8, 0.04, 8.6]} width={9.6} height={4.62} />
-      <GroundCopy
-        title=""
-        lines={["Привет, я Черных Артём", "Middle Frontend-разработчик", "React / Next.js / TypeScript"]}
-        position={[1.5, 0.04, 8.6]}
-        width={11}
-        height={6}
-      />
-      <Host />
-      <Parking />
-      <GroundCopy
-        title="Образование"
-        lines={["МИСиС, Старый Оскол, 2023", "Информационные системы и технологии", "Английский — C1"]}
-        position={[-66, 0.04, 10]}
-        width={12}
-        height={6.4}
-      />
-      <GroundCopy
-        title="ИндевЛабс"
-        lines={["март 2022 — август 2024", "JWT, 2FA и роли", "TypeScript, 200+ файлов", "Таблицы и платежи на фронте"]}
-        position={[-64, 0.04, 63]}
-        width={12}
-        height={7}
-      />
-      <GroundCopy
-        title="Бизнесмакет"
-        lines={["июнь 2023 — декабрь 2025", "Свет, звук и видео по WebSocket", "Redux и PostgreSQL", "Экраны под сенсор"]}
-        position={[-36, 0.04, 63]}
-        width={12}
-        height={7}
-      />
-      <GroundCopy
-        title="Пушкин"
-        lines={["август 2024 — август 2026", "Ведущий разработчик", "Загрузка 3 с → 1,2 с", "UI-kit, LMS, CI/CD"]}
-        position={[-8, 0.04, 63]}
-        width={12}
-        height={7}
-      />
-      <GroundCopy
-        title="Контакты"
-        lines={["+7 980 392-42-61", "@ArtemChernykh001", "artemchernykh001@yandex.ru", "Реутов · офис, гибрид, удалённо"]}
-        position={[18, 0.04, 62]}
-        width={12}
-        height={7}
-      />
     </group>
   );
 }

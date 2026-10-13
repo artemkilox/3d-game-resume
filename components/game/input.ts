@@ -12,28 +12,41 @@ export type Input = {
   clientY: number;
 };
 
-export function useDriveInput(input: RefObject<Input>) {
+export function useDriveInput(input: RefObject<Input>, enabled = true) {
   useEffect(() => {
     const state = input.current;
     if (!state) return;
+    if (!enabled) {
+      state.forward = false;
+      state.back = false;
+      state.left = false;
+      state.right = false;
+      state.pointer = false;
+    }
+
+    const typing = (event: Event) =>
+      event.target instanceof HTMLInputElement ||
+      event.target instanceof HTMLTextAreaElement ||
+      event.target instanceof HTMLSelectElement;
 
     const setKey = (event: KeyboardEvent, down: boolean) => {
+      const field = typing(event);
       switch (event.code) {
         case "ArrowUp":
-          state.forward = down;
-          event.preventDefault();
+          if (!field) event.preventDefault();
+          state.forward = enabled && down && !field;
           break;
         case "ArrowDown":
-          state.back = down;
-          event.preventDefault();
+          if (!field) event.preventDefault();
+          state.back = enabled && down && !field;
           break;
         case "ArrowLeft":
-          state.left = down;
-          event.preventDefault();
+          if (!field) event.preventDefault();
+          state.left = enabled && down && !field;
           break;
         case "ArrowRight":
-          state.right = down;
-          event.preventDefault();
+          if (!field) event.preventDefault();
+          state.right = enabled && down && !field;
           break;
         default:
           break;
@@ -43,7 +56,7 @@ export function useDriveInput(input: RefObject<Input>) {
     const onKeyDown = (event: KeyboardEvent) => setKey(event, true);
     const onKeyUp = (event: KeyboardEvent) => setKey(event, false);
     const onPointerDown = (event: PointerEvent) => {
-      if (event.button === 2) state.pointer = true;
+      if (event.button === 2 && enabled) state.pointer = true;
       state.clientX = event.clientX;
       state.clientY = event.clientY;
     };
@@ -80,5 +93,5 @@ export function useDriveInput(input: RefObject<Input>) {
       window.removeEventListener("contextmenu", onContextMenu);
       window.removeEventListener("blur", clear);
     };
-  }, [input]);
+  }, [input, enabled]);
 }

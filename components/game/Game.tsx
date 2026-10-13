@@ -9,6 +9,10 @@ import { CARS, type CarId } from "./cars";
 import { Desert } from "./Desert";
 import { Minimap, type CarPose } from "./Minimap";
 import { CityColliders, CityScene } from "./city/CityMap";
+import type { MapEntity, Vec3 } from "./city/map-types";
+import { EditorController, type EditorFocus, type EditorView } from "./editor/EditorController";
+import { EditorPanel } from "./editor/EditorPanel";
+import { useMapDocument } from "./editor/useMapDocument";
 import { SceneOutline } from "./Outline";
 import { useDriveInput, type Input } from "./input";
 import { CAMERA_ZONES } from "./city/layout";
@@ -95,6 +99,32 @@ function FollowCamera({
   return null;
 }
 
+function PublishPose({
+  carRef,
+  poseRef,
+}: {
+  carRef: RefObject<THREE.Group | null>;
+  poseRef: RefObject<CarPose>;
+}) {
+  "use no memo";
+  const worldPos = useMemo(() => new THREE.Vector3(), []);
+  const worldQuat = useMemo(() => new THREE.Quaternion(), []);
+  const euler = useMemo(() => new THREE.Euler(0, 0, 0, "YXZ"), []);
+
+  useFrame(() => {
+    const car = carRef.current;
+    if (!car) return;
+    car.getWorldPosition(worldPos);
+    car.getWorldQuaternion(worldQuat);
+    euler.setFromQuaternion(worldQuat, "YXZ");
+    poseRef.current.x = worldPos.x;
+    poseRef.current.z = worldPos.z;
+    poseRef.current.yaw = euler.y;
+  });
+
+  return null;
+}
+
 function FollowLight({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
   "use no memo";
   const light = useRef<THREE.DirectionalLight>(null);
@@ -128,7 +158,31 @@ function FollowLight({ carRef }: { carRef: RefObject<THREE.Group | null> }) {
   );
 }
 
-function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
+function Scene({
+  url,
+  poseRef,
+  entities,
+  editing,
+  selectedId,
+  onSelect,
+  onMove,
+  onMoveEnd,
+  onHalf,
+  viewRef,
+  focus,
+}: {
+  url: string;
+  poseRef: RefObject<CarPose>;
+  entities: MapEntity[];
+  editing: boolean;
+  selectedId: string | null;
+  onSelect: (id: string | null) => void;
+  onMove: (id: string, x: number, z: number) => void;
+  onMoveEnd: () => void;
+  onHalf: (id: string, half: Vec3) => void;
+  viewRef: RefObject<EditorView>;
+  focus: EditorFocus | null;
+}) {
   "use no memo";
   const car = CARS.find((item) => item.url === url) ?? CARS[0];
   const carRef = useRef<THREE.Group>(null);
@@ -143,7 +197,7 @@ function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
     clientY: 0,
   });
 
-  useDriveInput(input);
+  useDriveInput(input, !editing);
 
   return (
     <>
@@ -151,14 +205,27 @@ function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
       <fog attach="fog" args={["#f6e2b8", 90, 260]} />
       <hemisphereLight args={["#fff6df", "#c9a56a", 0.75]} />
       <ambientLight intensity={0.25} />
+      <PublishPose carRef={carRef} poseRef={poseRef} />
       <FollowLight carRef={carRef} />
       <Physics gravity={[0, -12, 0]} timeStep={1 / 60} colliders={false}>
         <Desert groundRef={groundRef} />
-        <CityColliders />
+        <CityColliders entities={entities} />
         <Vehicle key={car.id} car={car} input={input} groundRef={groundRef} carRef={carRef} />
       </Physics>
-      <CityScene />
-      <FollowCamera carRef={carRef} poseRef={poseRef} />
+      <CityScene entities={entities} selectedId={editing ? selectedId : null} onHalf={onHalf} />
+      {editing ? (
+        <EditorController
+          active
+          entities={entities}
+          onSelect={onSelect}
+          onMove={onMove}
+          onMoveEnd={onMoveEnd}
+          viewRef={viewRef}
+          focus={focus}
+        />
+      ) : (
+        <FollowCamera carRef={carRef} poseRef={poseRef} />
+      )}
       <SceneOutline />
     </>
   );
@@ -167,9 +234,15 @@ function Scene({ url, poseRef }: { url: string; poseRef: RefObject<CarPose> }) {
 function Hud({
   carId,
   onSelect,
+  dev,
+  editing,
+  onEdit,
 }: {
   carId: CarId;
   onSelect: (id: CarId) => void;
+  dev: boolean;
+  editing: boolean;
+  onEdit: () => void;
 }) {
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-4 p-4">
@@ -191,12 +264,23 @@ function Hud({
             </button>
           );
         })}
+        {dev && !editing ? (
+          <button
+            type="button"
+            onClick={onEdit}
+            className="rounded-full bg-white/85 px-4 py-2 text-sm font-medium text-stone-800 shadow-sm hover:bg-white"
+          >
+            Редактировать
+          </button>
+        ) : null}
       </div>
-      <p className="max-w-xs rounded-2xl bg-white/80 px-4 py-3 text-sm leading-6 text-stone-800 shadow-sm">
-        Стрелки: вперёд, поворот, назад.
-        <br />
-        Правая кнопка мыши: ехать к курсору.
-      </p>
+      {editing ? null : (
+        <p className="max-w-xs rounded-2xl bg-white/80 px-4 py-3 text-sm leading-6 text-stone-800 shadow-sm">
+          Стрелки: вперёд, поворот, назад.
+          <br />
+          Правая кнопка мыши: ехать к курсору.
+        </p>
+      )}
     </div>
   );
 }
@@ -204,8 +288,16 @@ function Hud({
 export default function Game() {
   "use no memo";
   const [carId, setCarId] = useState<CarId>("race");
+  const [editing, setEditing] = useState(false);
   const car = CARS.find((item) => item.id === carId) ?? CARS[0];
   const poseRef = useRef<CarPose>({ x: SPAWN.x, z: SPAWN.z, yaw: SPAWN.yaw });
+  const viewRef = useRef<EditorView>({ x: SPAWN.x, z: SPAWN.z });
+  const doc = useMapDocument(viewRef);
+  const dev = process.env.NODE_ENV === "development";
+
+  if (!doc.map) {
+    return <div className="grid h-full place-items-center bg-[#f6e2b8] text-stone-800">Загрузка карты…</div>;
+  }
 
   return (
     <div className="relative h-full w-full" onContextMenu={(event) => event.preventDefault()}>
@@ -219,9 +311,42 @@ export default function Game() {
           position: [SPAWN_CAMERA.x, SPAWN_CAMERA.y, SPAWN_CAMERA.z],
         }}
       >
-        <Scene url={car.url} poseRef={poseRef} />
+        <Scene
+          url={car.url}
+          poseRef={poseRef}
+          entities={doc.map.entities}
+          editing={editing}
+          selectedId={doc.selectedId}
+          onSelect={doc.setSelectedId}
+          onMove={doc.move}
+          onMoveEnd={doc.endGesture}
+          onHalf={doc.setHalf}
+          viewRef={viewRef}
+          focus={doc.focus}
+        />
       </Canvas>
-      <Hud carId={carId} onSelect={setCarId} />
+      <Hud carId={carId} onSelect={setCarId} dev={dev} editing={editing} onEdit={() => setEditing(true)} />
+      {editing ? (
+        <EditorPanel
+          entities={doc.map.entities}
+          selectedId={doc.selectedId}
+          models={doc.models}
+          status={doc.status}
+          onSelect={doc.setSelectedId}
+          onChange={doc.replace}
+          onDelete={doc.remove}
+          onDuplicate={doc.duplicate}
+          onAddModel={doc.addModel}
+          onAddText={doc.addText}
+          onAddRoad={doc.addRoad}
+          onSave={() => void doc.save()}
+          onFocus={doc.focusOn}
+          onClose={() => setEditing(false)}
+          onUndo={doc.undo}
+          onCopy={doc.copySelection}
+          onPaste={doc.paste}
+        />
+      ) : null}
       <Minimap poseRef={poseRef} />
     </div>
   );

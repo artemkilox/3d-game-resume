@@ -2,6 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { CanvasTexture, SRGBColorSpace } from "three";
+import { TEXT_COLORS, type TextColor } from "./map-types";
+
+function inkOf(color?: TextColor) {
+  return TEXT_COLORS[color ?? "black"];
+}
 
 function paintSign(title: string, lines: string[], width: number, height: number) {
   const canvas = document.createElement("canvas");
@@ -43,14 +48,14 @@ function paintSign(title: string, lines: string[], width: number, height: number
   return texture;
 }
 
-function paintGround(title: string, lines: string[]) {
+function paintGround(title: string, lines: string[], color?: TextColor) {
   const canvas = document.createElement("canvas");
   canvas.width = 1024;
   canvas.height = 640;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
   ctx.clearRect(0, 0, 1024, 640);
-  ctx.fillStyle = "#171717";
+  ctx.fillStyle = inkOf(color);
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   const hasTitle = title.trim().length > 0;
@@ -84,15 +89,17 @@ export function GroundCopy({
   position,
   width = 10,
   height = 6,
+  color,
 }: {
   title: string;
   lines: string[];
   position: [number, number, number];
   width?: number;
   height?: number;
+  color?: TextColor;
 }) {
   const body = lines.join("\n");
-  const texture = useMemo(() => paintGround(title, body.split("\n")), [title, body]);
+  const texture = useMemo(() => paintGround(title, body.split("\n"), color), [title, body, color]);
 
   useEffect(() => {
     return () => texture?.dispose();
@@ -246,14 +253,14 @@ export function Board({
   );
 }
 
-function paintFloor(lines: string[], aspect?: number, balanced = false) {
+function paintFloor(lines: string[], aspect?: number, balanced = false, color?: TextColor) {
   const canvas = document.createElement("canvas");
   canvas.width = 1024;
   canvas.height = aspect ? Math.max(72, Math.round(1024 / aspect)) : 512;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#171717";
+  ctx.fillStyle = inkOf(color);
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   const gap = lines.length === 1 ? 0 : balanced ? canvas.height * 0.42 : canvas.height / (lines.length + 0.5);
@@ -288,6 +295,7 @@ export function FloorText({
   height = 5,
   fitted = false,
   balanced = false,
+  color,
 }: {
   lines: string[];
   position: [number, number, number];
@@ -297,11 +305,12 @@ export function FloorText({
   fitted?: boolean;
   /** Give every line the same size. Used when a skill name is split in two. */
   balanced?: boolean;
+  color?: TextColor;
 }) {
   const body = lines.join("\n");
   const texture = useMemo(
-    () => paintFloor(body.split("\n"), fitted ? width / height : undefined, balanced),
-    [body, fitted, balanced, width, height],
+    () => paintFloor(body.split("\n"), fitted ? width / height : undefined, balanced, color),
+    [body, fitted, balanced, width, height, color],
   );
 
   useEffect(() => {
